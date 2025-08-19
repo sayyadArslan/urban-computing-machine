@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <title>Auto Thumbnail Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Generate YouTube, blog, or social media thumbnails automatically with TheToolzy. Fast, free, and customizable with no design skills required.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Auto Thumbnail Generator – Create Thumbnails Instantly | TheToolzy">
+<meta property="og:description" content="Create eye-catching thumbnails for videos and blogs in seconds. Free, easy-to-use, and requires no sign-up.">
+<meta property="og:url"         content="https://thetoolzy.com/auto-thumbnail-generator">
+<meta property="og:image"       content="https://thetoolzy.com/assets/og-image/auto-thumbnail-generator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Auto Thumbnail Generator – Create Thumbnails Instantly | TheToolzy">
+<meta name="twitter:description" content="Use TheToolzy's Auto Thumbnail Generator to create thumbnails for YouTube and blogs effortlessly. No design skills needed.">
+<meta name="twitter:image"       content="https://thetoolzy.com/assets/og-image/auto-thumbnail-generator.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-label {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #007bff;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    video, img {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #downloadLink {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #downloadLink:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📸 Auto Thumbnail Generator</h2>
+
+    <label for="videoInput" class="custom-file-label">Choose Video File</label>
+    <input type="file" id="videoInput" accept="video/*" />
+
+    <br>
+    <button id="generateBtn">Generate Thumbnail</button>
+
+    <video id="videoElement" style="display:none;" muted></video>
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <img id="thumbnail" alt="Generated Thumbnail" style="display:none;" />
+    <br>
+    <a id="downloadLink" style="display:none;" download="thumbnail.png">⬇️ Download Thumbnail</a>
+  </div>
+
+  <script>
+    const videoInput = document.getElementById('videoInput');
+    const generateBtn = document.getElementById('generateBtn');
+    const video = document.getElementById('videoElement');
+    const canvas = document.getElementById('canvas');
+    const thumbnail = document.getElementById('thumbnail');
+    const downloadLink = document.getElementById('downloadLink');
+    const fileLabel = document.querySelector('.custom-file-label');
+
+    let videoFile;
+
+    fileLabel.addEventListener('click', () => videoInput.click());
+
+    videoInput.addEventListener('change', (e) => {
+      videoFile = e.target.files[0];
+      if (videoFile) {
+        fileLabel.textContent = videoFile.name;
+        video.src = URL.createObjectURL(videoFile);
+        video.load();
+      }
+    });
+
+    generateBtn.addEventListener('click', () => {
+      if (!videoFile) {
+        alert("Please upload a video first.");
+        return;
+      }
+
+      video.currentTime = 5;
+
+      video.addEventListener('seeked', function captureFrame() {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        const dataURL = canvas.toDataURL('image/png');
+        thumbnail.src = dataURL;
+        thumbnail.style.display = 'block';
+
+        downloadLink.href = dataURL;
+        downloadLink.download = `thumbnail_${Date.now()}.png`;
+        downloadLink.style.display = 'inline-block';
+
+        video.removeEventListener('seeked', captureFrame);
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>

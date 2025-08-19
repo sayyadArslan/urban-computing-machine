@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Metadata Viewer</title>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="View and analyze metadata of your PDF files online for free with TheToolzy PDF Metadata Viewer. Easy, fast, and secure.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF Metadata Viewer – TheToolzy">
+<meta property="og:description" content="Check detailed metadata information of your PDF documents online with TheToolzy PDF Metadata Viewer. No installation needed and free to use.">
+<meta property="og:url" content="https://thetoolzy.com/pdf-metadata-viewer">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/pdf-metadata-viewer.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PDF Metadata Viewer – TheToolzy">
+<meta name="twitter:description" content="View detailed metadata of PDFs online easily with TheToolzy PDF Metadata Viewer. Fast, free, and secure.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/pdf-metadata-viewer.png">
+
+  
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PDF Metadata Viewer",
+  "url": "https://thetoolzy.com/pdf-metadata-viewer",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "View and analyze metadata of your PDF files online for free with TheToolzy PDF Metadata Viewer. Easy, fast, and secure.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/pdf-metadata-viewer.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "pdf metadata viewer",
+    "view pdf metadata online",
+    "pdf metadata analyzer",
+    "TheToolzy pdf tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .file-upload {
+      display: inline-block;
+      background-color: #1976d2;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .file-upload:hover {
+      background-color: #155bb5;
+    }
+
+    #pdfFileName {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+      color: #555;
+    }
+
+    .metadata {
+      background: #f9fafc;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .metadata span {
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .error {
+      color: red;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>PDF Metadata Viewer</h2>
+
+    <label class="file-upload">
+      Choose PDF
+      <input type="file" id="pdfFile" accept=".pdf" />
+    </label>
+    <span id="pdfFileName">No file chosen</span>
+
+    <div id="metadata" class="metadata"></div>
+    <div class="error" id="errorMsg"></div>
+  </div>
+
+  <script>
+    const pdfFileInput = document.getElementById("pdfFile");
+    const fileNameDisplay = document.getElementById("pdfFileName");
+    const metadataDiv = document.getElementById("metadata");
+    const errorMsg = document.getElementById("errorMsg");
+
+    pdfFileInput.addEventListener("change", async function () {
+      const file = this.files[0];
+      fileNameDisplay.textContent = file?.name || "No file chosen";
+      metadataDiv.innerHTML = "";
+      errorMsg.textContent = "";
+
+      if (!file) return;
+
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+        const metadata = pdfDoc.getTitle
+          ? {
+              Title: pdfDoc.getTitle() || "Not set",
+              Author: pdfDoc.getAuthor() || "Not set",
+              Subject: pdfDoc.getSubject() || "Not set",
+              Keywords: pdfDoc.getKeywords() || "Not set",
+              Creator: pdfDoc.getCreator() || "Not set",
+              Producer: pdfDoc.getProducer() || "Not set",
+              CreationDate: formatDate(pdfDoc.getCreationDate()),
+              ModificationDate: formatDate(pdfDoc.getModificationDate())
+            }
+          : { error: "This PDF has no metadata." };
+
+        if (metadata.error) {
+          metadataDiv.innerHTML = `<span>${metadata.error}</span>`;
+        } else {
+          for (let key in metadata) {
+            metadataDiv.innerHTML += `<span><strong>${key}:</strong> ${metadata[key]}</span>`;
+          }
+        }
+      } catch (e) {
+        errorMsg.textContent = "Unable to read PDF metadata. The file might be encrypted or corrupted.";
+      }
+    });
+
+    function formatDate(date) {
+      if (!date) return "Not set";
+      return new Date(date).toLocaleString();
+    }
+  </script>
+</body>
+</html>

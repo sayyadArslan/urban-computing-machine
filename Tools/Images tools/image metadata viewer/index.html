@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Image Metadata Viewer</title>
+
+<!-- Primary Meta Tags -->
+<meta name="description" content="Easily view image metadata online using TheToolzy’s free Image Metadata Viewer. Check EXIF data, camera settings, GPS location, and more. No installation required.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image Metadata Viewer – TheToolzy">
+<meta property="og:description" content="Upload an image and instantly view its EXIF metadata including camera model, GPS, date, resolution, and more. 100% free and browser-based.">
+<meta property="og:url" content="https://thetoolzy.com/image-metadata-viewer">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/image-metadata-viewer.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Metadata Viewer – TheToolzy">
+<meta name="twitter:description" content="Check detailed image metadata (EXIF) including date, GPS location, camera model, resolution, and settings with TheToolzy. Simple, fast, and online.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/image-metadata-viewer.png">
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Metadata Viewer",
+  "url": "https://thetoolzy.com/image-metadata-viewer",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "description": "View image metadata (EXIF) online with TheToolzy. Instantly analyze photo information such as camera model, GPS coordinates, resolution, ISO, shutter speed, and more.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/image-metadata-viewer.png",
+  "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "Toolzy", "url": "https://thetoolzy.com" },
+  "publisher": { "@type": "Organization", "name": "Toolzy", "url": "https://thetoolzy.com", "logo": { "@type": "ImageObject", "url": "https://thetoolzy.com/assets/logo.png" } },
+  "keywords": ["image metadata viewer","EXIF viewer","photo metadata extractor","GPS from image","Toolzy image tools"]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#f3f4f6}
+.container{max-width:800px;margin:50px auto;padding:30px;background:#fff;border-radius:10px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1)}
+h2{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:25px}
+.custom-upload{background:#4caf50;color:#fff;padding:12px 18px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+.custom-upload input[type=file]{display:none}
+#previewImage{max-width:100%;height:auto;max-height:400px;margin:20px 0;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.metadata-container{text-align:left;margin-top:20px;padding:15px;background:#f9fafb;border-radius:8px;border:1px solid #ddd}
+.metadata-container p{margin:6px 0;font-size:15px}
+.download-btn{margin-top:20px;background:#2196f3;color:#fff;padding:10px 16px;border:none;border-radius:6px;cursor:pointer;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:background .3s}
+.download-btn:hover{background:#1976d2}
+</style>
+</head>
+<body>
+<div class="container">
+<h2><span class="material-icons">info</span> Image Metadata Viewer</h2>
+
+<label class="custom-upload">
+  <input type="file" id="imageInput" accept="image/jpeg" />
+  <span class="material-icons">upload</span> Choose Image (JPEG)
+</label>
+
+<img id="previewImage" src="" alt="Preview" hidden />
+
+<div id="metadata" class="metadata-container"></div>
+
+<button id="downloadBtn" class="download-btn" hidden>
+  <span class="material-icons">download</span> Download Metadata (JSON)
+</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+<script>
+const imageInput=document.getElementById("imageInput"),previewImage=document.getElementById("previewImage"),metadata=document.getElementById("metadata"),downloadBtn=document.getElementById("downloadBtn");let currentMeta={};
+imageInput.addEventListener("change",e=>{const file=e.target.files[0];if(!file||!file.type.includes("jpeg")){alert("Please upload a JPEG image.");return}const reader=new FileReader();reader.onload=function(e){previewImage.src=e.target.result;previewImage.hidden=false;EXIF.getData(file,function(){const allMeta=EXIF.getAllTags(this);currentMeta=allMeta;metadata.innerHTML="<h3>Metadata:</h3>";for(let tag in allMeta){metadata.innerHTML+=`<p><strong>${tag}:</strong> ${allMeta[tag]}</p>`}0===Object.keys(allMeta).length&&(metadata.innerHTML+="<p>No EXIF metadata found.</p>");downloadBtn.hidden=false})};reader.readAsDataURL(file)});
+downloadBtn.addEventListener("click",()=>{const json=JSON.stringify(currentMeta,null,2),blob=new Blob([json],{type:"application/json"}),url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="metadata.json";a.click();URL.revokeObjectURL(url)});
+</script>
+</body>
+</html>

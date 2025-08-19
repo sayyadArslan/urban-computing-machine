@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Generate custom QR codes online for free with TheToolzy’s QR Code Generator. Easily create QR codes for URLs, text, contacts, and more.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="QR Code Generator Online – Create Custom QR Codes Free | TheToolzy">
+<meta property="og:description" content="Create and download QR codes quickly using TheToolzy’s free online QR Code Generator. No sign-up or software required.">
+<meta property="og:url" content="https://thetoolzy.com/qr-code-generator">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/qr-code-generator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QR Code Generator Online – Create Custom QR Codes Free | TheToolzy">
+<meta name="twitter:description" content="Generate QR codes for websites, text, contact info, and more with TheToolzy’s free online QR Code Generator.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/qr-code-generator.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR Code Generator",
+  "url": "https://thetoolzy.com/qr-code-generator",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Create custom QR codes online for URLs, text, contacts, and more with TheToolzy’s QR Code Generator. Fast, free, and easy to use.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/qr-code-generator.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "qr code generator",
+    "create qr code online",
+    "free qr code maker",
+    "custom qr codes",
+    "TheToolzy qr tools"
+  ]
+}
+</script>
+
+  
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 0.5rem 0 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    #qrcode {
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2><i class="fas fa-qrcode"></i> QR Code Generator</h2>
+    <input type="text" id="qrText" placeholder="Enter text or URL" />
+    <select id="qrSize">
+      <option value="128">128x128</option>
+      <option value="256" selected>256x256</option>
+      <option value="512">512x512</option>
+    </select>
+    <button onclick="generateQRCode()"><i class="fas fa-cogs"></i> Generate</button>
+    <div id="qrcode"></div>
+    <button onclick="downloadQRCode()"><i class="fas fa-download"></i> Download</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script>
+    let qr;
+
+    function generateQRCode() {
+      const text = document.getElementById("qrText").value;
+      const size = parseInt(document.getElementById("qrSize").value);
+
+      if (!text.trim()) {
+        alert("Please enter text to generate QR Code");
+        return;
+      }
+
+      const qrContainer = document.getElementById("qrcode");
+      qrContainer.innerHTML = ""; // Clear previous
+
+      qr = new QRCode(qrContainer, {
+        text: text,
+        width: size,
+        height: size
+      });
+    }
+
+    function downloadQRCode() {
+      if (!qr) {
+        alert("Please generate a QR Code first.");
+        return;
+      }
+
+      const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");
+      const dataUrl = img.toDataURL ? img.toDataURL("image/png") : img.src;
+
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = "qr-code.png";
+      link.click();
+    }
+  </script>
+</body>
+</html>

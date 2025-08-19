@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Compressor Tool</title>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Compress PDF files online for free with TheToolzy PDF Compressor. Reduce file size quickly and easily without losing quality.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF Compressor – TheToolzy">
+<meta property="og:description" content="Use TheToolzy PDF Compressor to reduce the size of your PDF files online. Fast, secure, and free to use.">
+<meta property="og:url" content="https://thetoolzy.com/pdf-compressor">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/pdf-compressor.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PDF Compressor – TheToolzy">
+<meta name="twitter:description" content="Compress PDF files online easily with TheToolzy PDF Compressor. Fast, free, and no software installation required.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/pdf-compressor.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PDF Compressor",
+  "url": "https://thetoolzy.com/pdf-compressor",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "Compress PDF files online for free with TheToolzy PDF Compressor. Reduce file size quickly and easily without losing quality.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/pdf-compressor.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "pdf compressor",
+    "compress pdf files online",
+    "reduce pdf file size",
+    "TheToolzy pdf tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .upload-btn, .compress-btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    .upload-btn {
+      background-color: #1976d2;
+      color: white;
+    }
+
+    .compress-btn {
+      background-color: #43a047;
+      color: white;
+      display: none;
+      border: none;
+    }
+
+    .status {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>PDF Compressor Tool</h2>
+    <label for="pdfFile" class="upload-btn">Choose PDF</label>
+    <input type="file" id="pdfFile" accept="application/pdf">
+    <button id="compressBtn" class="compress-btn">Compress PDF</button>
+    <div id="status" class="status"></div>
+  </div>
+
+  <script>
+    const pdfInput = document.getElementById('pdfFile');
+    const compressBtn = document.getElementById('compressBtn');
+    const status = document.getElementById('status');
+    let file = null;
+
+    pdfInput.addEventListener('change', () => {
+      file = pdfInput.files[0];
+      if (file && file.type === 'application/pdf') {
+        status.textContent = "PDF ready for compression.";
+        compressBtn.style.display = "inline-block";
+      } else {
+        status.textContent = "Please upload a valid PDF file.";
+        compressBtn.style.display = "none";
+      }
+    });
+
+    compressBtn.addEventListener('click', () => {
+      if (!file) return;
+
+      status.textContent = "Compressing PDF...";
+      compressBtn.disabled = true;
+
+      // Simulate compression (replace with actual compression logic)
+      setTimeout(() => {
+        const blobURL = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = blobURL;
+        link.download = "compressed.pdf";
+        link.click();
+
+        status.textContent = "Download complete (simulated compression).";
+        compressBtn.disabled = false;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

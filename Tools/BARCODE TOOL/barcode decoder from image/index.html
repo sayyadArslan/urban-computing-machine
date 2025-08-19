@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barcode Decoder from Image</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Decode barcodes from images quickly and easily with TheToolzy’s free online Barcode Decoder. Supports multiple barcode formats with no sign-up required.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Barcode Decoder from Image Online – Decode Barcodes Free | TheToolzy">
+<meta property="og:description" content="Upload an image and decode barcodes instantly using TheToolzy’s Barcode Decoder tool. Supports QR, Code128, EAN, UPC and more.">
+<meta property="og:url" content="https://thetoolzy.com/barcode-decoder-from-image">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/barcode-decoder.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Barcode Decoder from Image Online – Decode Barcodes Free | TheToolzy">
+<meta name="twitter:description" content="Easily decode barcodes from any image file online with TheToolzy’s Barcode Decoder. Fast, free, and no installation needed.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/barcode-decoder.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Barcode Decoder from Image",
+  "url": "https://thetoolzy.com/barcode-decoder-from-image",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Upload images to decode various barcode formats including QR codes, Code128, EAN, and UPC using TheToolzy’s Barcode Decoder online tool.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/barcode-decoder.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "barcode decoder",
+    "decode barcode from image",
+    "QR code decoder",
+    "barcode reader online",
+    "TheToolzy barcode tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      display: inline-block;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #3b82f6;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .custom-file-upload:hover {
+      background-color: #2563eb;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #1f2937;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2><i class="fas fa-barcode"></i> Barcode Decoder</h2>
+
+    <label class="custom-file-upload">
+      <input type="file" accept="image/*" id="fileInput" />
+      <i class="fas fa-upload"></i> Choose Image
+    </label>
+
+    <div>
+      <img id="preview" style="display: none;" crossorigin="anonymous" />
+    </div>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <!-- Load ZXing library -->
+  <script src="https://cdn.jsdelivr.net/npm/@zxing/library@latest"></script>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+    const resultDiv = document.getElementById('result');
+    const codeReader = new ZXing.BrowserMultiFormatReader();
+
+    fileInput.addEventListener('change', async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        resultDiv.textContent = "Decoding barcode...";
+      };
+      reader.readAsDataURL(file);
+
+      reader.onloadend = function() {
+        setTimeout(() => {
+          codeReader.decodeFromImageElement(preview)
+            .then(result => {
+              resultDiv.innerHTML = `<strong>Decoded Result:</strong> ${result.text}`;
+            })
+            .catch(err => {
+              resultDiv.innerHTML = `<span class="error">No barcode detected. Try a clearer image.</span>`;
+            });
+        }, 500); // wait for image to render
+      };
+    });
+  </script>
+</body>
+</html>

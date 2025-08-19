@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convert Word to Pdf</title>
+    <!-- Primary Meta Tags -->
+<meta name="description" content="Convert Word documents (.doc, .docx) to PDF files online for free using TheToolzy Word to PDF converter. Easy, fast, and no software installation required.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Word to PDF – TheToolzy">
+<meta property="og:description" content="Quickly convert your Word documents to PDF format online with TheToolzy Word to PDF converter. No sign-ups or downloads needed.">
+<meta property="og:url" content="https://thetoolzy.com/word-to-pdf">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/word-to-pdf.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Word to PDF – TheToolzy">
+<meta name="twitter:description" content="Convert Word documents to PDF online for free with TheToolzy Word to PDF converter. Fast, secure, and easy to use.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/word-to-pdf.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word to PDF",
+  "url": "https://thetoolzy.com/word-to-pdf",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "Convert Word documents (.doc, .docx) to PDF files online for free using TheToolzy Word to PDF converter. Easy, fast, and no software installation required.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/word-to-pdf.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "word to pdf",
+    "convert word to pdf",
+    "free word to pdf converter",
+    "TheToolzy document tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .progress-message {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .progress-bar {
+      width: 320px;
+      height: 14px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto 2rem;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #42a5f5, #1e88e5, #1976d2);
+      background-size: 200% 100%;
+      animation: colorShift 2s linear infinite;
+      transition: width 0.2s ease;
+    }
+
+    @keyframes colorShift {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    .btn {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.6s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="progress-message" id="message">Tool is preparing...</div>
+
+    <div class="progress-bar">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <a href="https://www.ilovepdf.com/word_to_pdf" class="btn" id="convertBtn">Convert Word to Pdf</a>
+  </div>
+
+  <script>
+    const progressFill = document.getElementById('progressFill');
+    const convertBtn = document.getElementById('convertBtn');
+    const message = document.getElementById('message');
+
+    let percent = 0;
+    const duration = 15000; // 15 seconds
+    const intervalTime = duration / 100;
+
+    const interval = setInterval(() => {
+      percent += 1;
+      progressFill.style.width = percent + '%';
+
+      if (percent >= 100) {
+        clearInterval(interval);
+        convertBtn.classList.add('show');
+        message.textContent = "Ready! Click the button below.";
+      }
+    }, intervalTime);
+  </script>
+</body>
+</html>

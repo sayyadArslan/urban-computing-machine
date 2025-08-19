@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon"/>
+  <meta charset="UTF-8"/>
+  <title>AVIF to JPG Converter</title>
+  <meta name="title" content="AVIF to JPG Converter – Free Online Tool | thetoolzy.com">
+  <meta name="description" content="Easily convert AVIF images to JPG with Toolzy's free online converter. No software needed – fast, secure, and high-quality conversion.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thetoolzy.com/avif-to-jpg">
+  <meta property="og:title" content="AVIF to JPG Converter – Free Online Tool">
+  <meta property="og:description" content="Easily convert AVIF images to JPG with Toolzy's free online converter. No software needed – fast, secure, and high-quality conversion.">
+  <meta property="og:image" content="https://thetoolzy.com/assets/og-image/avif-to-jpg.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://thetoolzy.com/avif-to-jpg">
+  <meta name="twitter:title" content="AVIF to JPG Converter – Free Online Tool">
+  <meta name="twitter:description" content="Easily convert AVIF images to JPG with Toolzy's free online converter. No software needed – fast, secure, and high-quality conversion.">
+  <meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/avif-to-jpg.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AVIF to JPG Converter","url":"https://thetoolzy.com/avif-to-jpg","applicationCategory":"MultimediaApplication","operatingSystem":"All","description":"Free online tool to convert AVIF images to JPG instantly. No installation required. Simple, fast and secure AVIF to JPG image conversion.","browserRequirements":"JavaScript enabled browser","image":"https://thetoolzy.com/assets/og-image/avif-to-jpg.png","offers":{"@type":"Offer","price":"0.00","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com"},"publisher":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com","logo":{"@type":"ImageObject","url":"https://thetoolzy.com/assets/logo.png"}},"keywords":["AVIF to JPG","AVIF image converter","convert AVIF to JPEG","free AVIF to JPG tool","Toolzy image tools"]}</script>
+  <style>
+    body{font-family:sans-serif;background:#f5f5f5;display:flex;justify-content:center;padding:40px;margin:0}
+    .container{background:#fff;padding:30px;border-radius:12px;text-align:center;box-shadow:0 0 12px rgba(0,0,0,.1);width:400px}
+    input[type=file]{display:none;margin-bottom:20px}
+    #previewContainer{width:300px;height:200px;border:1px solid #ccc;margin:10px auto;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#f9f9f9}
+    #preview{max-width:100%;max-height:100%}
+    button{background-color:#3498db;color:#fff;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:10px;transition:background-color .3s ease}
+    button:hover{background-color:#2980b9}
+    #downloadLink{display:inline-block;margin-top:20px;background-color:#2ecc71;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;transition:background-color .3s ease}
+    #downloadLink:hover{background-color:#27ae60}
+    .custom-file-upload{display:inline-block;padding:10px 20px;cursor:pointer;background-color:#8e44ad;color:#fff;border-radius:8px;font-weight:bold;margin-bottom:20px;transition:background-color .3s ease}
+    .custom-file-upload:hover{background-color:#732d91}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AVIF to JPG Converter</h1>
+    <label for="upload" class="custom-file-upload">Upload AVIF File</label>
+    <input type="file" id="upload" accept="image/avif"/>
+    <div id="previewContainer"><img id="preview" alt="Preview"/></div>
+    <button id="convertBtn">Convert to JPG</button>
+    <a id="downloadLink" download="converted.jpg" style="display:none;">Download JPG</a>
+  </div>
+  <script>
+    const upload=document.getElementById("upload"),preview=document.getElementById("preview"),convertBtn=document.getElementById("convertBtn"),downloadLink=document.getElementById("downloadLink");let img=new Image;upload.addEventListener("change",()=>{const e=upload.files[0];if(!e)return;const t=new FileReader;t.onload=function(o){img.onload=()=>{preview.src=o.target.result},img.src=o.target.result},t.readAsDataURL(e)}),convertBtn.addEventListener("click",()=>{if(!img.src)return void alert("Please upload an AVIF image first.");const e=document.createElement("canvas");e.width=img.width,e.height=img.height;const t=e.getContext("2d");t.drawImage(img,0,0),e.toBlob(t=>{const o=URL.createObjectURL(t);downloadLink.href=o,downloadLink.style.display="inline-block"},"image/jpeg")});
+  </script>
+</body>
+</html>

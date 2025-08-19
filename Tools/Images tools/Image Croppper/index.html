@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Cropper</title>
+<meta name="description" content="Crop images online with TheToolzy’s free Image Cropper. Easily trim JPG, PNG, and WebP images in your browser without losing quality. No sign-up needed.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image Cropper – TheToolzy">
+<meta property="og:description" content="Use TheToolzy’s Image Cropper to crop JPG, PNG, and WebP images online. Free, easy, and precise – no software or registration required.">
+<meta property="og:url" content="https://thetoolzy.com/image-cropper">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/image-cropper.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Cropper – TheToolzy">
+<meta name="twitter:description" content="Free online Image Cropper by TheToolzy – crop images to any size and aspect ratio in seconds. Simple drag-and-resize interface.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/image-cropper.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Cropper","url":"https://thetoolzy.com/image-cropper","applicationCategory":"MultimediaApplication","operatingSystem":"All","description":"Crop images easily using TheToolzy’s free Image Cropper. Adjust size and aspect ratio for JPG, PNG, and WebP files right in your browser. No downloads or sign-up needed.","browserRequirements":"JavaScript enabled browser","image":"https://thetoolzy.com/assets/og-image/image-cropper.png","offers":{"@type":"Offer","price":"0.00","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com"},"publisher":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com","logo":{"@type":"ImageObject","url":"https://thetoolzy.com/assets/logo.png"}},"keywords":["image cropper","crop image online","free image cropping tool","trim jpg png webp","Toolzy image tools"]}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+<style>
+body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;display:flex;height:100vh;justify-content:center;align-items:center;background:#f5f6fa}.container{width:90%;max-width:600px;background:#fff;padding:20px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.1);text-align:center}h1{margin-bottom:20px;font-size:1.8rem;color:#333}.custom-file-upload{display:inline-block;padding:10px 20px;background:#007bff;color:#fff;border-radius:8px;cursor:pointer;margin-bottom:20px}input[type=file]{display:none}.img-container{width:100%;height:400px;overflow:hidden;border-radius:12px;margin:20px auto;border:1px solid #ccc}.img-container img{width:100%;max-height:100%;object-fit:contain}#cropBtn{padding:10px 20px;background:#28a745;color:#fff;font-size:1rem;border:none;border-radius:8px;cursor:pointer}#cropBtn:hover{background:#218838}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🖼️ Image Cropper Tool</h1>
+<label for="imageInput" class="custom-file-upload">Choose Image</label>
+<input type="file" id="imageInput" accept="image/*">
+<div class="img-container"><img id="image" alt="Preview"></div>
+<button id="cropBtn">Crop & Download</button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+<script>
+let cropper;const image=document.getElementById("image"),input=document.getElementById("imageInput"),cropBtn=document.getElementById("cropBtn");input.addEventListener("change",e=>{const t=e.target.files[0];if(t){const n=URL.createObjectURL(t);image.src=n,image.onload=()=>{cropper&&cropper.destroy(),cropper=new Cropper(image,{aspectRatio:NaN,viewMode:1,autoCropArea:1})}}}),cropBtn.addEventListener("click",()=>{if(cropper){const e=cropper.getCroppedCanvas({imageSmoothingQuality:"high"});e.toBlob(t=>{const n=URL.createObjectURL(t),o=document.createElement("a");o.href=n,o.download="cropped-image.png",document.body.appendChild(o),o.click(),document.body.removeChild(o)},"image/png")}});
+</script>
+</body>
+</html>

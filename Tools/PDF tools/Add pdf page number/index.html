@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Page Numbers to PDF</title>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Add page numbers to your PDF files easily and free with TheToolzy Add PDF Page Number tool. Customize and insert page numbers online without any software.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Add PDF Page Number – TheToolzy">
+<meta property="og:description" content="Use TheToolzy Add PDF Page Number tool to insert page numbers into your PDF documents quickly and easily online. Free and no sign-up required.">
+<meta property="og:url" content="https://thetoolzy.com/add-pdf-page-number">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/add-pdf-page-number.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Add PDF Page Number – TheToolzy">
+<meta name="twitter:description" content="Quickly add page numbers to your PDF files online with TheToolzy Add PDF Page Number tool. Free and easy to use.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/add-pdf-page-number.png">
+
+  
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Add PDF Page Number",
+  "url": "https://thetoolzy.com/add-pdf-page-number",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "description": "Add page numbers to your PDF files easily and free with TheToolzy Add PDF Page Number tool. Customize and insert page numbers online without any software.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/add-pdf-page-number.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "add pdf page number",
+    "insert page numbers pdf",
+    "pdf page numbering online",
+    "TheToolzy pdf tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .file-upload {
+      display: inline-block;
+      background-color: #1976d2;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .file-upload:hover {
+      background-color: #155bb5;
+    }
+
+    #pdfFileName {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    button {
+      width: 100%;
+      background-color: #1976d2;
+      color: white;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #155bb5;
+    }
+  </style>
+
+
+
+
+</head>
+<body>
+  <div class="container">
+    <h2>Add Page Numbers to PDF</h2>
+
+    <label>Upload PDF:</label>
+    <label class="file-upload">
+      Choose PDF
+      <input type="file" id="pdfFile" accept=".pdf" hidden />
+    </label>
+    <span id="pdfFileName">No file chosen</span>
+
+    <label>Font Size:</label>
+    <input type="number" id="fontSize" value="12" min="6" max="72" />
+
+    <label>Font Color:</label>
+    <input type="color" id="fontColor" value="#333333" />
+
+    <label>Position:</label>
+    <select id="position">
+      <option value="bottom-right">Bottom Right</option>
+      <option value="bottom-center">Bottom Center</option>
+      <option value="bottom-left">Bottom Left</option>
+      <option value="top-right">Top Right</option>
+      <option value="top-center">Top Center</option>
+      <option value="top-left">Top Left</option>
+    </select>
+
+    <label>Page Number Format:</label>
+    <input type="text" id="formatString" value="Page {n} of {t}" placeholder="e.g. Page {n} of {t}" />
+
+    <button onclick="addPageNumbers()">Add Page Numbers & Download</button>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("pdfFile");
+    const fileNameDisplay = document.getElementById("pdfFileName");
+
+    fileInput.addEventListener("change", function () {
+      fileNameDisplay.textContent = this.files[0]?.name || "No file chosen";
+    });
+
+    function getPositionCoords(position, pageWidth, pageHeight, fontSize, textWidth) {
+      const margin = 20;
+      switch (position) {
+        case "top-left":
+          return { x: margin, y: pageHeight - fontSize - margin };
+        case "top-center":
+          return { x: (pageWidth - textWidth) / 2, y: pageHeight - fontSize - margin };
+        case "top-right":
+          return { x: pageWidth - textWidth - margin, y: pageHeight - fontSize - margin };
+        case "bottom-left":
+          return { x: margin, y: margin };
+        case "bottom-center":
+          return { x: (pageWidth - textWidth) / 2, y: margin };
+        case "bottom-right":
+          return { x: pageWidth - textWidth - margin, y: margin };
+      }
+    }
+
+    async function addPageNumbers() {
+      if (!fileInput.files.length) return alert("Please upload a PDF first.");
+
+      const fontSize = parseInt(document.getElementById("fontSize").value);
+      const fontColor = document.getElementById("fontColor").value;
+      const position = document.getElementById("position").value;
+      const format = document.getElementById("formatString").value || "Page {n}";
+
+      const arrayBuffer = await fileInput.files[0].arrayBuffer();
+      const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+      const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+
+      const pages = pdfDoc.getPages();
+      const totalPages = pages.length;
+      const rgbColor = hexToRgb(fontColor);
+
+      for (let i = 0; i < totalPages; i++) {
+        const page = pages[i];
+        const currentPageNum = i + 1;
+        const text = format.replace("{n}", currentPageNum).replace("{t}", totalPages);
+        const { width, height } = page.getSize();
+        const textWidth = font.widthOfTextAtSize(text, fontSize);
+        const { x, y } = getPositionCoords(position, width, height, fontSize, textWidth);
+
+        page.drawText(text, {
+          x,
+          y,
+          size: fontSize,
+          font,
+          color: PDFLib.rgb(rgbColor.r / 255, rgbColor.g / 255, rgbColor.b / 255),
+        });
+      }
+
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "numbered.pdf";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function hexToRgb(hex) {
+      const bigint = parseInt(hex.slice(1), 16);
+      return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255
+      };
+    }
+  </script>
+</body>
+</html>

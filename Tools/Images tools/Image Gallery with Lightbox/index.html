@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Gallery with Lightbox</title>
+<meta name="description" content="Create a stunning image gallery with TheToolzy’s free Image Gallery Box. Upload multiple images and display them in a clean, responsive gallery layout. No coding required.">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<style>
+body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;background:#f2f2f2}
+.container{max-width:1000px;margin:40px auto;padding:20px;text-align:center;background:#fff;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+h1{font-size:28px;margin-bottom:20px}
+.controls{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.custom-file-upload{background:#4CAF50;color:#fff;padding:12px 20px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.custom-file-upload input[type=file]{display:none}
+#downloadSelected{background:#2196F3;border:none;color:#fff;padding:12px 20px;font-size:16px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .3s}
+#downloadSelected:hover{background:#1976D2}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.img-box{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.img-box img{width:100%;display:block;cursor:pointer}
+.checkbox{position:absolute;top:10px;right:10px;transform:scale(1.5);z-index:1}
+.lightbox{display:none;position:fixed;z-index:10;padding-top:50px;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.9)}
+.lightbox-content{margin:auto;display:block;max-width:90%;max-height:80%}
+.close{position:absolute;top:30px;right:40px;color:#fff;font-size:40px;cursor:pointer}
+.prev,.next{cursor:pointer;position:absolute;top:50%;width:auto;padding:16px;color:#fff;font-size:30px;user-select:none}
+.prev{left:10px}.next{right:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📷 Image Gallery with Lightbox</h1>
+<div class="controls">
+<label class="custom-file-upload"><input type="file" id="imageInput" accept="image/*" multiple><span class="material-icons">upload</span> Choose Images</label>
+<button id="downloadSelected"><span class="material-icons">download</span> Download Selected</button>
+</div>
+<div class="gallery" id="gallery"></div>
+<div id="lightbox" class="lightbox">
+<span class="close" id="closeBtn">&times;</span>
+<img class="lightbox-content" id="lightboxImg">
+<a class="prev" id="prevBtn">&#10094;</a>
+<a class="next" id="nextBtn">&#10095;</a>
+</div>
+</div>
+<script>
+const imageInput=document.getElementById('imageInput'),gallery=document.getElementById('gallery'),lightbox=document.getElementById('lightbox'),lightboxImg=document.getElementById('lightboxImg'),closeBtn=document.getElementById('closeBtn'),prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),downloadSelectedBtn=document.getElementById('downloadSelected');let images=[],currentIndex=0;
+imageInput.addEventListener('change',e=>{Array.from(e.target.files).forEach((file,i)=>{const reader=new FileReader();reader.onload=function(e){images.push({src:e.target.result,caption:file.name});renderImages()};reader.readAsDataURL(file)})});
+function renderImages(){gallery.innerHTML='';images.forEach((img,index)=>{const box=document.createElement('div');box.classList.add('img-box');const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.classList.add('checkbox');checkbox.dataset.index=index;const image=document.createElement('img');image.src=img.src;image.alt=img.caption;image.addEventListener('click',()=>{currentIndex=index;showLightbox()});box.appendChild(checkbox);box.appendChild(image);gallery.appendChild(box)})}
+function showLightbox(){lightbox.style.display='block';lightboxImg.src=images[currentIndex].src}
+closeBtn.addEventListener('click',()=>{lightbox.style.display='none'});
+prevBtn.addEventListener('click',()=>{currentIndex=(currentIndex-1+images.length)%images.length;showLightbox()});
+nextBtn.addEventListener('click',()=>{currentIndex=(currentIndex+1)%images.length;showLightbox()});
+downloadSelectedBtn.addEventListener('click',()=>{const zip=new JSZip(),selected=document.querySelectorAll('.checkbox:checked');if(selected.length===0){alert('Please select at least one image.');return}selected.forEach((checkbox,i)=>{const index=checkbox.dataset.index,imgData=images[index].src,base64Data=imgData.split(',')[1],fileName=images[index].caption||`image${i+1}.png`;zip.file(fileName,base64Data,{base64:true})});zip.generateAsync({type:'blob'}).then(content=>{saveAs(content,'selected-images.zip')})});
+</script>
+</body>
+</html>

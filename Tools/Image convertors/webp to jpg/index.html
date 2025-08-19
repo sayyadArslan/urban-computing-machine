@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free and modern WebP to JPG converter. Convert WebP images to JPG directly in your browser. Fast, secure, and mobile-friendly." />
+  <meta name="keywords" content="WebP to JPG, image converter, online tool, modern tool, responsive converter" />
+  <meta name="author" content="YourBrand" />
+  <title>WebP to JPG Converter - Fast & Free Online Tool</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background: #1a73e8;
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    label.upload-btn {
+      background: #1a73e8;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-block;
+      margin: 1rem 0;
+      transition: background 0.3s;
+    }
+    label.upload-btn:hover {
+      background: #0f5cd7;
+    }
+    .output {
+      margin-top: 2rem;
+    }
+    canvas {
+      display: none;
+    }
+    .download-link {
+      display: inline-block;
+      background: #34a853;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    .download-link:hover {
+      background: #2b8a3e;
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+      }
+      header {
+        font-size: 1.2rem;
+      }
+      label.upload-btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "WebP to JPG Converter",
+  "url": "https://thetoolzy.com/tools/webp-to-jpg",
+  "applicationCategory": "ImageApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+  "description": "Free online WebP to JPG converter by Toolzy. Instantly convert WebP images to JPG in your browser. Fast, secure, and mobile-friendly.",
+  "keywords": "WebP to JPG, convert WebP, image converter, free image tool, JPG converter online",
+  "featureList": [
+    "Convert WebP to JPG in the browser",
+    "No upload — works locally for privacy",
+    "Clean and responsive UI",
+    "Free to use",
+    "Works on mobile and desktop"
+  ],
+  "screenshot": "https://thetoolzy.com/assets/screenshots/webp-to-jpg.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/logo.png",
+      "width": 200,
+      "height": 60
+    }
+  }
+}
+</script>
+
+</head>
+
+<body>
+  <header>
+    WebP to JPG Converter
+  </header>
+
+  <main>
+    <label class="upload-btn" for="fileInput">Choose WebP Image</label>
+    <input type="file" id="fileInput" accept="image/webp" />
+
+    <div class="output" id="output"></div>
+  </main>
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const output = document.getElementById('output');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    fileInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file || !file.type.includes('webp')) {
+        alert('Please upload a valid WebP file.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          canvas.toBlob(blob => {
+            const jpgUrl = URL.createObjectURL(blob);
+            output.innerHTML = `
+              <p>Conversion successful!</p>
+              <a class="download-link" href="${jpgUrl}" download="converted.jpg">Download JPG</a>
+            `;
+          }, 'image/jpeg', 0.92);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

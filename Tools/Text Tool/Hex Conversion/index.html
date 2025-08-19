@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text Converter Tool</title>
+
+
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Convert numbers, text, RGB colors, and more to and from hexadecimal format with TheToolzy’s free Hex Converter. Fast, simple, and accurate.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hex Converter – Convert to and from Hexadecimal | TheToolzy">
+<meta property="og:description" content="Use TheToolzy’s Hex Converter to easily convert decimal, binary, text, and RGB to hexadecimal or vice versa. Free and online.">
+<meta property="og:url" content="https://thetoolzy.com/hex-converter">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/hex-converter.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hex Converter – Convert to and from Hexadecimal | TheToolzy">
+<meta name="twitter:description" content="Quickly convert between hex, decimal, binary, and text using TheToolzy Hex Converter tool. Free and accurate.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/hex-converter.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Hex Converter",
+  "url": "https://thetoolzy.com/hex-converter",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "description": "Use TheToolzy's Hex Converter to easily convert numbers, characters, or RGB colors to and from hexadecimal format. Free, fast, and accurate.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/hex-converter.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "hex converter",
+    "decimal to hex",
+    "hexadecimal converter",
+    "RGB to hex",
+    "binary to hex",
+    "Toolzy developer tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-family: monospace;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      resize: vertical;
+    }
+
+    .buttons, .conversions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      flex: 1 1 30%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .output {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 600px) {
+      button {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Text Converter Tool</h1>
+    <textarea id="inputText" placeholder="Enter ASCII text, hex, binary, or unicode..."></textarea>
+
+    <div class="conversions">
+      <button onclick="toBinary()">ASCII ➜ Binary</button>
+      <button onclick="toHex()">ASCII ➜ Hex</button>
+      <button onclick="toUnicode()">ASCII ➜ Unicode</button>
+    </div>
+
+    <div class="conversions">
+      <button onclick="fromBinary()">Binary ➜ ASCII</button>
+      <button onclick="fromHex()">Hex ➜ ASCII</button>
+      <button onclick="fromUnicode()">Unicode ➜ ASCII</button>
+    </div>
+
+    <div class="buttons">
+      <button onclick="copyOutput()">Copy</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+
+    <div class="output" id="outputText">Converted result will appear here...</div>
+  </div>
+
+  <script>
+    function toBinary() {
+      const text = document.getElementById("inputText").value;
+      const binary = text.split('').map(char =>
+        char.charCodeAt(0).toString(2).padStart(8, '0')
+      ).join(' ');
+      display(binary);
+    }
+
+    function toHex() {
+      const text = document.getElementById("inputText").value;
+      const hex = text.split('').map(char =>
+        char.charCodeAt(0).toString(16).padStart(2, '0')
+      ).join(' ');
+      display(hex.toUpperCase());
+    }
+
+    function toUnicode() {
+      const text = document.getElementById("inputText").value;
+      const unicode = text.split('').map(char =>
+        '\\u' + char.charCodeAt(0).toString(16).padStart(4, '0')
+      ).join('');
+      display(unicode);
+    }
+
+    function fromBinary() {
+      const binaryText = document.getElementById("inputText").value.trim();
+      const chars = binaryText.split(/\s+/).map(bin =>
+        String.fromCharCode(parseInt(bin, 2))
+      );
+      display(chars.join(''));
+    }
+
+    function fromHex() {
+      const hexText = document.getElementById("inputText").value.replace(/\s+/g, '');
+      const chars = hexText.match(/.{1,2}/g).map(h =>
+        String.fromCharCode(parseInt(h, 16))
+      );
+      display(chars.join(''));
+    }
+
+    function fromUnicode() {
+      const unicodeText = document.getElementById("inputText").value;
+      const chars = unicodeText.match(/\\u[0-9a-fA-F]{4}/g)?.map(u =>
+        String.fromCharCode(parseInt(u.replace("\\u", ""), 16))
+      );
+      display(chars ? chars.join('') : "❌ Invalid Unicode format.");
+    }
+
+    function copyOutput() {
+      const text = document.getElementById("outputText").textContent;
+      const temp = document.createElement("textarea");
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp);
+      alert("Output copied to clipboard!");
+    }
+
+    function clearAll() {
+      document.getElementById("inputText").value = "";
+      display("Converted result will appear here...");
+    }
+
+    function display(content) {
+      document.getElementById("outputText").textContent = content;
+    }
+  </script>
+</body>
+</html>

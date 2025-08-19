@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="Compare and find differences between two texts quickly with Toolzy's Text Difference Checker. Perfect for writers, editors, and developers.">
+<meta name="keywords" content="Text Difference Checker, Text Compare Tool, Diff Checker, Text Comparison, Toolzy Text Tools">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/text-difference-checker">
+<meta property="og:title" content="Text Difference Checker Tool">
+<meta property="og:description" content="Instantly detect differences between two text inputs with Toolzy’s Text Difference Checker for easy content review and editing.">
+<meta property="og:image" content="https://thetoolzy.com/images/text-difference-checker-og.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/text-difference-checker">
+<meta name="twitter:title" content="Text Difference Checker Tool">
+<meta name="twitter:description" content="Find and highlight differences between two texts easily using Toolzy’s Text Difference Checker tool.">
+<meta name="twitter:image" content="https://thetoolzy.com/images/text-difference-checker-og.jpg">
+
+  <title>Text Diff Checker</title>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Text Difference Checker",
+  "url": "https://thetoolzy.com/text-difference-checker",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Compare and find differences between two texts quickly with Toolzy's Text Difference Checker. Perfect for writers, editors, and developers.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/text-difference-checker.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "text difference checker",
+    "text compare tool",
+    "diff checker",
+    "text comparison",
+    "Toolzy text tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .input-area {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      resize: vertical;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4a90e2;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .output {
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    .added { background-color: #e6ffed; color: #256029; }
+    .removed { background-color: #ffeaea; color: #8a1f1f; }
+    .changed { background-color: #fff7e6; color: #8a6d1f; }
+
+    @media (max-width: 768px) {
+      .input-area {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Text Diff Checker</h1>
+  <div class="container">
+    <div class="input-area">
+      <textarea id="textA" placeholder="Paste first text here..."></textarea>
+      <textarea id="textB" placeholder="Paste second text here..."></textarea>
+    </div>
+    <div class="buttons">
+      <button onclick="compareText()">Compare</button>
+      <button onclick="clearText()">Clear</button>
+      <button onclick="copyOutput()">Copy Result</button>
+    </div>
+    <div class="output" id="diffResult">Differences will appear here...</div>
+  </div>
+
+  <script>
+    function compareText() {
+      const a = document.getElementById('textA').value.split('\n');
+      const b = document.getElementById('textB').value.split('\n');
+      const result = [];
+
+      const maxLen = Math.max(a.length, b.length);
+      for (let i = 0; i < maxLen; i++) {
+        const lineA = a[i] ?? '';
+        const lineB = b[i] ?? '';
+
+        if (lineA === lineB) {
+          result.push(lineA);
+        } else if (!lineA && lineB) {
+          result.push(`<span class="added">+ ${lineB}</span>`);
+        } else if (lineA && !lineB) {
+          result.push(`<span class="removed">- ${lineA}</span>`);
+        } else {
+          result.push(`<span class="changed">~ ${lineA} ↔ ${lineB}</span>`);
+        }
+      }
+
+      document.getElementById('diffResult').innerHTML = result.join('\n');
+    }
+
+    function clearText() {
+      document.getElementById('textA').value = '';
+      document.getElementById('textB').value = '';
+      document.getElementById('diffResult').innerText = 'Differences will appear here...';
+    }
+
+    function copyOutput() {
+      const temp = document.createElement('textarea');
+      temp.value = document.getElementById('diffResult').innerText;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      alert('Comparison result copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

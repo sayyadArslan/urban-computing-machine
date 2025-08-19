@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi Image to PDF</title>
+<meta name="description" content="Convert multiple images to a single PDF file online for free using TheToolzy. Supports JPG, PNG, and more. No watermark, no registration required.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Multiple Images to PDF Converter – TheToolzy">
+<meta property="og:description" content="Easily merge multiple images into one PDF file using TheToolzy. Fast, free, secure conversion. Works with JPG, PNG, BMP, and more.">
+<meta property="og:url" content="https://thetoolzy.com/images-to-pdf">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/images-to-pdf.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Multiple Images to PDF Converter – TheToolzy">
+<meta name="twitter:description" content="Convert multiple images into one PDF online using TheToolzy. 100% free, no watermark, no login – just upload, arrange, and download.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/images-to-pdf.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Multiple Images to PDF Converter","url":"https://thetoolzy.com/images-to-pdf","applicationCategory":"MultimediaApplication","operatingSystem":"All","description":"Convert multiple images to a single PDF file online for free using TheToolzy. No sign-up or software download required – supports JPG, PNG, and BMP formats.","browserRequirements":"JavaScript enabled browser","image":"https://thetoolzy.com/assets/og-image/images-to-pdf.png","offers":{"@type":"Offer","price":"0.00","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com"},"publisher":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com","logo":{"@type":"ImageObject","url":"https://thetoolzy.com/assets/logo.png"}},"keywords":["images to PDF","convert multiple images to PDF","merge photos into PDF","image to PDF online","Toolzy image tools"]}</script>
+<style>
+body{font-family:'Segoe UI',sans-serif;background:#f7f9fc;margin:0;padding:0;display:flex;justify-content:center;align-items:center;min-height:100vh}.container{width:90%;max-width:600px;background:#fff;padding:2rem;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.08);text-align:center}h1{margin-bottom:1.5rem}.file-label{background:#007bff;color:#fff;padding:12px 24px;border-radius:8px;cursor:pointer;display:inline-block;font-size:1rem;transition:background .3s}.file-label:hover{background:#0056b3}#previewContainer{display:flex;flex-wrap:wrap;justify-content:center;margin-top:1rem;gap:10px}#previewContainer img{max-width:100px;max-height:100px;object-fit:cover;border-radius:6px;border:1px solid #ccc}button{margin-top:20px;padding:10px 24px;background:#28a745;color:#fff;font-size:1rem;border:none;border-radius:8px;cursor:pointer;display:inline-block}button:hover{background:#1e7e34}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Multi Image to PDF</h1>
+<label for="imageInput" class="file-label">Choose Images</label>
+<input type="file" id="imageInput" accept="image/jpeg,image/png" multiple hidden>
+<div id="previewContainer"></div>
+<button id="downloadBtn" style="display:none">Download PDF</button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const imageInput=document.getElementById('imageInput'),previewContainer=document.getElementById('previewContainer'),downloadBtn=document.getElementById('downloadBtn');let imageFiles=[];
+imageInput.addEventListener('change',function(){previewContainer.innerHTML='';imageFiles=Array.from(this.files);if(imageFiles.length>0){downloadBtn.style.display='inline-block';imageFiles.forEach(e=>{const t=new FileReader;t.onload=t=>{const n=document.createElement('img');n.src=t.target.result,previewContainer.appendChild(n)},t.readAsDataURL(e)})}else downloadBtn.style.display='none'});
+downloadBtn.addEventListener('click',async function(){const{jsPDF:e}=window.jspdf,t=new e;for(let n=0;n<imageFiles.length;n++){const i=imageFiles[n],r=await new Promise(e=>{const t=new FileReader;t.onload=t=>e(t.target.result),t.readAsDataURL(i)}),o=new Image;o.src=r,await o.decode();const a=t.internal.pageSize.getWidth(),s=(o.height*a)/o.width;n>0&&t.addPage(),t.addImage(r,'JPEG',0,0,a,s)}t.save('images.pdf')});
+</script>
+</body>
+</html>

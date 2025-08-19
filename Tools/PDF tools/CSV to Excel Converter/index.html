@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSV to Excel Converter</title>
+<!-- Primary Meta Tags -->
+<meta name="description" content="Convert CSV files to Excel format online for free with TheToolzy CSV to Excel Converter. Fast, easy, and no software installation needed.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CSV to Excel Converter – TheToolzy">
+<meta property="og:description" content="Use TheToolzy CSV to Excel Converter to quickly convert CSV files into Excel spreadsheets online. Free, simple, and secure.">
+<meta property="og:url" content="https://thetoolzy.com/csv-to-excel">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/csv-to-excel.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CSV to Excel Converter – TheToolzy">
+<meta name="twitter:description" content="Convert CSV files to Excel spreadsheets online easily with TheToolzy CSV to Excel Converter. Fast and free.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/csv-to-excel.png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CSV to Excel Converter",
+  "url": "https://thetoolzy.com/csv-to-excel",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "Convert CSV files to Excel format online for free with TheToolzy CSV to Excel Converter. Fast, easy, and no software installation needed.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/csv-to-excel.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "csv to excel",
+    "convert csv to xlsx",
+    "csv to spreadsheet",
+    "TheToolzy productivity tools"
+  ]
+}
+</script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 1rem;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .file-label {
+      background-color: #007bff;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .file-label:hover {
+      background-color: #0056b3;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      margin-top: 1rem;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #fileName {
+      margin-top: 0.75rem;
+      display: block;
+      color: #555;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>CSV to Excel Converter</h2>
+    <label for="csvFile" class="file-label">Choose CSV File</label>
+    <input type="file" id="csvFile" accept=".csv" />
+    <span id="fileName"></span>
+    <button onclick="convertToExcel()">Convert & Download Excel</button>
+  </div>
+
+  <script>
+    let selectedFile;
+
+    document.getElementById('csvFile').addEventListener('change', (e) => {
+      selectedFile = e.target.files[0];
+      document.getElementById('fileName').textContent = selectedFile ? selectedFile.name : '';
+    });
+
+    function convertToExcel() {
+      if (!selectedFile) return alert('Please select a CSV file.');
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const data = e.target.result;
+        const rows = data.split('\n').map(row => row.split(','));
+
+        const worksheet = XLSX.utils.aoa_to_sheet(rows);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+        XLSX.writeFile(workbook, selectedFile.name.replace(/\.csv$/i, '.xlsx'));
+      };
+      reader.readAsText(selectedFile);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Repair Tool</title>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef2f7;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    h2 {
+      color: #222;
+      margin-bottom: 1.2rem;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.6rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      margin: 0.5rem 0;
+    }
+
+    .btn:hover {
+      background-color: #155fb0;
+    }
+
+    .btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 1.2rem;
+      font-size: 0.95rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>PDF Repair Tool</h2>
+    <label for="pdfInput" class="btn">📄 Choose Corrupted PDF</label>
+    <input type="file" id="pdfInput" accept="application/pdf" />
+    <button id="repairBtn" class="btn" style="display:none;">🔧 Repair PDF</button>
+    <div class="status" id="statusText"></div>
+  </div>
+
+  <script>
+    const pdfInput = document.getElementById('pdfInput');
+    const repairBtn = document.getElementById('repairBtn');
+    const statusText = document.getElementById('statusText');
+    let fileBuffer = null;
+
+    pdfInput.addEventListener('change', async function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      statusText.textContent = "📥 Loading PDF...";
+      fileBuffer = await file.arrayBuffer();
+      repairBtn.style.display = 'inline-block';
+      statusText.textContent = "✅ File loaded. Click 'Repair PDF'.";
+    });
+
+    repairBtn.addEventListener('click', async function () {
+      if (!fileBuffer) return;
+
+      statusText.textContent = "🔧 Attempting to repair PDF...";
+      try {
+        const pdfDoc = await PDFLib.PDFDocument.load(fileBuffer, { ignoreEncryption: true });
+        const pdfBytes = await pdfDoc.save();
+
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = "repaired.pdf";
+        link.click();
+
+        statusText.textContent = "✅ Repaired PDF downloaded successfully.";
+      } catch (e) {
+        statusText.textContent = "❌ Repair failed. The file may be too damaged.";
+        console.error("Repair Error:", e);
+      }
+    });
+  </script>
+</body>
+</html>

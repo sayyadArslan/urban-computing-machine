@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JFIF to WebP Converter</title>
+<meta name="description" content="Convert JFIF to WebP instantly using TheToolzy's free online converter. Fast, secure, no watermark, and 100% free.">
+<style>
+body{font-family:'Segoe UI',sans-serif;background:#f4f6f8;display:flex;flex-direction:column;align-items:center;padding:40px 20px}h1{color:#333}.container{background:#fff;padding:30px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.1);text-align:center;width:100%;max-width:500px}.file-input{margin-bottom:20px}input[type=file]{display:none}label.upload-label{display:inline-block;padding:12px 24px;background:#007bff;color:#fff;border-radius:8px;cursor:pointer;font-weight:bold;transition:background .3s}label.upload-label:hover{background:#0056b3}.preview{margin:20px 0;height:200px;display:flex;align-items:center;justify-content:center;border:2px dashed #ccc;border-radius:8px;background:#fafafa;overflow:hidden}.preview img{max-height:100%;max-width:100%;object-fit:contain}button{background:#28a745;color:#fff;border:none;padding:12px 20px;font-size:16px;border-radius:8px;cursor:pointer;font-weight:bold;transition:background .3s}button:hover{background:#218838}.hidden{display:none}
+</style>
+</head>
+<body>
+<h1>JFIF to WebP Converter</h1>
+<div class="container">
+  <div class="file-input">
+    <input type="file" id="upload" accept=".jfif,image/jpeg"/>
+    <label for="upload" class="upload-label">Choose JFIF Image</label>
+  </div>
+  <div class="preview" id="preview"><span>No Image Selected</span></div>
+  <button id="download" class="hidden">Download as WebP</button>
+</div>
+<script>
+const upload=document.getElementById("upload"),preview=document.getElementById("preview"),downloadBtn=document.getElementById("download");let imageDataUrl="";upload.addEventListener("change",function(){const e=this.files[0];if(!e||!e.name.toLowerCase().endsWith(".jfif")){alert("Only .jfif files are allowed!"),upload.value="",preview.innerHTML="<span>No Image Selected</span>",downloadBtn.classList.add("hidden");return}const t=new FileReader;t.onload=function(t){imageDataUrl=t.target.result;const n=new Image;n.src=imageDataUrl,n.onload=function(){preview.innerHTML="",preview.appendChild(n),downloadBtn.classList.remove("hidden")}},t.readAsDataURL(e)}),downloadBtn.addEventListener("click",()=>{const e=new Image;e.src=imageDataUrl,e.onload=function(){const t=document.createElement("canvas");t.width=e.width,t.height=e.height;const n=t.getContext("2d");n.drawImage(e,0,0),t.toBlob(e=>{const n=document.createElement("a");n.href=URL.createObjectURL(e),n.download="converted.webp",n.click()},"image/webp",.9)}});</script>
+</body>
+</html>

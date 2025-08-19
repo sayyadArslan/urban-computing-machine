@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Watermark Adder – TheToolzy</title>
+
+<!-- Meta Description -->
+<meta name="description" content="Add watermark to images online for free with TheToolzy. Upload your image, customize text or logo watermark, and protect your content instantly.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image Watermark Adder – TheToolzy">
+<meta property="og:description" content="Protect your images by adding text or logo watermarks online using TheToolzy. Simple, fast, and free – no installation required.">
+<meta property="og:url" content="https://thetoolzy.com/image-watermark-adder">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/image-watermark-adder.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Watermark Adder – TheToolzy">
+<meta name="twitter:description" content="Easily watermark your photos online with TheToolzy. Upload images, add text or logo watermarks, and download protected versions. 100% free.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/image-watermark-adder.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Watermark Adder",
+  "url": "https://thetoolzy.com/image-watermark-adder",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "description": "Add custom watermarks to images online using TheToolzy. Upload an image and place your text or logo watermark with full customization. No signup or software required.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/image-watermark-adder.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "image watermark adder",
+    "add watermark to photo",
+    "online watermark tool",
+    "text watermark on image",
+    "Toolzy image tools"
+  ]
+}
+</script>
+
+<!-- CSS -->
+<style>
+body{font-family:Arial,sans-serif;background:#f4f4f9;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;overflow:hidden}
+.container{background:#fff;padding:40px;border-radius:10px;box-shadow:0 6px 12px rgba(0,0,0,.1);text-align:center;width:90%;max-width:600px;height:650px;overflow-y:auto}
+.title{font-size:24px;margin-bottom:20px;color:#333}
+.file-label{display:inline-block;padding:12px 20px;background:#4CAF50;color:#fff;border-radius:5px;cursor:pointer;font-size:16px;transition:.3s}
+.file-label:hover{background:#45a049}
+input[type=text]{padding:10px;width:100%;margin:15px 0;border:2px solid #ccc;border-radius:5px;font-size:16px}
+.watermark-options{margin-top:20px;text-align:left}
+.watermark-options label{font-size:14px;display:block;margin-top:10px}
+.watermark-options input,.watermark-options select{width:100%;padding:10px;margin-top:5px;border-radius:5px;font-size:16px;border:2px solid #ccc}
+button{padding:12px 20px;background:#4CAF50;color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:16px;margin:10px 0;transition:.2s}
+button:hover{background:#45a049;transform:scale(1.05)}
+button:active{transform:scale(0.98)}
+.image-preview-container{margin-top:20px;position:relative;width:100%;height:300px;overflow:hidden;border:2px solid #ccc;border-radius:5px;background:#f0f0f0}
+#imagePreview{max-width:100%;max-height:100%;display:block;object-fit:contain;margin:0 auto}
+canvas{display:none}
+#downloadBtn{padding:12px 20px;background:#FF5722;color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:16px;margin-top:10px;display:none;transition:.2s}
+#downloadBtn:hover{background:#e64a19;transform:scale(1.05)}
+#downloadBtn:active{transform:scale(0.98)}
+</style>
+</head>
+<body>
+<div class="container">
+<h2 class="title">Add Watermark to Your Image</h2>
+<input type="file" id="fileInput" accept="image/*" style="display:none">
+<label for="fileInput" class="file-label">Choose File</label>
+<input type="text" id="watermarkText" placeholder="Enter Watermark Text">
+<div class="watermark-options">
+<label for="fontSize">Font Size:</label><input type="number" id="fontSize" value="30" min="10" max="100">
+<label for="fontFamily">Font Family:</label><select id="fontFamily"><option value="Arial">Arial</option><option value="Verdana">Verdana</option><option value="Courier New">Courier New</option><option value="Georgia">Georgia</option></select>
+<label for="colorPicker">Watermark Color:</label><input type="color" id="colorPicker" value="#ffffff">
+<label for="opacity">Opacity:</label><input type="range" id="opacity" min="0" max="1" step="0.1" value="0.6">
+<label for="position">Watermark Position:</label><select id="position"><option value="top-left">Top Left</option><option value="top-right">Top Right</option><option value="bottom-left">Bottom Left</option><option value="bottom-right">Bottom Right</option><option value="center">Center</option></select>
+</div>
+<button id="addWatermarkBtn">Add Watermark</button>
+<div class="image-preview-container"><img id="imagePreview" src=""><canvas id="canvas"></canvas></div>
+<button id="downloadBtn">Download Watermarked Image</button>
+</div>
+<script>
+let image=null,canvas=document.getElementById('canvas'),context=canvas.getContext('2d');
+document.getElementById('fileInput').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader;r.onload=function(ev){const img=new Image();img.onload=function(){image=img;canvas.width=img.width;canvas.height=img.height;context.drawImage(img,0,0);document.getElementById('imagePreview').src=ev.target.result;document.getElementById('downloadBtn').style.display='none'};img.src=ev.target.result};r.readAsDataURL(f)});
+document.getElementById('addWatermarkBtn').addEventListener('click',()=>{if(!image){alert('Please upload an image first!');return}const t=document.getElementById('watermarkText').value;if(!t){alert('Please enter watermark text!');return}const fS=document.getElementById('fontSize').value,fF=document.getElementById('fontFamily').value,c=document.getElementById('colorPicker').value,o=document.getElementById('opacity').value,p=document.getElementById('position').value;context.clearRect(0,0,canvas.width,canvas.height);context.drawImage(image,0,0);context.font=`${fS}px ${fF}`;context.fillStyle=c;context.globalAlpha=o;context.textBaseline='middle';let x,y;switch(p){case'top-left':x=10;y=30;context.textAlign='left';break;case'top-right':x=canvas.width-10;y=30;context.textAlign='right';break;case'bottom-left':x=10;y=canvas.height-30;context.textAlign='left';break;case'bottom-right':x=canvas.width-10;y=canvas.height-30;context.textAlign='right';break;case'center':x=canvas.width/2;y=canvas.height/2;break;default:x=canvas.width/2;y=canvas.height/2}context.fillText(t,x,y);context.globalAlpha=1;document.getElementById('imagePreview').src=canvas.toDataURL();document.getElementById('downloadBtn').style.display='inline-block'});
+document.getElementById('downloadBtn').addEventListener('click',()=>{const a=document.createElement('a');a.download='watermarked-image.png';a.href=canvas.toDataURL('image/png');a.click()});
+</script>
+</body>
+</html>

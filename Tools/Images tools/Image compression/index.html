@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulk Image Compressor</title>
+<meta name="description" content="Compress images online without losing quality using TheToolzy’s free Image Compressor. Reduce file size for JPG, PNG, WebP, and more. No watermark, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image Compressor – TheToolzy">
+<meta property="og:description" content="Free online Image Compressor by TheToolzy – compress JPG, PNG, WebP images while maintaining quality. Fast, secure, and watermark-free.">
+<meta property="og:url" content="https://thetoolzy.com/image-compressor">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/image-compressor.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Compressor – TheToolzy">
+<meta name="twitter:description" content="Compress your images online for free with TheToolzy. Optimize JPG, PNG, and WebP files without compromising quality. Quick and easy – no sign-up needed.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/image-compressor.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Compressor","url":"https://thetoolzy.com/image-compressor","applicationCategory":"MultimediaApplication","operatingSystem":"All","description":"Compress images like JPG, PNG, and WebP online using TheToolzy’s free Image Compressor. Reduce file size without losing quality. No watermark or registration required.","browserRequirements":"JavaScript enabled browser","image":"https://thetoolzy.com/assets/og-image/image-compressor.png","offers":{"@type":"Offer","price":"0.00","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com"},"publisher":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com","logo":{"@type":"ImageObject","url":"https://thetoolzy.com/assets/logo.png"}},"keywords":["image compressor","compress images online","reduce image file size","optimize jpg png webp","Toolzy image tools"]}</script>
+<style>
+body{font-family:Arial,sans-serif;background:#f0f2f5;margin:0;padding:0}.container{max-width:700px;margin:50px auto;padding:20px;background:#fff;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.1);text-align:center}.drop-area{border:2px dashed #ccc;padding:40px;border-radius:10px;margin-bottom:20px;position:relative;transition:.3s}.drop-area.dragover{background:#e6f7ff;border-color:#00aaff}.custom-btn{display:inline-block;margin-top:10px;padding:10px 20px;background:#007bff;color:#fff;border-radius:8px;cursor:pointer;transition:background .3s}.custom-btn:hover{background:#0056b3}input[type=file]{display:none}#preview{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:20px}#preview img{max-width:100px;border-radius:8px;border:1px solid #ccc}.download-btn{margin-top:20px;padding:12px 25px;background:#28a745;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:16px;transition:background .3s}.download-btn:hover{background:#1e7e34}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Bulk and Single Image Compressor</h1>
+<div class="drop-area" id="drop-area"><p>Drag & drop images here or</p><input type="file" id="fileInput" multiple accept="image/*"><label for="fileInput" class="custom-btn">Choose Files</label></div>
+<div id="preview"></div>
+<button class="download-btn" id="compressBtn">Compress & Download All</button>
+</div>
+<script>
+const dropArea=document.getElementById("drop-area"),fileInput=document.getElementById("fileInput"),preview=document.getElementById("preview"),compressBtn=document.getElementById("compressBtn");let files=[];fileInput.addEventListener("change",e=>handleFiles(e.target.files)),dropArea.addEventListener("dragover",e=>{e.preventDefault(),dropArea.classList.add("dragover")}),dropArea.addEventListener("dragleave",()=>dropArea.classList.remove("dragover")),dropArea.addEventListener("drop",e=>{e.preventDefault(),dropArea.classList.remove("dragover"),handleFiles(e.dataTransfer.files)});function handleFiles(e){for(let t of e)if(t.type.startsWith("image/")){files.push(t);const e=document.createElement("img");e.src=URL.createObjectURL(t),preview.appendChild(e)}}compressBtn.addEventListener("click",()=>{files.forEach((e,t)=>{const n=new FileReader;n.onload=function(n){const o=new Image;o.onload=()=>{const c=document.createElement("canvas"),i=.7;c.width=o.width*i,c.height=o.height*i;const r=c.getContext("2d");r.drawImage(o,0,0,c.width,c.height),c.toBlob(e=>{const t=document.createElement("a");t.href=URL.createObjectURL(e),t.download=`compressed-${n+1}.jpg`,t.click()},"image/jpeg",.7)},o.src=n.target.result},n.readAsDataURL(e)})});
+</script>
+</body>
+</html>

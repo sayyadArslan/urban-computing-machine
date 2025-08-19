@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barcode Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Generate custom barcodes online for free with TheToolzy’s Barcode Generator. Supports multiple barcode formats like QR, Code128, EAN, UPC, and more.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Barcode Generator Online – Create Custom Barcodes Free | TheToolzy">
+<meta property="og:description" content="Create and download custom barcodes in various formats easily using TheToolzy’s Barcode Generator tool. No sign-up or installation required.">
+<meta property="og:url" content="https://thetoolzy.com/barcode-generator">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/barcode-generator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Barcode Generator Online – Create Custom Barcodes Free | TheToolzy">
+<meta name="twitter:description" content="Quickly generate barcodes for products, URLs, or other data with TheToolzy’s free online Barcode Generator. Supports QR, EAN, UPC, and more.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/barcode-generator.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Barcode Generator",
+  "url": "https://thetoolzy.com/barcode-generator",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Create and download custom barcodes in various formats such as QR codes, Code128, EAN, and UPC with TheToolzy’s Barcode Generator online tool for free.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/barcode-generator.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "barcode generator",
+    "create barcode online",
+    "QR code generator",
+    "EAN barcode creator",
+    "UPC barcode tool",
+    "TheToolzy barcode tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      background: #6366f1;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #4f46e5;
+    }
+
+    canvas {
+      margin-top: 1rem;
+      background: white;
+      border: 1px solid #ccc;
+      max-width: 100%;
+    }
+
+    .icon {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2><i class="fas fa-barcode icon"></i>Barcode Generator</h2>
+    <input type="text" id="barcodeInput" placeholder="Enter text or number" />
+    <div class="buttons">
+      <button onclick="generateBarcode()"><i class="fas fa-cog icon"></i>Generate</button>
+      <button onclick="downloadBarcode()"><i class="fas fa-download icon"></i>Download</button>
+    </div>
+    <canvas id="barcodeCanvas"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+  <script>
+    function generateBarcode() {
+      const input = document.getElementById("barcodeInput").value;
+      if (!input) {
+        alert("Please enter a value!");
+        return;
+      }
+      JsBarcode("#barcodeCanvas", input, {
+        format: "CODE128",
+        lineColor: "#000",
+        width: 2,
+        height: 100,
+        displayValue: true
+      });
+    }
+
+    function downloadBarcode() {
+      const canvas = document.getElementById("barcodeCanvas");
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = "barcode.png";
+      link.click();
+    }
+  </script>
+</body>
+</html>

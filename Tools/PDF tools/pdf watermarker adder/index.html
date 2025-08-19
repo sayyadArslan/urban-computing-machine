@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Add custom watermarks to your PDF files online for free with TheToolzy PDF Watermark Adder. Protect your documents easily and quickly without any software installation.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF Watermark Adder – TheToolzy">
+<meta property="og:description" content="Secure your PDFs by adding text or image watermarks online using TheToolzy PDF Watermark Adder. Fast, easy, and free to use.">
+<meta property="og:url" content="https://thetoolzy.com/pdf-watermark-adder">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/pdf-watermark-adder.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PDF Watermark Adder – TheToolzy">
+<meta name="twitter:description" content="Add text or image watermarks to your PDF files online quickly and securely with TheToolzy PDF Watermark Adder. No software needed.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/pdf-watermark-adder.png">
+
+  <title>PDF Watermark Tool</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PDF Watermark Adder",
+  "url": "https://thetoolzy.com/pdf-watermark-adder",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "Add custom watermarks to your PDF files online for free with TheToolzy PDF Watermark Adder. Protect your documents easily and quickly without any software installation.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/pdf-watermark-adder.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "pdf watermark",
+    "add watermark to pdf",
+    "pdf watermark adder online",
+    "TheToolzy pdf tools"
+  ]
+}
+</script>
+
+  
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    canvas {
+      border: 1px dashed #ccc;
+      width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+
+    button {
+      width: 100%;
+      background-color: #1976d2;
+      color: white;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #155bb5;
+    }
+
+    .file-upload {
+      display: inline-block;
+      background-color: #1976d2;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .file-upload:hover {
+      background-color: #155bb5;
+    }
+
+    #pdfFileName, #wmImageName {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Add Watermark to PDF</h2>
+
+    <label>Upload PDF:</label>
+    <label class="file-upload">
+      Choose PDF
+      <input type="file" id="pdfFile" accept=".pdf" hidden />
+    </label>
+    <span id="pdfFileName">No file chosen</span>
+
+    <label>Watermark Type:</label>
+    <select id="wmType">
+      <option value="text">Text</option>
+      <option value="image">Image</option>
+    </select>
+
+    <div id="textFields">
+      <label>Watermark Text:</label>
+      <input type="text" id="wmText" placeholder="e.g., CONFIDENTIAL" />
+    </div>
+
+    <div id="imageFields" style="display:none;">
+      <label>Upload Image:</label>
+      <label class="file-upload">
+        Choose Image
+        <input type="file" id="wmImage" accept="image/*" hidden />
+      </label>
+      <span id="wmImageName">No image selected</span>
+    </div>
+
+    <label>Opacity:</label>
+    <input type="range" id="opacity" min="0.1" max="1" step="0.1" value="0.3" />
+
+    <label>Position:</label>
+    <select id="position">
+      <option value="center">Center</option>
+      <option value="top-left">Top Left</option>
+      <option value="top-right">Top Right</option>
+      <option value="bottom-left">Bottom Left</option>
+      <option value="bottom-right">Bottom Right</option>
+    </select>
+
+    <label>Preview:</label>
+    <canvas id="previewCanvas" width="500" height="500"></canvas>
+
+    <button onclick="applyWatermark()">Add Watermark & Download PDF</button>
+  </div>
+
+  <script>
+    const wmTypeEl = document.getElementById("wmType");
+    const textFields = document.getElementById("textFields");
+    const imageFields = document.getElementById("imageFields");
+    const canvas = document.getElementById("previewCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let previewImage = null;
+
+    wmTypeEl.addEventListener("change", () => {
+      const type = wmTypeEl.value;
+      textFields.style.display = type === "text" ? "block" : "none";
+      imageFields.style.display = type === "image" ? "block" : "none";
+      drawPreview();
+    });
+
+    document.getElementById("wmText").addEventListener("input", drawPreview);
+    document.getElementById("opacity").addEventListener("input", drawPreview);
+    document.getElementById("position").addEventListener("change", drawPreview);
+
+    document.getElementById("pdfFile").addEventListener("change", function () {
+      document.getElementById("pdfFileName").textContent = this.files[0]?.name || "No file chosen";
+    });
+
+    document.getElementById("wmImage").addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      document.getElementById("wmImageName").textContent = file?.name || "No image selected";
+
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = new Image();
+        img.onload = () => {
+          previewImage = img;
+          drawPreview();
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function drawPreview() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const type = wmTypeEl.value;
+      const opacity = parseFloat(document.getElementById("opacity").value);
+      const pos = document.getElementById("position").value;
+
+      ctx.globalAlpha = opacity;
+
+      if (type === "text") {
+        const text = document.getElementById("wmText").value || "Watermark";
+        ctx.font = "40px Arial";
+        ctx.fillStyle = "rgba(100, 100, 100, 0.5)";
+        let x = 0, y = 0;
+
+        switch (pos) {
+          case "center":
+            x = canvas.width / 2;
+            y = canvas.height / 2;
+            ctx.textAlign = "center";
+            break;
+          case "top-left":
+            x = 20;
+            y = 40;
+            ctx.textAlign = "left";
+            break;
+          case "top-right":
+            x = canvas.width - 20;
+            y = 40;
+            ctx.textAlign = "right";
+            break;
+          case "bottom-left":
+            x = 20;
+            y = canvas.height - 20;
+            ctx.textAlign = "left";
+            break;
+          case "bottom-right":
+            x = canvas.width - 20;
+            y = canvas.height - 20;
+            ctx.textAlign = "right";
+            break;
+        }
+        ctx.fillText(text, x, y);
+      } else if (type === "image" && previewImage) {
+        let x = 0, y = 0, w = 100, h = 100;
+        switch (pos) {
+          case "center":
+            x = canvas.width / 2 - w / 2;
+            y = canvas.height / 2 - h / 2;
+            break;
+          case "top-left":
+            x = 20; y = 20;
+            break;
+          case "top-right":
+            x = canvas.width - w - 20; y = 20;
+            break;
+          case "bottom-left":
+            x = 20; y = canvas.height - h - 20;
+            break;
+          case "bottom-right":
+            x = canvas.width - w - 20; y = canvas.height - h - 20;
+            break;
+        }
+        ctx.drawImage(previewImage, x, y, w, h);
+      }
+
+      ctx.globalAlpha = 1;
+    }
+
+    async function applyWatermark() {
+      const fileInput = document.getElementById("pdfFile");
+      const wmType = wmTypeEl.value;
+      const pos = document.getElementById("position").value;
+      const opacity = parseFloat(document.getElementById("opacity").value);
+
+      if (!fileInput.files.length) return alert("Upload a PDF first.");
+      const pdfBytes = await fileInput.files[0].arrayBuffer();
+      const pdfDoc = await PDFLib.PDFDocument.load(pdfBytes);
+      const pages = pdfDoc.getPages();
+
+      if (wmType === "text") {
+        const wmText = document.getElementById("wmText").value || "WATERMARK";
+        const font = await pdfDoc.embedFont(PDFLib.StandardFonts.HelveticaBold);
+        const size = 40;
+
+        for (const page of pages) {
+          const { width, height } = page.getSize();
+          const { x, y } = getCoords(pos, width, height, size * wmText.length / 2, size);
+          page.drawText(wmText, {
+            x, y, size, font,
+            color: PDFLib.rgb(0.6, 0.6, 0.6),
+            opacity,
+          });
+        }
+      } else if (wmType === "image") {
+        const imageInput = document.getElementById("wmImage");
+        if (!imageInput.files.length) return alert("Upload a watermark image.");
+        const imgBytes = await imageInput.files[0].arrayBuffer();
+        const mime = imageInput.files[0].type;
+        let img = mime.includes("png")
+          ? await pdfDoc.embedPng(imgBytes)
+          : await pdfDoc.embedJpg(imgBytes);
+
+        for (const page of pages) {
+          const { width, height } = page.getSize();
+          const dims = img.scale(0.25);
+          const { x, y } = getCoords(pos, width, height, dims.width, dims.height);
+          page.drawImage(img, {
+            x, y, width: dims.width, height: dims.height, opacity
+          });
+        }
+      }
+
+      const finalPdf = await pdfDoc.save();
+      const blob = new Blob([finalPdf], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "watermarked.pdf";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function getCoords(position, pageW, pageH, elW, elH) {
+      const margin = 20;
+      switch (position) {
+        case "center":
+          return { x: (pageW - elW) / 2, y: (pageH - elH) / 2 };
+        case "top-left":
+          return { x: margin, y: pageH - elH - margin };
+        case "top-right":
+          return { x: pageW - elW - margin, y: pageH - elH - margin };
+        case "bottom-left":
+          return { x: margin, y: margin };
+        case "bottom-right":
+          return { x: pageW - elW - margin, y: margin };
+        default:
+          return { x: 0, y: 0 };
+      }
+    }
+
+    drawPreview(); // draw default preview
+  </script>
+</body>
+</html>

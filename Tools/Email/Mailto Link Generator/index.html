@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+<meta name="description" content="Generate customized mailto links easily with TheToolzy’s Mailto Link Generator. Add subject, body, CC, and BCC to your email links for free.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mailto Link Generator Online – Create Mailto URLs | TheToolzy">
+<meta property="og:description" content="Create personalized mailto links with subject, body, CC, and BCC using TheToolzy’s free Mailto Link Generator tool.">
+<meta property="og:url" content="https://thetoolzy.com/mailto-link-generator">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/mailto-link-generator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mailto Link Generator Online – Create Mailto URLs | TheToolzy">
+<meta name="twitter:description" content="Quickly generate mailto links with custom fields using TheToolzy’s Mailto Link Generator. Free, no signup required.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/mailto-link-generator.png">
+
+    <title>Mailto Link Generator</title>
+    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Mailto Link Generator",
+  "url": "https://thetoolzy.com/mailto-link-generator",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Generate customized mailto links with subject, body, CC, and BCC fields easily and free with TheToolzy’s Mailto Link Generator tool.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/mailto-link-generator.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "mailto link generator",
+    "generate mailto URL",
+    "custom mailto link",
+    "email link generator",
+    "TheToolzy email tools"
+  ]
+}
+</script>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+        }
+
+        input, textarea {
+            font-size: 1rem;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output-container {
+            margin-top: 20px;
+        }
+
+        .generated-link {
+            font-size: 1rem;
+            color: #333;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .copy-button {
+            margin-top: 10px;
+            background-color: #28a745;
+        }
+
+        .copy-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mailto Link Generator</h1>
+
+        <div class="input-container">
+            <label for="email">Recipient Email:</label>
+            <input type="email" id="email" placeholder="Enter recipient's email">
+        </div>
+        <div class="input-container">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" placeholder="Enter the subject">
+        </div>
+        <div class="input-container">
+            <label for="body">Body:</label>
+            <textarea id="body" placeholder="Enter the body text"></textarea>
+        </div>
+
+        <button onclick="generateMailtoLink()">Generate Mailto Link</button>
+
+        <div class="output-container">
+            <h3>Generated Mailto Link:</h3>
+            <div id="generatedLink" class="generated-link">
+                <!-- Generated mailto link will be shown here -->
+            </div>
+            <button class="copy-button" id="copyButton" style="display: none;" onclick="copyLink()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        function generateMailtoLink() {
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const body = document.getElementById("body").value;
+
+            // Construct the mailto link
+            let mailtoLink = `mailto:${email}`;
+
+            if (subject || body) {
+                mailtoLink += `?`;
+
+                if (subject) {
+                    mailtoLink += `subject=${encodeURIComponent(subject)}`;
+                }
+
+                if (body) {
+                    if (subject) {
+                        mailtoLink += `&`;
+                    }
+                    mailtoLink += `body=${encodeURIComponent(body)}`;
+                }
+            }
+
+            const generatedLink = document.getElementById("generatedLink");
+            const copyButton = document.getElementById("copyButton");
+
+            // Display the generated mailto link
+            generatedLink.textContent = mailtoLink;
+
+            // Show the "Copy to Clipboard" button
+            copyButton.style.display = "inline-block";
+        }
+
+        function copyLink() {
+            const generatedLink = document.getElementById("generatedLink").textContent;
+
+            // Create a temporary text area to copy the link
+            const textArea = document.createElement('textarea');
+            textArea.value = generatedLink;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // Optionally alert the user that the link has been copied
+            alert("Mailto link copied to clipboard!");
+        }
+    </script>
+
+</body>
+</html>

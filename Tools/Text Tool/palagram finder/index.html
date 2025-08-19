@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+
+<meta name="description" content="Use TheToolzy's free Palindrome Finder to check if a word or sentence is a palindrome. Fast, accurate, and works instantly online.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Palindrome Finder – Check Palindromic Words & Sentences | TheToolzy">
+<meta property="og:description" content="Instantly find out if your word or phrase is a palindrome. TheToolzy makes it easy to detect palindromes online with no sign-up required.">
+<meta property="og:url" content="https://thetoolzy.com/palindrome-finder">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/palindrome-finder.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Palindrome Finder – Check Palindromic Words & Sentences | TheToolzy">
+<meta name="twitter:description" content="Free online tool to find palindromes in words, names, or sentences. Simple and fast palindrome checker.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/palindrome-finder.png">
+
+    
+    
+    <title>Palindrome & Anagram Finder Tool</title>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Palindrome Finder",
+  "url": "https://thetoolzy.com/palindrome-finder",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "description": "Check if your word, phrase, or sentence is a palindrome using TheToolzy's free and fast online Palindrome Finder tool.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/palindrome-finder.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "palindrome finder",
+    "check palindrome",
+    "palindromic word checker",
+    "online palindrome tool",
+    "Toolzy text tools"
+  ]
+}
+</script>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f0f0f0;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            margin-top: 20px;
+        }
+
+        .result {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .anagrams {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #333;
+            white-space: pre-wrap;
+        }
+
+        .anagram-list {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .result {
+                font-size: 1rem;
+            }
+
+            .anagram-list {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Palindrome & Anagram Finder</h1>
+
+        <div class="form-container">
+            <input id="inputText" type="text" placeholder="Enter word or phrase" />
+            <button onclick="checkPalindromeAndAnagrams()">Check</button>
+        </div>
+
+        <div class="output">
+            <div id="palindromeResult" class="result"></div>
+            <div id="anagramResults" class="anagrams">
+                <div id="anagramTitle"></div>
+                <div id="anagramList" class="anagram-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample word list for anagram search
+        const wordList = [
+            'listen', 'silent', 'enlist', 'rat', 'tar', 'art', 'god', 'dog', 'evil', 'vile', 'veil',
+            'angel', 'glean', 'bored', 'robed', 'earth', 'heart', 'listen', 'slate', 'stale', 'steal'
+        ];
+
+        // Function to check if a word/phrase is a palindrome
+        function isPalindrome(str) {
+            const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, ''); // Clean input for palindrome check
+            return cleaned === cleaned.split('').reverse().join('');
+        }
+
+        // Function to find anagrams from the word list
+        function findAnagrams(input) {
+            const sortedInput = input.toLowerCase().split('').sort().join('');
+            return wordList.filter(word => word.toLowerCase().split('').sort().join('') === sortedInput);
+        }
+
+        // Function to handle the palindrome and anagram check
+        function checkPalindromeAndAnagrams() {
+            const inputText = document.getElementById('inputText').value.trim();
+
+            if (!inputText) {
+                alert("Please enter a word or phrase!");
+                return;
+            }
+
+            // Check if the input is a palindrome
+            const palindromeResult = isPalindrome(inputText) ? "Yes, it's a palindrome!" : "No, it's not a palindrome.";
+            document.getElementById('palindromeResult').textContent = palindromeResult;
+
+            // Find possible anagrams
+            const anagrams = findAnagrams(inputText);
+            if (anagrams.length > 0) {
+                document.getElementById('anagramTitle').textContent = "Possible Anagrams:";
+                document.getElementById('anagramList').textContent = anagrams.join(', ');
+            } else {
+                document.getElementById('anagramTitle').textContent = "No anagrams found.";
+                document.getElementById('anagramList').textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>

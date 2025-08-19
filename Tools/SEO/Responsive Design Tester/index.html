@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Design Tester</title>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Test and validate your website’s responsiveness across different devices with TheToolzy Responsive Design Checker. Ensure your site looks perfect everywhere.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Responsive Design Checker – TheToolzy">
+<meta property="og:description" content="Quickly check how your website performs on various screen sizes and devices using TheToolzy Responsive Design Checker. Free and easy to use.">
+<meta property="og:url" content="https://thetoolzy.com/responsive-design-checker">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/responsive-design-checker.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Responsive Design Checker – TheToolzy">
+<meta name="twitter:description" content="Test your website’s responsiveness on desktops, tablets, and mobiles with TheToolzy Responsive Design Checker. Fast, free, and reliable.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/responsive-design-checker.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Responsive Design Checker",
+  "url": "https://thetoolzy.com/responsive-design-checker",
+  "applicationCategory": "SEOApplication",
+  "operatingSystem": "All",
+  "description": "Test and validate your website’s responsiveness across different devices with TheToolzy Responsive Design Checker. Ensure your site looks perfect everywhere.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/responsive-design-checker.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "responsive design checker",
+    "test website responsiveness",
+    "mobile friendly test",
+    "TheToolzy seo tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .devices {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .device {
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 10px;
+      background: #fafafa;
+    }
+
+    .device iframe {
+      border: none;
+    }
+
+    .label {
+      text-align: center;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Responsive Design Tester</h2>
+  <input type="text" id="url" placeholder="Enter URL (must be https:// or same-origin)">
+  <button onclick="loadPreviews()">Test Responsiveness</button>
+
+  <div class="devices" id="devices" style="display: none;">
+    <div class="device">
+      <div class="label">Mobile (375×667)</div>
+      <iframe id="mobile" width="375" height="667"></iframe>
+    </div>
+    <div class="device">
+      <div class="label">Tablet (768×1024)</div>
+      <iframe id="tablet" width="768" height="1024"></iframe>
+    </div>
+    <div class="device">
+      <div class="label">Laptop (1024×768)</div>
+      <iframe id="laptop" width="1024" height="768"></iframe>
+    </div>
+    <div class="device">
+      <div class="label">Desktop (1440×900)</div>
+      <iframe id="desktop" width="1440" height="900"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function loadPreviews() {
+    const url = document.getElementById("url").value.trim();
+    const devices = document.getElementById("devices");
+
+    if (!url.startsWith("http")) {
+      alert("Please include https:// or http:// in your URL.");
+      return;
+    }
+
+    document.getElementById("mobile").src = url;
+    document.getElementById("tablet").src = url;
+    document.getElementById("laptop").src = url;
+    document.getElementById("desktop").src = url;
+
+    devices.style.display = "flex";
+  }
+</script>
+
+</body>
+</html>

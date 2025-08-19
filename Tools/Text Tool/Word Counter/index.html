@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Analyzer – Toolzy</title>
+<meta name="description" content="Quickly count words, characters, sentences, and paragraphs with Toolzy's free Word Counter tool. Ideal for writers, students, and professionals.">
+<meta name="keywords" content="word counter, count words online, character count, text statistics, Toolzy writing tools">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/word-counter">
+<meta property="og:title" content="Word Counter Tool">
+<meta property="og:description" content="Quickly count words, characters, sentences, and paragraphs with Toolzy's free Word Counter tool. Ideal for writers, students, and professionals.">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/word-counter.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/word-counter">
+<meta name="twitter:title" content="Word Counter Tool">
+<meta name="twitter:description" content="Quickly count words, characters, sentences, and paragraphs with Toolzy's free Word Counter tool. Ideal for writers, students, and professionals.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/word-counter.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Word Counter Tool","url":"https://thetoolzy.com/word-counter","applicationCategory":"UtilityApplication","operatingSystem":"All","description":"Quickly count words, characters, sentences, and paragraphs with Toolzy's free Word Counter tool. Ideal for writers, students, and professionals.","browserRequirements":"JavaScript enabled browser","image":"https://thetoolzy.com/assets/og-image/word-counter.png","offers":{"@type":"Offer","price":"0.00","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com"},"publisher":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com","logo":{"@type":"ImageObject","url":"https://thetoolzy.com/assets/logo.png"}},"keywords":["word counter","count words online","character count","text statistics","Toolzy writing tools"]}</script>
+<style>:root{--bg:#fff;--text:#333;--secondary-bg:#f1f5ff;--input-bg:#f9f9f9;--primary:#6366f1}.dark{--bg:#1e1e2f;--text:#f5f5f5;--secondary-bg:#2c2c3c;--input-bg:#2b2b3d;--primary:#8b5cf6}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:center;transition:.3s}.container{background:var(--bg);border-radius:16px;padding:30px;width:90%;max-width:700px;box-shadow:0 15px 40px rgba(0,0,0,.08)}.top-bar{display:flex;justify-content:space-between;align-items:center}.actions button{font-size:20px;margin-left:10px;background:var(--input-bg);border:none;padding:6px 12px;border-radius:8px;cursor:pointer;transition:.3s}.actions button:hover{background:var(--primary);color:#fff}textarea{width:100%;height:220px;padding:15px;font-size:16px;border:1px solid #ddd;border-radius:12px;resize:vertical;outline:none;font-family:'Courier New',monospace;background:var(--input-bg);color:var(--text);margin-top:15px}textarea:focus{border-color:var(--primary);box-shadow:0 0 0 2px rgba(99,102,241,.2)}.stats{display:flex;justify-content:space-between;margin-top:20px;font-size:16px;background:var(--secondary-bg);padding:15px;border-radius:10px}</style>
+</head>
+<body>
+<div class="container">
+<div class="top-bar">
+<h1>🔍 Text Analyzer</h1>
+<div class="actions">
+<button id="copyBtn" title="Copy to Clipboard">📋</button>
+<button id="toggleTheme" title="Toggle Dark Mode">🌙</button>
+</div>
+</div>
+<textarea id="textInput" placeholder="Paste or type your code or text here..."></textarea>
+<div class="stats">
+<div><strong>Words:</strong> <span id="wordCount">0</span></div>
+<div><strong>Characters:</strong> <span id="charCount">0</span></div>
+<div><strong>Lines:</strong> <span id="lineCount">0</span></div>
+</div>
+</div>
+<script>
+const t=document.getElementById("textInput"),w=document.getElementById("wordCount"),c=document.getElementById("charCount"),l=document.getElementById("lineCount"),d=document.getElementById("toggleTheme"),b=document.getElementById("copyBtn");t.addEventListener("input",()=>{const e=t.value,s=e.trim().length>0?e.trim().split(/\s+/).length:0;w.textContent=s;c.textContent=e.length;l.textContent=e.split(/\n/).filter(e=>e.trim()!=="").length}),d.addEventListener("click",()=>{document.body.classList.toggle("dark");d.textContent=document.body.classList.contains("dark")?"☀️":"🌙"}),b.addEventListener("click",()=>{t.select();document.execCommand("copy");b.textContent="✅";setTimeout(()=>b.textContent="📋",1500)});
+</script>
+</body>
+</html>

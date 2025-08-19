@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Generate SEO-friendly meta tags for your website easily and quickly with TheToolzy Meta Tag Generator. Improve your site’s search engine ranking for free.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meta Tag Generator – TheToolzy">
+<meta property="og:description" content="Create optimized meta tags including title, description, keywords, and more using TheToolzy Meta Tag Generator. Free and easy to use.">
+<meta property="og:url" content="https://thetoolzy.com/meta-tag-generator">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/meta-tag-generator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meta Tag Generator – TheToolzy">
+<meta name="twitter:description" content="Easily generate SEO meta tags for your website with TheToolzy Meta Tag Generator. Boost your SEO with well-crafted meta tags.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/meta-tag-generator.png">
+
+  <title>Meta Tag Generator</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Meta Tag Generator",
+  "url": "https://thetoolzy.com/meta-tag-generator",
+  "applicationCategory": "SEOApplication",
+  "operatingSystem": "All",
+  "description": "Generate SEO-friendly meta tags for your website easily and quickly with TheToolzy Meta Tag Generator. Improve your site’s search engine ranking for free.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/meta-tag-generator.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "meta tag generator",
+    "seo meta tags",
+    "generate meta tags",
+    "free meta tag tool",
+    "TheToolzy seo tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      margin-top: 20px;
+      background: #f7f9fc;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      white-space: pre-wrap;
+      font-family: monospace;
+      color: #222;
+    }
+
+    .copy-btn {
+      background-color: #28a745;
+      margin-top: 10px;
+    }
+
+    .copy-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Meta Tag Generator</h2>
+
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" id="title" placeholder="Your page title">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea id="description" rows="2" placeholder="Short page description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Keywords (comma separated)</label>
+      <input type="text" id="keywords" placeholder="e.g. HTML, CSS, SEO">
+    </div>
+
+    <div class="form-group">
+      <label>Author</label>
+      <input type="text" id="author" placeholder="Your name or brand">
+    </div>
+
+    <div class="form-group">
+      <label>Robots</label>
+      <select id="robots">
+        <option value="index, follow">index, follow</option>
+        <option value="noindex, follow">noindex, follow</option>
+        <option value="index, nofollow">index, nofollow</option>
+        <option value="noindex, nofollow">noindex, nofollow</option>
+      </select>
+    </div>
+
+    <button onclick="generateMetaTags()">Generate Meta Tags</button>
+
+    <div class="output" id="output"></div>
+    <button class="copy-btn" onclick="copyMetaTags()">Copy to Clipboard</button>
+  </div>
+
+  <script>
+    function generateMetaTags() {
+      const title = document.getElementById("title").value.trim();
+      const description = document.getElementById("description").value.trim();
+      const keywords = document.getElementById("keywords").value.trim();
+      const author = document.getElementById("author").value.trim();
+      const robots = document.getElementById("robots").value;
+
+      let meta = '';
+
+      if (title) meta += `<title>${title}</title>\n`;
+      if (description) meta += `<meta name="description" content="${description}">\n`;
+      if (keywords) meta += `<meta name="keywords" content="${keywords}">\n`;
+      if (author) meta += `<meta name="author" content="${author}">\n`;
+      if (robots) meta += `<meta name="robots" content="${robots}">\n`;
+
+      // Always useful
+      meta += `<meta charset="UTF-8">\n`;
+      meta += `<meta name="viewport" content="width=device-width, initial-scale=1.0">\n`;
+
+      document.getElementById("output").textContent = meta;
+    }
+
+    function copyMetaTags() {
+      const output = document.getElementById("output");
+      const text = output.textContent;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Meta tags copied to clipboard!");
+      }).catch(err => {
+        alert("Failed to copy: " + err);
+      });
+    }
+  </script>
+
+</body>
+</html>
