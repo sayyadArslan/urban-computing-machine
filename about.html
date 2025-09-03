@@ -6,24 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!-- Primary Meta Tags -->
-<title>About Toolzy - Your Web Tools Hub</title>
-<meta name="description" content="Learn about Toolzy, the ultimate platform offering a wide range of web tools and utilities to simplify your online tasks.">
-<meta name="keywords" content="Toolzy about, Toolzy platform, web tools, online utilities, Toolzy team">
-<meta name="author" content="Toolzy">
+    <title>About Toolzy - Your Web Tools Hub</title>
+    <meta name="description"
+        content="Learn about Toolzy, the ultimate platform offering a wide range of web tools and utilities to simplify your online tasks.">
+    <meta name="keywords" content="Toolzy about, Toolzy platform, web tools, online utilities, Toolzy team">
+    <meta name="author" content="Toolzy">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:title" content="About Toolzy - Your Web Tools Hub">
-<meta property="og:description" content="Learn about Toolzy, the ultimate platform offering a wide range of web tools and utilities to simplify your online tasks.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://thetoolzy.com/about.html">
-<meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="About Toolzy - Your Web Tools Hub">
+    <meta property="og:description"
+        content="Learn about Toolzy, the ultimate platform offering a wide range of web tools and utilities to simplify your online tasks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thetoolzy.com/about.html">
+    <meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About Toolzy - Your Web Tools Hub">
-<meta name="twitter:description" content="Learn about Toolzy, the ultimate platform offering a wide range of web tools and utilities to simplify your online tasks.">
-<meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
-<script type="application/ld+json">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Toolzy - Your Web Tools Hub">
+    <meta name="twitter:description"
+        content="Learn about Toolzy, the ultimate platform offering a wide range of web tools and utilities to simplify your online tasks.">
+    <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
@@ -66,31 +69,28 @@
         }
 
         .navbar {
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 80%;
-            margin: 15px auto;
+            width: 100%;
             box-shadow: 0 10px 25px #d7bde2;
-            border-radius: 10px;
-            padding: 0 20px;
             height: 60px;
-            position: relative;
-            background: #fff
+            background: none;
+            padding: 0px 50px;
         }
 
         .logo {
             align-items: center;
-            gap: 10px
         }
 
         .logo img {
-            width: 150px
+            width: 50px;
         }
 
         .logo h1 {
-            position: absolute;
-            left: 110px;
-            font-size: 32px
+            font-size: 38px;
+            font-weight: 700;
+            color: purple;
         }
 
         .menu {
@@ -342,7 +342,12 @@
                 gap: 50px
             }
         }
-
+        @media (max-width:768px) {
+            .navbar
+  {
+    padding:0 20px;
+  }
+        }
         @media(max-width:560px) {
             .footer {
                 height: 1400px
@@ -382,7 +387,7 @@
         <div class="logo"><img src="images/xd.png" />
             <h1>Toolzy</h1>
         </div>
-        <div class="menu-icons"><img src="images/burger-bar.png" id="openMenu" /><img src="images/close.png"
+        <div class="menu-icons"><img src="images/burger-bar.avif" id="openMenu" /><img src="images/close.avif"
                 id="closeMenu" /></div>
         <div class="menu" id="navMenu"><a href="index.html">Home</a><a href="about.html">About</a><a
                 href="contact.html">Contact</a><a href="help.html">Help</a></div>
@@ -396,7 +401,7 @@
             </div>
             <div class="mission">
                 <h1>Our Mission</h1>
-                <div><img src="images/mission.png" alt="">
+                <div><img src="images/mission.avif" alt="">
                     <p>Toolzy was born out of a simple idea: making powerful tools accessible to everyone, anywhere,
                         without the need for heavy software or complicated installations. From developers resizing
                         images to students converting files, Toolzy simplifies everyday digital tasks in one place.</p>
@@ -407,12 +412,12 @@
                 <div>
                     <p>We envision Toolzy as the go-to toolbox for millions of users worldwide, expanding with smarter
                         AI-powered tools, cross-platform integration, and even offline desktop apps.</p><img
-                        src="images/vison.png" alt="">
+                        src="images/vison.avif" alt="">
                 </div>
             </div>
             <div class="mission">
                 <h1>Our story</h1>
-                <div><img src="images/story.png" alt="">
+                <div><img src="images/story.avif" alt="">
                     <p>Toolzy was born out of a simple idea: making powerful tools accessible to everyone, anywhere,
                         without the need for heavy software or complicated installations. From developers resizing
                         images to students converting files, Toolzy simplifies everyday digital tasks in one place.</p>
@@ -446,14 +451,14 @@
     <footer class="footer">
         <div class="foot1">
             <div class="intro">
-                <div class="intro-1"><img src="images/xd.png" />
+                <div class="intro-1"><img src="images/xd.avif" />
                     <h1>Toolzy</h1>
                 </div>
                 <p>Toolzy is a modern web app offering <br>essential online tools like image compression,
                     file<br>conversion, and barcode generation—all in one place.</p>
-                <section class="social"><img src="images/instagram.png" /><img src="images/linkedin.png" /><img
-                        src="images/threads.png" /><img src="images/youtube.png" /><img src="images/twitter.png" /><img
-                        src="images/facebook.png" /></section>
+                <section class="social"><img src="images/instagram.avif" /><img src="images/linkedin.avif" /><img
+                        src="images/threads.avif" /><img src="images/youtube.avif" /><img
+                        src="images/twitter.avif" /><img src="images/facebook.avif" /></section>
             </div>
             <section class="list-33">
                 <div>

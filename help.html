@@ -7,23 +7,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Primary Meta Tags -->
-<title>Toolzy Help Center - Find Guides and Support</title>
-<meta name="description" content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
-<meta name="keywords" content="Toolzy help, Toolzy support, Toolzy guides, Toolzy FAQs, web tools help">
-<meta name="author" content="Toolzy">
+  <title>Toolzy Help Center - Find Guides and Support</title>
+  <meta name="description"
+    content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
+  <meta name="keywords" content="Toolzy help, Toolzy support, Toolzy guides, Toolzy FAQs, web tools help">
+  <meta name="author" content="Toolzy">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:title" content="Toolzy Help Center - Find Guides and Support">
-<meta property="og:description" content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://thetoolzy.com/help">
-<meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Toolzy Help Center - Find Guides and Support">
+  <meta property="og:description"
+    content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thetoolzy.com/help">
+  <meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Toolzy Help Center - Find Guides and Support">
-<meta name="twitter:description" content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
-<meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Toolzy Help Center - Find Guides and Support">
+  <meta name="twitter:description"
+    content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
+  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,57 +47,251 @@
 </script>
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;color:#222}
-    .navbar{display:flex;justify-content:space-between;align-items:center;width:90%;margin:15px auto;
-      box-shadow:0 10px 25px #d7bde2;border-radius:10px;padding:0 20px;height:60px;background:#fff;position:relative}
-    .logo{display:flex;align-items:center;gap:10px}
-    .logo img{width:140px}
-    .menu{display:flex;gap:20px;align-items:center}
-    .menu a{text-decoration:none;font-size:16px;color:#000;transition:.3s}
-    .menu a:hover{border-bottom:2px solid purple;color:purple}
-    #closeMenu,.menu-icons{display:none}
-    .menu-icons{font-size:24px;cursor:pointer}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-    main{width:90%;margin:40px auto;display:flex;flex-direction:column;gap:30px}
-    .help{text-align:center}
-    .help h1{font-size:2.5rem;margin-bottom:10px;color:#333}
-    .help p{font-size:18px;color:#444}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #222
+    }
 
-    .faq{max-width:800px;margin:0 auto}
-    .faq-item{border:1px solid #ddd;border-radius:8px;margin-bottom:10px;overflow:hidden;background:#fff}
-    .faq-question{padding:15px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center}
-    .faq-answer{max-height:0;overflow:hidden;padding:0 15px;transition:all .3s ease;font-size:15px;color:#333}
-    .faq-item.active .faq-answer{max-height:500px;padding:15px}
-    .faq-item.active .faq-question{color:purple}
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      box-shadow: 0 10px 25px #d7bde2;
+      height: 60px;
+      background: none;
+      padding: 0px 50px;
+    }
 
-    .footer{background:#fff;margin-top:60px;padding:40px 20px;display:flex;flex-direction:column;gap:30px}
-    .foot1{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px}
-    .intro-1{display:flex;align-items:center;gap:10px}
-    .intro-1 img{width:100px}
-    .social{display:flex;gap:15px;margin-top:20px}
-    .social img{width:28px;cursor:pointer;transition:.2s}
-    .social img:hover{transform:scale(1.1)}
-    .list-33{display:flex;gap:40px;flex-wrap:wrap}
-    .list-33 div{display:flex;flex-direction:column;gap:10px}
-    .list-33 h1{font-size:18px;margin-bottom:5px}
-    .list-33 a{color:#151515;font-size:14px;text-decoration:none}
-    .list-33 a:hover{border-bottom:1px solid #000}
-    .right{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;font-size:14px}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
 
-    @media(max-width:768px){
-      .menu{flex-direction:column;display:none;position:absolute;top:60px;left:0;right:0;background:#fff;z-index:10;padding:15px}
-      .menu-icons{display:block}
-      .footer{align-items:center}
+    .logo h1 {
+      font-size: 38px;
+      font-weight: 700;
+      color: purple;
+    }
+
+    .logo img {
+      width: 50px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      align-items: center
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #000;
+      font-weight: 500;
+      transition: .3s
+    }
+
+    .menu a:hover {
+      border-bottom: 2px solid purple;
+      color: purple
+    }
+
+    #closeMenu,
+    .menu-icons {
+      display: none
+    }
+
+    .menu-icons {
+      font-size: 24px;
+      cursor: pointer
+    }
+
+    main {
+      width: 90%;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px
+    }
+
+    .help {
+      text-align: center
+    }
+
+    .help h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #333
+    }
+
+    .help p {
+      font-size: 18px;
+      color: #444
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: 0 auto
+    }
+
+    .faq-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #fff
+    }
+
+    .faq-question {
+      padding: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 15px;
+      transition: all .3s ease;
+      font-size: 15px;
+      color: #333
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 15px
+    }
+
+    .faq-item.active .faq-question {
+      color: purple
+    }
+
+    .footer {
+      background: #fff;
+      margin-top: 60px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px
+    }
+
+    .foot1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px
+    }
+
+    .intro-1 {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .intro-1 img {
+      width: 100px
+    }
+
+    .social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px
+    }
+
+    .social img {
+      width: 28px;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .social img:hover {
+      transform: scale(1.1)
+    }
+
+    .list-33 {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap
+    }
+
+    .list-33 div {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .list-33 h1 {
+      font-size: 18px;
+      margin-bottom: 5px
+    }
+
+    .list-33 a {
+      color: #151515;
+      font-size: 14px;
+      text-decoration: none
+    }
+
+    .list-33 a:hover {
+      border-bottom: 1px solid #000
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      font-size: 14px
+    }
+
+    @media(max-width:768px) {
+      .menu {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 10;
+        padding: 15px
+      }
+
+      .navbar {
+        padding: 0 20px;
+      }
+
+      .menu-icons {
+        display: block
+      }
+
+      .footer {
+        align-items: center
+      }
     }
   </style>
 </head>
 
 <body>
   <nav class="navbar">
-    <div class="logo"><img src="images/xd.png" alt="Toolzy logo"><h1>Toolzy</h1></div>
+    <div class="logo"><img src="images/xd.png" alt="Toolzy logo">
+      <h1>Toolzy</h1>
+    </div>
     <div class="menu-icons"><i class="fas fa-bars" id="openMenu"></i><i class="fas fa-times" id="closeMenu"></i></div>
-    <div class="menu" id="navMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="#">Help</a></div>
+    <div class="menu" id="navMenu"><a href="index.html">Home</a><a href="about.html">About</a><a
+        href="contact.html">Contact</a><a href="#">Help</a></div>
   </nav>
 
   <main>
@@ -104,27 +301,67 @@
     </div>
 
     <div class="faq">
-      <div class="faq-item"><div class="faq-question">What is Toolzy?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">Toolzy is an all-in-one online toolkit that provides free, easy-to-use web-based tools for everyday needs — from file converters to image editing, social media utilities, and developer tools.</div></div>
-      <div class="faq-item"><div class="faq-question">Is Toolzy free to use?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes, Toolzy is completely free to use. You don’t need to pay for any tool.</div></div>
-      <div class="faq-item"><div class="faq-question">Do I need an account to use Toolzy?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">No, you can use all the tools without creating an account.</div></div>
-      <div class="faq-item"><div class="faq-question">Is Toolzy safe and secure?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes, Toolzy is safe. Files are processed securely in your browser or on our servers, and we don’t store personal files.</div></div>
-      <div class="faq-item"><div class="faq-question">Can I compress multiple images at once?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes, Toolzy supports bulk image compression. Upload multiple images and compress them together.</div></div>
-      <div class="faq-item"><div class="faq-question">How to resize an image without losing quality?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">Use Toolzy’s Image Resizer tool. Upload your image, set the dimensions, and it will resize while keeping the best possible quality.</div></div>
-      <div class="faq-item"><div class="faq-question">Tool not working, what should I do?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">Try refreshing the page or clearing your browser cache. If issues persist, contact us via the Contact Page with details.</div></div>
+      <div class="faq-item">
+        <div class="faq-question">What is Toolzy?<i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Toolzy is an all-in-one online toolkit that provides free, easy-to-use web-based tools
+          for everyday needs — from file converters to image editing, social media utilities, and developer tools.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is Toolzy free to use?<i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes, Toolzy is completely free to use. You don’t need to pay for any tool.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do I need an account to use Toolzy?<i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">No, you can use all the tools without creating an account.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is Toolzy safe and secure?<i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes, Toolzy is safe. Files are processed securely in your browser or on our servers, and
+          we don’t store personal files.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I compress multiple images at once?<i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes, Toolzy supports bulk image compression. Upload multiple images and compress them
+          together.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How to resize an image without losing quality?<i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Use Toolzy’s Image Resizer tool. Upload your image, set the dimensions, and it will
+          resize while keeping the best possible quality.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Tool not working, what should I do?<i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Try refreshing the page or clearing your browser cache. If issues persist, contact us
+          via the Contact Page with details.</div>
+      </div>
     </div>
   </main>
 
   <footer class="footer">
     <div class="foot1">
       <div class="intro">
-        <div class="intro-1"><img src="images/xd.png" alt="logo"><h1>Toolzy</h1></div>
-        <p>Toolzy is a modern web app offering essential online tools like image compression, file conversion, and barcode generation—all in one place.</p>
-        <div class="social"><img src="images/instagram.png"><img src="images/linkedin.png"><img src="images/threads.png"><img src="images/youtube.png"><img src="images/twitter.png"><img src="images/facebook.png"></div>
+        <div class="intro-1"><img src="images/xd.avif" alt="logo">
+          <h1>Toolzy</h1>
+        </div>
+        <p>Toolzy is a modern web app offering essential online tools like image compression, file conversion, and
+          barcode generation—all in one place.</p>
+        <div class="social"><img src="images/instagram.avif"><img src="images/linkedin.avif"><img
+            src="images/threads.avif"><img src="images/youtube.avif"><img src="images/twitter.avif"><img
+            src="images/facebook.avif"></div>
       </div>
       <div class="list-33">
-        <div><h1>Product</h1><a href="#">Features</a><a href="#">Pricing</a><a href="#">Integrations</a><a href="#">Changelog</a></div>
-        <div><h1>Resources</h1><a href="#">Documentation</a><a href="#">Tutorials</a><a href="#">Blog</a><a href="#">Support</a></div>
-        <div><h1>Company</h1><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a><a href="#">Partners</a></div>
+        <div>
+          <h1>Product</h1><a href="#">Features</a><a href="#">Pricing</a><a href="#">Integrations</a><a
+            href="#">Changelog</a>
+        </div>
+        <div>
+          <h1>Resources</h1><a href="#">Documentation</a><a href="#">Tutorials</a><a href="#">Blog</a><a
+            href="#">Support</a>
+        </div>
+        <div>
+          <h1>Company</h1><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a><a href="#">Partners</a>
+        </div>
       </div>
     </div>
     <div class="right">
@@ -135,20 +372,21 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded",()=>{
-      const open=document.getElementById("openMenu"),
-            close=document.getElementById("closeMenu"),
-            nav=document.getElementById("navMenu");
-      open.addEventListener("click",()=>{nav.style.display="flex";open.style.display="none";close.style.display="block"});
-      close.addEventListener("click",()=>{nav.style.display="none";open.style.display="block";close.style.display="none"});
-     
-      document.querySelectorAll(".faq-question").forEach(q=>{
-        q.addEventListener("click",()=>{
-          const item=q.parentElement;
+    document.addEventListener("DOMContentLoaded", () => {
+      const open = document.getElementById("openMenu"),
+        close = document.getElementById("closeMenu"),
+        nav = document.getElementById("navMenu");
+      open.addEventListener("click", () => { nav.style.display = "flex"; open.style.display = "none"; close.style.display = "block" });
+      close.addEventListener("click", () => { nav.style.display = "none"; open.style.display = "block"; close.style.display = "none" });
+
+      document.querySelectorAll(".faq-question").forEach(q => {
+        q.addEventListener("click", () => {
+          const item = q.parentElement;
           item.classList.toggle("active");
         });
       });
     });
   </script>
 </body>
+
 </html>

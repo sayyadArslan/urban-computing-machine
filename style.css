@@ -50,12 +50,11 @@ html{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width:80%;
-    margin:15px auto;
+    width:100%;
     box-shadow:0 10px 25px #d7bde2;
-    border-radius:10px;
-    padding:0 20px;
-    height:60px
+    height:60px;
+    background: none;
+    padding: 0px 50px;
 }
 .logo,.menu{
     display:flex;
@@ -63,16 +62,14 @@ html{
 }
 .logo img{
     
-    width:150px;
-   /* border:2px solid red;*/
+    width:50px;
+    /*border:2px solid red;*/
 }
-.logo{
-    gap:10px
-}
+
 .logo h1{
-    position:absolute;
-    left:110px;
-    font-size:32px
+    font-size:38px;
+    font-weight: 700;
+    color: purple;
 }
 .menu{
     gap:30px
@@ -124,11 +121,16 @@ html{
     flex-direction:column
 }
 .home h1{
-    font-size:4rem
+    font-size:4rem;
+    color: purple;
 }
 .home p{
     margin-top:10px;
     font-size:18px
+}
+.home div
+{
+    display: flex;
 }
 .sear a,.tool a{
     color:#fff;
@@ -373,6 +375,10 @@ html{
     .sear{
         width:400px
     }
+    .home div
+    {
+        flex-direction: column;
+    }
 }
 @media (max-width:560px){
     .footer{
@@ -395,5 +401,14 @@ html{
   {
     padding:0 20px;
   }
- 
+  .home h1
+  {
+    font-size: 2rem;
+  }
+  .box h3
+  {
+    font-size: 2rem;
+    color: purple;
+    margin-top: 15px;
+  }
 }
