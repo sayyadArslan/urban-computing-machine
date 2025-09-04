@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WebP to PNG Converter | Free Online Tool</title>
+  <meta name="description" content="Convert WebP images to PNG online for free. Fast, secure, and easy to use. No upload required – everything works in your browser.">
+  <meta name="keywords" content="webp to png, image converter, convert webp, online tool, image format">
+  <meta name="author" content="YourSiteName">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "WebP to PNG Converter",
+  "url": "https://thetoolzy.com/tools/webp-to-png",
+  "applicationCategory": "ImageApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+  "description": "Use Toolzy's free WebP to PNG converter to convert WebP images to high-quality PNG format. Fast, private, and browser-based.",
+  "keywords": "WebP to PNG, convert WebP, image converter, free PNG converter, online tool",
+  "featureList": [
+    "Convert WebP to PNG locally in-browser",
+    "Retains transparent backgrounds",
+    "Secure — no file uploads",
+    "Mobile and desktop optimized",
+    "Free forever"
+  ],
+  "screenshot": "https://thetoolzy.com/assets/screenshots/webp-to-png.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/logo.png",
+      "width": 200,
+      "height": 60
+    }
+  }
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f5f9;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      color: #222;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label.upload-btn {
+      display: inline-block;
+      background: #0d6efd;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      transition: background 0.3s;
+    }
+
+    label.upload-btn:hover {
+      background: #0b5ed7;
+    }
+
+    .convert-btn {
+      background: #198754;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+      display: none;
+    }
+
+    .convert-btn:hover {
+      background: #157347;
+    }
+
+    #preview {
+      margin-top: 1rem;
+      max-width: 100%;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .status {
+      margin-top: 1rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WebP to PNG Converter</h1>
+    <label class="upload-btn" for="webpInput">Choose WebP File</label>
+    <input type="file" id="webpInput" accept="image/webp" />
+    <img id="preview" src="" alt="WebP Preview">
+    <button class="convert-btn" id="convertBtn">Convert to PNG</button>
+    <div class="status" id="statusText"></div>
+  </div>
+
+  <script>
+    const input = document.getElementById("webpInput");
+    const preview = document.getElementById("preview");
+    const convertBtn = document.getElementById("convertBtn");
+    const statusText = document.getElementById("statusText");
+    let webpImage = null;
+
+    input.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file && file.type === "image/webp") {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+          convertBtn.style.display = "inline-block";
+          webpImage = new Image();
+          webpImage.src = e.target.result;
+          statusText.textContent = "Ready to convert.";
+        };
+        reader.readAsDataURL(file);
+      } else {
+        statusText.textContent = "Please upload a valid WebP file.";
+      }
+    });
+
+    convertBtn.addEventListener("click", function () {
+      if (!webpImage) return;
+
+      const canvas = document.createElement("canvas");
+      canvas.width = webpImage.width;
+      canvas.height = webpImage.height;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(webpImage, 0, 0);
+
+      canvas.toBlob(function (blob) {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "converted.png";
+        link.click();
+        statusText.textContent = "✅ PNG image downloaded.";
+      }, "image/png");
+    });
+  </script>
+</body>
+</html>

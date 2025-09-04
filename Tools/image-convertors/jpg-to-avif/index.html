@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JPG to AVIF Converter</title>
+<style>
+body{font-family:"Segoe UI",sans-serif;background:#f0f0f0;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}.container{text-align:center;background:#fff;padding:30px;border-radius:12px;box-shadow:0 5px 25px rgba(0,0,0,.1);max-width:400px;width:90%}h1{margin-bottom:20px;color:#333}input[type=file]{display:none}.custom-file-upload{padding:12px 25px;background:#3498db;color:#fff;border-radius:6px;cursor:pointer;display:inline-block;margin-bottom:20px;transition:background .3s}.custom-file-upload:hover{background:#2980b9}.preview{width:100%;height:250px;border:2px dashed #ccc;border-radius:8px;margin-bottom:20px;overflow:hidden;display:flex;justify-content:center;align-items:center}.preview img{max-width:100%;max-height:100%;object-fit:contain}.download-btn{padding:12px 25px;background:#2ecc71;color:#fff;border:none;border-radius:6px;cursor:pointer;transition:background .3s}.download-btn:hover{background:#27ae60}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>JPG to AVIF Converter</h1>
+<label for="upload" class="custom-file-upload">Upload JPG</label>
+<input type="file" id="upload" accept="image/jpeg"/>
+<div class="preview"><img id="preview-image" src="" alt="Image Preview"/></div>
+<button id="download-btn" class="download-btn" style="display:none;">Download AVIF</button>
+</div>
+<script>
+const upload = document.getElementById("upload"),
+      previewImage = document.getElementById("preview-image"),
+      downloadBtn = document.getElementById("download-btn");
+
+upload.addEventListener("change", e => {
+    const file = e.target.files[0];
+    if (file && file.type === "image/jpeg") {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            previewImage.src = ev.target.result;
+            downloadBtn.style.display = "inline-block";
+        };
+        reader.readAsDataURL(file);
+    } else {
+        alert("Please upload a JPG image.");
+    }
+});
+
+downloadBtn.addEventListener("click", () => {
+    const canvas = document.createElement("canvas"),
+          ctx = canvas.getContext("2d"),
+          img = new Image();
+
+    img.src = previewImage.src;
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+
+        // don’t reuse variable name!
+        const avifData = canvas.toDataURL("image/avif");
+        if (!avifData.startsWith("data:image/avif")) {
+            alert("Your browser does not support AVIF export using canvas. Try Chrome or Firefox.");
+            return;
+        }
+
+        const link = document.createElement("a");
+        link.href = avifData;
+        link.download = "converted.avif";
+        link.click();
+    };
+});
+
+</script>
+</body>
+</html>

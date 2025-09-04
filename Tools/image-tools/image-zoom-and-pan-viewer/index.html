@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Zoom and Pan Viewer – TheToolzy</title>
+<meta name="description" content="Zoom and pan images online using TheToolzy's Image Viewer. Explore image details with precision – no downloads or sign-up needed.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image Zoom and Pan Viewer – TheToolzy">
+<meta property="og:description" content="Use TheToolzy to zoom in and pan around images online. Great for detailed analysis and visual exploration. Free, fast, and browser-based.">
+<meta property="og:url" content="https://thetoolzy.com/image-zoom-pan-viewer">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/image-zoom-pan-viewer.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Zoom and Pan Viewer – TheToolzy">
+<meta name="twitter:description" content="Interactively zoom and pan your images online using TheToolzy. Perfect for photographers, designers, and developers. No installation required.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/image-zoom-pan-viewer.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Zoom and Pan Viewer","url":"https://thetoolzy.com/image-zoom-pan-viewer","applicationCategory":"MultimediaApplication","operatingSystem":"All","description":"Explore your images with zoom and pan functionality using TheToolzy. This free online tool lets you interactively zoom into images and pan across for better detail.","browserRequirements":"JavaScript enabled browser","image":"https://thetoolzy.com/assets/og-image/image-zoom-pan-viewer.png","offers":{"@type":"Offer","price":"0.00","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com"},"publisher":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com","logo":{"@type":"ImageObject","url":"https://thetoolzy.com/assets/logo.png"}},"keywords":["image zoom viewer","zoom and pan image","online image viewer","image explorer tool","Toolzy image tools"]}</script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>body{margin:0;font-family:'Segoe UI',sans-serif;background:#f9f9f9}.container{max-width:900px;margin:40px auto;padding:20px;text-align:center;background:white;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.1)}h2{margin-bottom:20px}.toolbar{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-bottom:15px}.custom-upload{background:#4CAF50;color:white;padding:10px 18px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}.custom-upload input[type=file]{display:none}#resetZoom{background:#2196F3;border:none;color:white;padding:10px 18px;font-size:16px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}#imageURL{padding:10px;border:1px solid #ccc;border-radius:8px;width:250px}.zoom-slider{margin:10px 0}#viewerContainer{width:100%;height:600px;overflow:hidden;border:2px solid #ddd;position:relative;background:#f0f0f0;border-radius:8px;touch-action:none}#imageViewer{position:absolute;top:0;left:0;cursor:grab;user-select:none;transform-origin:top left;max-width:none}</style>
+</head>
+<body>
+<div class="container">
+<h2>🖼️ Zoom & Pan Image Viewer</h2>
+<div class="toolbar">
+<label class="custom-upload"><input type="file" id="imageInput" accept="image/*"><span class="material-icons">upload</span> Choose Image</label>
+<input type="text" id="imageURL" placeholder="Paste image URL and hit Enter">
+<button id="resetZoom"><span class="material-icons">refresh</span> Reset</button>
+</div>
+<div class="zoom-slider"><label>🔍 Zoom: <input type="range" id="zoomSlider" min="0.5" max="5" step="0.1" value="1"></label></div>
+<div id="viewerContainer"><img id="imageViewer" src="" alt="Zoomable"></div>
+</div>
+<script>
+const i=document.getElementById("imageInput"),v=document.getElementById("imageViewer"),r=document.getElementById("resetZoom"),c=document.getElementById("viewerContainer"),z=document.getElementById("zoomSlider"),u=document.getElementById("imageURL");let s=1,o=0,y=0,a=0,b=0,d=0;i.addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader;r.onload=e=>{v.src=e.target.result;fReset()};r.readAsDataURL(f)}),u.addEventListener("keypress",e=>{"Enter"===e.key&&(v.src=e.target.value.trim(),fReset())}),z.addEventListener("input",()=>{s=parseFloat(z.value);fTransform()}),c.addEventListener("wheel",e=>{e.preventDefault();const t=e.deltaY>0?-.1:.1;s=Math.min(Math.max(.5,s+t),5);z.value=s;fTransform()}),c.addEventListener("mousedown",e=>{d=1;a=e.clientX;b=e.clientY;v.style.cursor="grabbing"}),c.addEventListener("mousemove",e=>{if(!d)return;o+=e.clientX-a;y+=e.clientY-b;a=e.clientX;b=e.clientY;fTransform()}),c.addEventListener("mouseup",()=>{d=0;v.style.cursor="grab"}),c.addEventListener("mouseleave",()=>{d=0;v.style.cursor="grab"}),r.addEventListener("click",fReset),c.addEventListener("touchstart",e=>{2===e.touches.length?l=eDist(e):(a=e.touches[0].clientX,b=e.touches[0].clientY)}),c.addEventListener("touchmove",e=>{e.preventDefault();if(2===e.touches.length){const t=eDist(e);s=Math.min(Math.max(.5,s+(t-l)*.005),5);z.value=s;l=t}else 1===e.touches.length&&(o+=e.touches[0].clientX-a,y+=e.touches[0].clientY-b,a=e.touches[0].clientX,b=e.touches[0].clientY);fTransform()},{passive:!1});let l=0;function eDist(e){const[t,n]=e.touches;return Math.hypot(n.clientX-t.clientX,n.clientY-t.clientY)}function fReset(){s=1;o=0;y=0;z.value=s;fTransform()}function fTransform(){v.style.transform=`translate(${o}px, ${y}px) scale(${s})`}
+</script>
+</body>
+</html>

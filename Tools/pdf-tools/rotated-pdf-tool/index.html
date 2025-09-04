@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotate PDF Pages</title>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Rotate PDF pages online for free with TheToolzy Rotate PDF tool. Easily adjust the orientation of your PDF files without any software installation.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rotate PDF – TheToolzy">
+<meta property="og:description" content="Quickly rotate pages of your PDF documents online using TheToolzy Rotate PDF tool. Secure, free, and easy to use.">
+<meta property="og:url" content="https://thetoolzy.com/rotate-pdf">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/rotate-pdf.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rotate PDF – TheToolzy">
+<meta name="twitter:description" content="Rotate PDF pages online for free with TheToolzy Rotate PDF tool. No downloads or sign-ups required.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/rotate-pdf.png">
+
+  
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rotate PDF",
+  "url": "https://thetoolzy.com/rotate-pdf",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "Rotate PDF pages online for free with TheToolzy Rotate PDF tool. Easily adjust the orientation of your PDF files without any software installation.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/rotate-pdf.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "rotate pdf",
+    "pdf rotation",
+    "rotate pdf pages online",
+    "TheToolzy pdf tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+    .file-label {
+      display: inline-block;
+      background-color: #1976d2;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .input-group {
+      margin: 1rem 0;
+      text-align: left;
+    }
+    .input-group label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background-color: #43a047;
+    }
+    .status {
+      margin-top: 1rem;
+      color: #333;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Rotate PDF Pages</h2>
+    <label class="file-label">
+      Choose PDF
+      <input type="file" id="pdfFile" accept="application/pdf">
+    </label>
+
+    <div class="input-group">
+      <label for="rotation">Rotation (degrees):</label>
+      <input type="number" id="rotation" value="90" step="90" min="-360" max="360">
+    </div>
+
+    <div class="input-group">
+      <label for="pageRange">Pages to Rotate (e.g., 1,2,5):</label>
+      <input type="text" id="pageRange" placeholder="Leave empty to rotate all pages">
+    </div>
+
+    <button class="btn" onclick="rotatePDF()">Rotate and Download</button>
+    <div class="status" id="statusMsg"></div>
+  </div>
+
+  <script>
+    async function rotatePDF() {
+      const fileInput = document.getElementById('pdfFile');
+      const rotationInput = parseInt(document.getElementById('rotation').value);
+      const pageRange = document.getElementById('pageRange').value;
+      const statusMsg = document.getElementById('statusMsg');
+
+      if (!fileInput.files.length) {
+        statusMsg.textContent = 'Please upload a PDF file.';
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const arrayBuffer = await file.arrayBuffer();
+      const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+      const totalPages = pdfDoc.getPageCount();
+
+      let pagesToRotate = Array.from({ length: totalPages }, (_, i) => i);
+      if (pageRange.trim()) {
+        pagesToRotate = pageRange.split(',').map(num => parseInt(num.trim()) - 1).filter(i => i >= 0 && i < totalPages);
+      }
+
+      pagesToRotate.forEach(index => {
+        const page = pdfDoc.getPage(index);
+        const currentRotation = page.getRotation().angle;
+        page.setRotation(PDFLib.degrees((currentRotation + rotationInput) % 360));
+      });
+
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'rotated.pdf';
+      link.click();
+
+      statusMsg.textContent = 'Download started.';
+    }
+  </script>
+</body>
+</html>

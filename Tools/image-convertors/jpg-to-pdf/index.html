@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JPG to PDF Converter</title>
+<style>
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh}.container{text-align:center}h1{color:#333}.card{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.1);width:100%;max-width:400px;margin-top:1rem}input[type=file]{display:none}#preview{display:none;max-width:100%;height:auto;margin-top:1rem;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,.1)}button{margin-top:1rem;padding:10px 20px;background:#007bff;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:1rem}button:hover{background:#0056b3}.file-label{display:inline-block;background:#28a745;color:#fff;padding:10px 20px;font-size:1rem;border-radius:8px;cursor:pointer;transition:.3s;margin-bottom:1rem}.file-label:hover{background:#218838}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>JPG to PDF Converter</h1>
+<div class="card">
+<label for="imageInput" class="file-label">Choose JPG Image</label>
+<input type="file" id="imageInput" accept=".jpg,.jpeg">
+<img id="preview" src="#" alt="Image preview">
+<button id="downloadBtn" style="display:none">Download PDF</button>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const input=document.getElementById("imageInput"),preview=document.getElementById("preview"),btn=document.getElementById("downloadBtn");let imgData="";
+input.addEventListener("change",function(){const f=this.files[0];if(f&&f.type.startsWith("image/jpeg")){const r=new FileReader;r.onload=function(e){imgData=e.target.result;preview.src=imgData;preview.style.display="block";btn.style.display="inline-block"};r.readAsDataURL(f)}else{alert("Please upload a JPG image.")}});
+btn.addEventListener("click",()=>{const {jsPDF}=window.jspdf,pdf=new jsPDF(),props=pdf.getImageProperties(imgData),w=pdf.internal.pageSize.getWidth(),h=(props.height*w)/props.width;pdf.addImage(imgData,"JPEG",0,0,w,h);pdf.save("converted.pdf")});
+</script>
+</body>
+</html>

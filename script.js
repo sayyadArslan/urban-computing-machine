@@ -18,6 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+
+
+
+
+
+  
   // Close menu
   closeIcon.addEventListener("click", () => {
     navMenu.style.display = "none";

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text Sorter Tool</title>
+<!-- Meta Tags -->
+<meta name="description" content="Easily sort lines, words, or paragraphs alphabetically with Toolzy's free Text Sorter tool. Perfect for organizing any text quickly and efficiently.">
+<meta name="keywords" content="text sorter, sort text online, alphabetical sorter, sort lines, Toolzy text tools">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/text-sorter">
+<meta property="og:title" content="Text Sorter Tool">
+<meta property="og:description" content="Easily sort lines, words, or paragraphs alphabetically with Toolzy's free Text Sorter tool. Perfect for organizing any text quickly and efficiently.">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/text-sorter.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/text-sorter">
+<meta name="twitter:title" content="Text Sorter Tool">
+<meta name="twitter:description" content="Easily sort lines, words, or paragraphs alphabetically with Toolzy's free Text Sorter tool. Perfect for organizing any text quickly and efficiently.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/text-sorter.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Text Sorter Tool",
+  "url": "https://thetoolzy.com/text-sorter",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Easily sort lines, words, or paragraphs alphabetically with Toolzy's free Text Sorter tool. Perfect for organizing any text quickly and efficiently.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/text-sorter.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "text sorter",
+    "sort text online",
+    "alphabetical sorter",
+    "sort lines",
+    "Toolzy text tools"
+  ]
+}
+</script>
+
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      flex: 1 1 40%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    @media (max-width: 500px) {
+      button {
+        flex: 1 1 100%;
+      }
+    }
+
+    .output {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f9fafb;
+      border-radius: 10px;
+      min-height: 60px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Text Sorter Tool</h1>
+    <textarea id="inputText" placeholder="Paste your text lines here..."></textarea>
+    <div class="buttons">
+      <button onclick="sortLinesAZ()">Sort A → Z</button>
+      <button onclick="sortLinesZA()">Sort Z → A</button>
+      <button onclick="copyOutput()">Copy</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+    <div class="output" id="outputText" placeholder="Sorted lines will appear here..."></div>
+  </div>
+
+  <script>
+    const input = document.getElementById('inputText');
+    const output = document.getElementById('outputText');
+
+    function sortLinesAZ() {
+      const lines = input.value.split('\n').filter(Boolean);
+      lines.sort((a, b) => a.localeCompare(b));
+      output.textContent = lines.join('\n');
+    }
+
+    function sortLinesZA() {
+      const lines = input.value.split('\n').filter(Boolean);
+      lines.sort((a, b) => b.localeCompare(a));
+      output.textContent = lines.join('\n');
+    }
+
+    function copyOutput() {
+      const temp = document.createElement('textarea');
+      temp.value = output.textContent;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      alert('Sorted text copied!');
+    }
+
+    function clearAll() {
+      input.value = '';
+      output.textContent = '';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text Case Converter</title>
+  <meta name="description" content="Convert and format test cases easily with Toolzy's Test Case Converter. Simplify test management and improve your QA workflow.">
+<meta name="keywords" content="Test Case Converter, Test Case Formatter, QA Tools, Test Management Tool, Toolzy Test Case Tool">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/test-case-converter">
+<meta property="og:title" content="Test Case Converter Tool">
+<meta property="og:description" content="Effortlessly convert and format test cases with Toolzy’s Test Case Converter to streamline your testing process.">
+<meta property="og:image" content="https://thetoolzy.com/images/test-case-converter-og.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/test-case-converter">
+<meta name="twitter:title" content="Test Case Converter Tool">
+<meta name="twitter:description" content="Convert test cases to different formats quickly using Toolzy's Test Case Converter tool.">
+<meta name="twitter:image" content="https://thetoolzy.com/images/test-case-converter-og.jpg">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Test Case Converter Tool",
+  "description": "Toolzy's Test Case Converter lets you quickly convert, format, and organize test cases to enhance your QA and software testing workflows.",
+  "url": "https://thetoolzy.com/test-case-converter",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "Test Case Converter",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+      outline: none;
+      margin-bottom: 1rem;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    button {
+      flex: 1 1 40%;
+      padding: 0.75rem 1rem;
+      background: #4A90E2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #357ABD;
+    }
+    @media (max-width: 500px) {
+      button {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Text Case Converter</h1>
+    <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+    <div class="buttons">
+      <button onclick="toUpperCase()">UPPER CASE</button>
+      <button onclick="toLowerCase()">lower case</button>
+      <button onclick="toTitleCase()">Title Case</button>
+      <button onclick="toSentenceCase()">Sentence case</button>
+      <button onclick="copyText()">Copy</button>
+      <button onclick="clearText()">Clear</button>
+    </div>
+  </div>
+
+  <script>
+    const textInput = document.getElementById('textInput');
+
+    function toUpperCase() {
+      textInput.value = textInput.value.toUpperCase();
+    }
+
+    function toLowerCase() {
+      textInput.value = textInput.value.toLowerCase();
+    }
+
+    function toTitleCase() {
+      textInput.value = textInput.value
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+
+    function toSentenceCase() {
+      const sentences = textInput.value
+        .toLowerCase()
+        .match(/[^.!?]+[.!?]*/g) || [];
+
+      textInput.value = sentences
+        .map(s => s.trim().charAt(0).toUpperCase() + s.trim().slice(1))
+        .join(' ');
+    }
+
+    function copyText() {
+      textInput.select();
+      document.execCommand('copy');
+      alert('Text copied to clipboard!');
+    }
+
+    function clearText() {
+      textInput.value = '';
+    }
+  </script>
+</body>
+</html>

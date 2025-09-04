@@ -11,20 +11,25 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <!-- Schema.org JSON-LD (optional but good for SEO) -->
   <title>Toolzy - Free Online Tools for Everyone</title>
-<meta name="description" content="Toolzy offers free, secure, and easy-to-use online tools including file converters, image tools, PDF utilities, social media tools, and more. No signup required.">
-<meta name="keywords" content="online tools, free tools, file converter, image compressor, pdf converter, text tools, Toolzy">
-<meta name="author" content="Toolzy">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Toolzy - Free Online Tools for Everyone">
-<meta property="og:description" content="Toolzy provides free, fast, and secure online tools including converters, image compressors, and productivity utilities.">
-<meta property="og:url" content="https://thetoolzy.com/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://thetoolzy.com/images/og-image.png"> <!-- replace with your actual image -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Toolzy - Free Online Tools for Everyone">
-<meta name="twitter:description" content="Toolzy offers free online tools for file conversion, image editing, and productivity. Safe and secure.">
-<meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
- <script type="application/ld+json">
+  <meta name="description"
+    content="Toolzy offers free, secure, and easy-to-use online tools including file converters, image tools, PDF utilities, social media tools, and more. No signup required.">
+  <meta name="keywords"
+    content="online tools, free tools, file converter, image compressor, pdf converter, text tools, Toolzy">
+  <meta name="author" content="Toolzy">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Toolzy - Free Online Tools for Everyone">
+  <meta property="og:description"
+    content="Toolzy provides free, fast, and secure online tools including converters, image compressors, and productivity utilities.">
+  <meta property="og:url" content="https://thetoolzy.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://thetoolzy.com/images/og-image.avif">
+  <!-- replace with your actual image -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Toolzy - Free Online Tools for Everyone">
+  <meta name="twitter:description"
+    content="Toolzy offers free online tools for file conversion, image editing, and productivity. Safe and secure.">
+  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.avif">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -36,38 +41,61 @@
     "name": "Toolzy",
     "logo": { 
       "@type": "ImageObject",
-      "url": "https://thetoolzy.com/images/og-image.png"
+      "url": "https://thetoolzy.com/images/og-image.avif"
     }
   }
 }
 </script>
- 
+
 </head>
 
 <body>
+  <div id="tz-cursor" aria-hidden="true" class="tz-cursor">
+    <div class="tz-cursor__ring"></div>
+    <div class="tz-cursor__dot"></div>
+  </div>
+
   <nav class="navbar">
-      <div class="logo">
-         <img src="images/xd.png"/>
-          <h1>Toolzy</h1>
-      </div>
+    <div class="logo">
+      <img src="images/xd.png" />
+      <h1>Toolzy</h1>
+    </div>
     <!-- Hamburger Icons -->
     <div class="menu-icons">
-      <img src="images/burger-bar.avif" class="fas fa-bars" id="openMenu"/>
-      <img src="images/close.avif" class="fas fa-times" id="closeMenu"/>
+      <img src="images/burger-bar.avif" class="fas fa-bars" id="openMenu" />
+      <img src="images/close.avif" class="fas fa-times" id="closeMenu" />
     </div>
 
     <!-- Navigation Menu -->
     <div class="menu" id="navMenu">
-      <a href="">Home</a>
+      <a href="https://thetoolzy.com/">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="help.html">Help</a>
     </div>
   </nav>
   <main>
-    <section class="home">
+    <section class="hero">
+
+      <h1>Free Oneline Tools For EverOne <br> With No Signup,No Limit</h1>
+      <p>Discover and Use a variety of Oneline tools for your tasks. </p>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search for tools..." onkeyup="searchTools()">
+        <ul id="results"></ul>
+      </div>
+      <section class="text-effect">
+        <div class="box">
+          <h3>We Provide</h3>
+          <span id="typing-text"></span>
+          <span class="cursor"></span>
+        </div>
+      </section>
+
+
+    </section>
+    <!--<section class="home">
       <div>
-         <h1>No Limit,</h1>
+        <h1>No Limit,</h1>
        <h1>No Subscription,</h1>
       <h1>Just Use</h1>
       </div>
@@ -77,14 +105,8 @@
           clean, and user-friendly experience.  Built for productivity and simplicity, Toolzy is your all-in-one
           digital toolbox.</p>
       </center>
-    </section>
-    <section class="text-effect">
-        <div class="box">
-            <h3>We Provide</h3>
-            <span id="typing-text"></span>
-            <span class="cursor"></span>
-        </div>
-    </section>
+    </section> 
+    
     <section class="seach">
         <div class="sear">
           <a href="#image-convert">Image Convertors</a>
@@ -102,10 +124,67 @@
         </div>
           
     </section>
+   -->
+    <section class="catagory">
+      <div class="cat-h1">
+        <h1>Tools Catagory</h1>
+      </div>
+      <div class="cat1">
+       <a href="#image-convert"> <div class="cat">
+          <img src="images/image.avif" alt="">
+          <h1>Image Convertors</h1>
+          <p>Convert Images into Different formats</p>
+        </div></a>
+          <a href="#pdf-tools"><div class="cat">
+          <img src="images/pdf.avif" alt="">
+          <h1>Pdf Convertors Convertors</h1>
+          <p>Convert Docs,Pdf,Excel,ppt files into Different formats</p>
+        </div></a>
+        <a href="#text-tools"><div class="cat">
+          <img src="images/text.avif" alt="">
+          <h1>Text Convertors</h1>
+          <p>Work with text files and documents</p>
+        </div></a>
+        <a href="#video"><div class="cat">
+          <img src="images/audio.avif" alt="">
+          <h1>Audio Convertors</h1>
+          <p>Convert audio files to various formats</p>
+        </div></a>
+         <a href="#video"><div class="cat">
+          <img src="images/video.avif" alt="">
+          <h1>Video Convertors</h1>
+          <p>Convert Videos into Different formats</p>
+        </div></a>
+        <a href="#email"><div class="cat">
+          <img src="images/email.avif" alt="">
+          <h1>Email Convertors</h1>
+          <p>Check and Validate Different Email formats</p>
+        </div></a>
+        <a href="#barcode"><div class="cat">
+          <img src="images/barcode.avif" alt="">
+          <h1>Barcode Convertors</h1>
+          <p>Convert and Make Barcodes</p>
+        </div></a>
+        <a href="#math"><div class="cat">
+          <img src="images/math.avif" alt="">
+          <h1>Math Convertors</h1>
+          <p>Convert and Calculate Different Sizes</p>
+        </div></a>
+         <a href="#seo-tools"><div class="cat">
+          <img src="images/seo.avif" alt="">
+          <h1>Seo Convertors</h1>
+          <p>Generate Meta tag</p>
+        </div></a>
+        <a href="#url-tools"><div class="cat">
+          <img src="images/url.avif" alt="">
+          <h1>URL Convertors</h1>
+          <p>Make Short Url,Make Optimized URL</p>
+        </div></a>
+      </div>
 
+    </section>
 
-
-    <!---Image Convertors--> 
+    <!---Image Convertors-->
     <section id="image-convert" class="tool-section">
       <div class="heading">
         <h1>Image Convertors</h1>
@@ -114,96 +193,96 @@
 
         <div class="tool">
           <h1>AVIF to WebP</h1>
-          <a href="Tools/Image convertors/avif to webp/index.html">Use Now!</a>
+          <a href="tools/image-convertors/avif-to-webp/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>BMP to JPG</h1>
-          <a href="Tools/Image convertors/bmp to jpg/index.html">Use Now!</a>
+          <a href="tools/image-convertors/bmp-to-jpg/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>AVIF to JPG</h1>
-          <a href="Tools/Image convertors/avif to jpg/index.html">Use Now!</a>
+          <a href="tools/image-convertors/avif-to-jpg/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>BMP to PNG</h1>
-          <a href="Tools/Image convertors/bmp to png/index.html">Use Now!</a>
+          <a href="tools/image-convertors/bmp to png/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>BMP to WebP</h1>
-          <a href="Tools/Image convertors/bmp to webp/index.html">Use Now!</a>
+          <a href="tools/image-convertors/bmp-to-webp/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>JFIF to JPG</h1>
-          <a href="Tools/Image convertors/jfif to jpg/index.html">Use Now!</a>
+          <a href="tools/image-convertors/jfif-to-jpg/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>JFIF to PNG</h1>
-          <a href="Tools/Image convertors/jfif to png/index.html">Use Now!</a>
-        </div>  
+          <a href="tools/image-convertors/jfif-to-png/index.html">Use Now!</a>
+        </div>
         <div class="tool">
           <h1>JFIF to WebP</h1>
-          <a href="Tools/Image convertors/jfif to webp/index.html">Use Now!</a>
-        </div>  
-         <div class="tool">
+          <a href="tools/image-convertors/jfif-to-webp/index.html">Use Now!</a>
+        </div>
+        <div class="tool">
           <h1>JPEG to JPG</h1>
-          <a href="Tools/Image convertors/jpeg to jpg/index.html">Use Now!</a>
-        </div>  
+          <a href="tools/image-convertors/jpeg-to-jpg/index.html">Use Now!</a>
+        </div>
         <div class="tool">
           <h1>JPG to AVIF</h1>
-          <a href="Tools/Image convertors/jpg to avif/index.html">Use Now!</a>
-        </div>  
+          <a href="tools/image-convertors/jpg-to-avif/index.html">Use Now!</a>
+        </div>
         <div class="tool">
           <h1>JPG to BMP</h1>
-          <a href="Tools/Image convertors/jpg to bmp/index.html">Use Now!</a>
-        </div> 
+          <a href="tools/image-convertors/jpg-to-bmp/index.html">Use Now!</a>
+        </div>
         <div class="tool">
           <h1>JPG to JPEG</h1>
-          <a href="Tools/Image convertors/jpg to jpeg/index.html">Use Now!</a>
-        </div> 
+          <a href="tools/image-convertors/jpg-to-jpeg/index.html">Use Now!</a>
+        </div>
         <div class="tool">
           <h1>JPG to PDF</h1>
-          <a href="Tools/Image convertors/jpg to pdf/index.html">Use Now!</a>
-        </div> 
+          <a href="tools/image-convertors/jpg-to-pdf/index.html">Use Now!</a>
+        </div>
         <div class="tool">
           <h1>JPG to PNG</h1>
-          <a href="Tools/Image convertors/jpg to png/index.html">Use Now!</a>
-        </div> 
-         <div class="tool">
-          <h1>JPG to WebP</h1>
-          <a href="Tools/Image convertors/jpg to webp/index.html">Use Now!</a>
+          <a href="tools/image-convertors/jpg-to-png/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
+          <h1>JPG to WebP</h1>
+          <a href="tools/image-convertors/jpg-to-webp/index.html">Use Now!</a>
+        </div>
+        <div class="tool">
           <h1>Images to PDF</h1>
-          <a href="Tools/Image convertors/multiple images to pdf/index.html">Use Now!</a>
+          <a href="tools/image-convertors/images-to-pdf/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>PNG to ICO</h1>
-          <a href="Tools/Image convertors/png to ico/index.html">Use Now!</a>
+          <a href="tools/image-convertors/png-to-ico/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>PNG to JPG</h1>
-          <a href="Tools/Image convertors/png to jpg/index.html">Use Now!</a>
+          <a href="tools/image-convertors/png-to-jpg/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>PNG to SVG</h1>
-          <a href="Tools/Image convertors/png to svg/index.html">Use Now!</a>
+          <a href="tools/image-convertors/png-to-svg/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>SVG to PNG</h1>
-          <a href="Tools/Image convertors/svg to png/index.html">Use Now!</a>
+          <a href="tools/image-convertors/svg-to-png/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Webp to PNG</h1>
-          <a href="Tools/Image convertors/webp to png/index.html">Use Now!</a>
+          <a href="tools/image-convertors/webp-to-png/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Webp to JPG</h1>
-          <a href="Tools/Image convertors/webp to jpg/index.html">Use Now!</a>
+          <a href="tools/image-convertors/webp-to-jpg/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Webp to AVIF</h1>
-          <a href="Tools/Image convertors/webp to avif/index.html">Use Now!</a>
+          <a href="tools/image-convertors/webp-to-avif/index.html">Use Now!</a>
         </div>
 
 
@@ -211,111 +290,111 @@
       </div>
     </section>
 
-    <!---Image Tools--> 
+    <!---Image Tools-->
     <section id="image-tools" class="tool-section">
       <div class="heading">
         <h1>Image Tools</h1>
       </div>
 
-      
+
       <div class="tools">
 
         <div class="tool">
           <h1>Image Rename</h1>
-          <a href="Tools/Images tools/batch image renamer/index.html">Use Now!</a>
+          <a href="tools/image-tools/batch-image-renamer/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>Collage Maker</h1>
-          <a href="Tools/Images tools/image collage maker/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-collage-maker/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Color Picker</h1>
-          <a href="Tools/Images tools/Image Color Picker/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-color-picker/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Comparison</h1>
-          <a href="Tools/Images tools/image comparison downloader/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-comparison-downloader/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Image compressor</h1>
-          <a href="Tools/Images tools/Image compression/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-compression/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Cropper</h1>
-          <a href="Tools/Images tools/Image Croppper/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-cropper/index.html">Use Now!</a>
         </div>
 
-         <div class="tool">
+        <div class="tool">
           <h1>Image Drawing</h1>
-          <a href="Tools/Images tools/image drawing tool/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-drawing-tool/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Filter</h1>
-          <a href="Tools/Images tools/image filter editor/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-filter-editor/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Gallery</h1>
-          <a href="Tools/Images tools/Image Gallery with Lightbox/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-gallery-with-lightbox/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Histogram</h1>
-          <a href="Tools/Images tools/Image Histogram viewer/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-histogram-viewer/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image MetaData</h1>
-          <a href="Tools/Images tools/image metadata viewer/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-metadata-viewer/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Image Resizer</h1>
-          <a href="Tools/Images tools/Image Resizer tool/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-resizer-tool/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Rotater</h1>
-          <a href="Tools/Images tools/Image rotator/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-rotator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Splitter</h1>
-          <a href="Tools/Images tools/Image Splitter/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-splitter/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image to base64</h1>
-          <a href="Tools/Images tools/Image to base64 convertor/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-to-base64-convertor/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Image Watermark</h1>
-          <a href="Tools/Images tools/Image Watermark adder/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-watermark-adder/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Zoom</h1>
-          <a href="Tools/Images tools/image zoom and pan viewer/index.html">Use Now!</a>
+          <a href="tools/image-tools/image-zoom-and-pan-viewer/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Insta Profile</h1>
-          <a href="Tools/Images tools/insta profile preview/index.html">Use Now!</a>
+          <a href="tools/image-tools/insta-profile-preview/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Insta thumbnail</h1>
-          <a href="Tools/Images tools/instagram thumbnial previer/index.html">Use Now!</a>
+          <a href="tools/image-tools/instagram-thumbnial-previer/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Thumbnail Creator</h1>
-          <a href="Tools/Images tools/thumbnail creator/index.html">Use Now!</a>
+          <a href="tools/image-tools/thumbnail-creator/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>YouTube Thumb</h1>
-          <a href="Tools/Images tools/youtube thumnail downloader/index.html">Use Now!</a>
+          <a href="tools/image-tools/youtube-thumnail-downloader/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Insta Qrcode</h1>
-          <a href="Tools/Images tools/insta qrcode to url/index.html">Use Now!</a>
+          <a href="tools/image-tools/insta-qrcode-to-url/index.html">Use Now!</a>
         </div>
-        
-        
+
+
       </div>
     </section>
     <!--- Pdf-tools ------>
-    <section  id="pdf-tools" class="tool-section">
+    <section id="pdf-tools" class="tool-section">
       <div class="heading">
         <h1>Pdf Tools</h1>
       </div>
@@ -323,84 +402,84 @@
 
         <div class="tool">
           <h1>Add Page Number</h1>
-          <a href="Tools/PDF tools/Add pdf page number/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/add-pdf-page-number/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>CSV to Excel</h1>
-          <a href="Tools/PDF tools/CSV to Excel Converter/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/csv-to-excel-converter/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Excel View</h1>
-          <a href="Tools/PDF tools/Excel File Viewer/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/excel-file-viewer/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Excel to Pdf</h1>
-          <a href="Tools/PDF tools/excel to pdf/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-to-excel/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Merge Excel file</h1>
-          <a href="Tools/PDF tools/merge excel file/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/merge-excel-file/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Merge PDF</h1>
-          <a href="Tools/PDF tools/Merge Pdf tool/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/merge-pdf-tool/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>PDF Compressor</h1>
-          <a href="Tools/PDF tools/pdf compressor/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-compressor/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Delete PDF Pages</h1>
-          <a href="Tools/PDF tools/pdf delete pages/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-delete-pages/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>PDF MetaData</h1>
-          <a href="Tools/PDF tools/pdf metadata viewer/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-metadata-viewer/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>PDF ReOrder</h1>
-          <a href="Tools/PDF tools/Pdf reorder tool/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-reorder-tool/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>PDF Repair</h1>
-          <a href="Tools/PDF tools/pdf repair/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-repair/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>PDF to Excel</h1>
-          <a href="Tools/PDF tools/pdf to excel/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-to-excel/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>PDF to PPT</h1>
-          <a href="Tools/PDF tools/pdf to ppt/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-to-ppt/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>PDF to Word</h1>
-          <a href="Tools/PDF tools/Pdf to word/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-to-word/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>PDF Watermarker</h1>
-          <a href="Tools/PDF tools/pdf watermarker adder/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-watermarker-adder/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>PPT to PDF</h1>
-          <a href="Tools/PDF tools/ppt to pdf/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/ppt-to-pdf/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>PDF Rotater</h1>
-          <a href="Tools/PDF tools/Pdf reorder tool/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/rotated-pdf-tool/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>PDF Page Splitter</h1>
-          <a href="Tools/PDF tools/split pages tool/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/pdf-delete-pages/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>TEXT to PDF</h1>
-          <a href="Tools/PDF tools/text to pdf/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/text-to-pdf/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Word to PDF</h1>
-          <a href="Tools/PDF tools/word to pdf/index.html">Use Now!</a>
+          <a href="tools/pdf-tools/word-to-pdf/index.html">Use Now!</a>
         </div>
 
 
@@ -408,8 +487,8 @@
 
       </div>
     </section>
-     <!--- Seo-tools ------>
-    <section  id="seo-tools" class="tool-section">
+    <!--- Seo-tools ------>
+    <section id="seo-tools" class="tool-section">
       <div class="heading">
         <h1>SEO Tools</h1>
       </div>
@@ -417,25 +496,25 @@
 
         <div class="tool">
           <h1>Metatag generator</h1>
-          <a href="Tools/SEO/Meta Tag Generator/index.html">Use Now!</a>
+          <a href="tools/seo/meta-tag-generator/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>Opengraph Check</h1>
-          <a href="Tools/SEO/Open Graph checker/index.html">Use Now!</a>
+          <a href="tools/seo/open-graph-checker/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Responsive Test</h1>
-          <a href="Tools/SEO/Responsive Design Tester/index.html">Use Now!</a>
+          <a href="Tools/SEO/responsive-design-tester/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Website Screenshot</h1>
-          <a href="Tools/SEO/Website Screenshot Tool/index.html">Use Now!</a>
+          <a href="Tools/SEO/website-screenshot-tool/index.html">Use Now!</a>
         </div>
 
       </div>
     </section>
-     <!--- Text-tools ------>
+    <!--- Text-tools ------>
     <section id="text-tools" class="tool-section">
       <div class="heading">
         <h1>Text Tools</h1>
@@ -444,88 +523,88 @@
 
         <div class="tool">
           <h1>Duplicate Line rem</h1>
-          <a href="Tools/Text Tool/Duplicate Line Remover/index.html">Use Now!</a>
+          <a href="tools/text-tool/duplicate-line-remover/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>Emoji Replacer</h1>
-          <a href="Tools/Text Tool/Emoji Replacer/index.html">Use Now!</a>
+          <a href="tools/text-tool/emoji-replacer/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Fancy Text Gen</h1>
-          <a href="Tools/Text Tool/Fancy Text Generator/index.html">Use Now!</a>
+          <a href="tools/text-tool/fancy-text-generator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Grammer & Spell</h1>
-          <a href="Tools/Text Tool/Grammer and Spell Checker/index.html">Use Now!</a>
+          <a href="tools/text-tool/grammer-and-spell-checker/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Hex Conversion</h1>
-          <a href="Tools/Text Tool/Hex Conversion/index.html">Use Now!</a>
+          <a href="tools/text-tool/hex-conversion/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Json Formatter</h1>
-          <a href="Tools/Text Tool/JSON Formatter  Beautifier/index.html">Use Now!</a>
+          <a href="tools/text-tool/json-formatter-beautifier/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Lorem Generator</h1>
-          <a href="Tools/Text Tool/Lorem ipsum generator/index.html">Use Now!</a>
+          <a href="tools/text-tool/lorem-ipsum-generator/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Palgram Finder</h1>
-          <a href="Tools/Text Tool/palagram finder/index.html">Use Now!</a>
+          <a href="tools/text-tool/palagram-finder/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Random Quote </h1>
-          <a href="Tools/Text Tool/Random Quote Generator/index.html">Use Now!</a>
+          <a href="tools/text-tool/random-quote-generator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Random Text</h1>
-          <a href="Tools/Text Tool/Random text generator/index.html">Use Now!</a>
+          <a href="tools/text-tool/random-text-generator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Readability Test</h1>
-          <a href="Tools/Text Tool/Readability Score Calculator Tool/index.html">Use Now!</a>
+          <a href="tools/text-tool/readability-score-calculator-tool/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Text Case Convert</h1>
-          <a href="Tools/Text Tool/Text Case Convertor/index.html">Use Now!</a>
+          <a href="tools/text-tool/text-case-convertor/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Text Differ Check</h1>
-          <a href="Tools/Text Tool/Text Differ Checker/index.html">Use Now!</a>
+          <a href="tools/text-tool/text-differ-checker/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Text Encryption</h1>
-          <a href="Tools/Text Tool/Text Encryption/index.html">Use Now!</a>
+          <a href="tools/text-tool/text-encryption/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Text Glitch</h1>
-          <a href="Tools/Text Tool/Text Glitch/index.html">Use Now!</a>
+          <a href="tools/text-tool/text-glitch/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Text Reverser</h1>
-          <a href="Tools/Text Tool/Text Reverser/index.html">Use Now!</a>
+          <a href="tools/text-tool/text-reverser/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Text Sorter</h1>
-          <a href="Tools/Text Tool/Text Sorter/index.html">Use Now!</a>
+          <a href="tools/text-tool/text-sorter/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Text to Speech</h1>
-          <a href="Tools/Text Tool/Text to speech/index.html">Use Now!</a>
+          <a href="tools/text-tool/text-to-speech/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Typing Test</h1>
-          <a href="Tools/Text Tool/Typing Speed Test Tool/index.html">Use Now!</a>
+          <a href="tools/text-tool/typing-speed-test-tool/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>URL Encoder</h1>
-          <a href="Tools/Text Tool/Url encoder decoder/index.html">Use Now!</a>
+          <a href="tools/text-tool/url-encoder-decoder/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Word Counter</h1>
-          <a href="Tools/Text Tool/Word Counter/index.html">Use Now!</a>
+          <a href="tools/text-tool/word-counter/index.html">Use Now!</a>
         </div>
 
       </div>
@@ -539,30 +618,30 @@
 
         <div class="tool">
           <h1>Facebook video</h1>
-          <a href="Tools/social media/facebook video downloader/index.html">Use Now!</a>
+          <a href="tools/social-media/facebook-video-downloader/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>Instagram Post</h1>
-          <a href="Tools/social media/insta post downloader/index.html">Use Now!</a>
+          <a href="tools/social-media/insta-post-downloader/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Instagram Video</h1>
-          <a href="Tools/social media/insta reels downloader/index.html">Use Now!</a>
+          <a href="tools/social-media/insta-reels-downloader/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Pinterest Video</h1>
-          <a href="Tools/social media/pinterest video downloader/index.html">Use Now!</a>
+          <a href="tools/social-media/pinterest-video-downloader/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Tiktok Video</h1>
-          <a href="Tools/social media/tiktok video downloader/index.html">Use Now!</a>
+          <a href="tools/social-media/tiktok-video-downloader/index.html">Use Now!</a>
         </div>
 
       </div>
     </section>
     <!--- URL tools ------>
-    <section id="url-tools"  class="tool-section">
+    <section id="url-tools" class="tool-section">
       <div class="heading">
         <h1>URL Tools</h1>
       </div>
@@ -570,26 +649,26 @@
 
         <div class="tool">
           <h1>Bulk Link Check</h1>
-          <a href="Tools/URL/Bulk Link Checker/index.html">Use Now!</a>
+          <a href="tools/url/bulk-link-checker/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>Link Preview Gene.</h1>
-          <a href="Tools/URL/Link Preview Generator/index.html">Use Now!</a>
+          <a href="tools/url/link-preview-generator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>URL shortener</h1>
-          <a href="Tools/URL/URL Shortener/index.html">Use Now!</a>
+          <a href="tools/url/url-shortener/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>URL Unshortener</h1>
-          <a href="Tools/URL/URL unshortener/index.html">Use Now!</a>
+          <a href="tools/url/url-shortener/index.html">Use Now!</a>
         </div>
 
       </div>
     </section>
     <!--- Barcode tools ------>
-    <section  id="barcode" class="tool-section">
+    <section id="barcode" class="tool-section">
       <div class="heading">
         <h1>Barcode Tools</h1>
       </div>
@@ -597,24 +676,24 @@
 
         <div class="tool">
           <h1>Barcode Decoder</h1>
-          <a href="Tools/BARCODE TOOL/barcode decoder from image/index.html">Use Now!</a>
+          <a href="tools/barcodes/barcode-decoder-from-image/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>Barcode generator</h1>
-          <a href="Tools/BARCODE TOOL/Barcode generator/index.html">Use Now!</a>
+          <a href="tools/barcodes/barcode-generator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>QR code generator</h1>
-          <a href="Tools/BARCODE TOOL/Barcode generator/index.html">Use Now!</a>
+          <a href="tools/barcodes/qr-code-generator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>QR code for URL</h1>
-          <a href="Tools/BARCODE TOOL/QR Code Generator for URL/index.html">Use Now!</a>
+          <a href="tools/barcodes/qrcode-generator-for-url/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>WIFI Qrcode</h1>
-          <a href="Tools/BARCODE TOOL/WIFi qrcode generator/index.html">Use Now!</a>
+          <a href="tools/barcodes/wifi-qrcode-generator/index.html">Use Now!</a>
         </div>
 
       </div>
@@ -628,30 +707,30 @@
 
         <div class="tool">
           <h1>Email Checker</h1>
-          <a href="Tools/Email/Email Checker/index.html">Use Now!</a>
+          <a href="tools/email/email-checker/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>Email Extractor</h1>
-          <a href="Tools/Email/Email Extracor/index.html">Use Now!</a>
+          <a href="tools/email/email-extracor/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Email Validator</h1>
-          <a href="Tools/Email/Email Validator/index.html">Use Now!</a>
+          <a href="tools/email/email-validator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Mailto Link gener.</h1>
-          <a href="Tools/Email/Mailto Link Generator/index.html">Use Now!</a>
+          <a href="tools/email/mailto-link-generator/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>UTM link gener.</h1>
-          <a href="Tools/Email/UTM Link builder/index.html">Use Now!</a>
+          <a href="tools/email/utm-link-builder/index.html">Use Now!</a>
         </div>
 
 
       </div>
     </section>
-     <!--- Math tools ------>
+    <!--- Math tools ------>
     <section id="math" class="tool-section">
       <div class="heading">
         <h1>Math Tools</h1>
@@ -660,24 +739,24 @@
 
         <div class="tool">
           <h1>Age Calculator</h1>
-          <a href="Tools/MATH/Age Calculator/index.html">Use Now!</a>
+          <a href="tools/math/age-calculator/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>BMI Calculator</h1>
-          <a href="Tools/MATH/BMI Calculator (Body Mass Index)/index.html">Use Now!</a>
+          <a href="tools/math/bmi-calculator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Currency Convert</h1>
-          <a href="Tools/MATH/Currency Convertor/index.html">Use Now!</a>
+          <a href="tools/math/currency-convertor/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Percentage Calcu</h1>
-          <a href="Tools/MATH/Percentage Calculator/index.html">Use Now!</a>
+          <a href="tools/math/percentage-calculator/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Interest Calculator</h1>
-          <a href="Tools/MATH/Simple interest Calculator/index.html">Use Now!</a>
+          <a href="tools/math/simple-interest-calculator/index.html">Use Now!</a>
         </div>
 
       </div>
@@ -690,25 +769,25 @@
       <div class="tools">
         <div class="tool">
           <h1>Password hasher</h1>
-          <a href="Tools/Password/passwod hash/index.html">Use Now!</a>
+          <a href="tools/password/passwod-hash/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>password strength</h1>
-          <a href="Tools/Password/password strength checker/index.html">Use Now!</a>
+          <a href="tools/password/password-strength-checker/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Remember passwor</h1>
-          <a href="Tools/Password/Remember password/index.html">Use Now!</a>
+          <a href="tools/password/remember-password/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Strong Password</h1>
-          <a href="Tools/Password/Strong Password Generator/index.html">Use Now!</a>
+          <a href="tools/password/strong-password-generator/index.html">Use Now!</a>
         </div>
 
       </div>
     </section>
-  <!--- video tools ------>
+    <!--- video tools ------>
     <section id="video" class="tool-section">
       <div class="heading">
         <h1>Video Tools</h1>
@@ -716,52 +795,52 @@
       <div class="tools">
         <div class="tool">
           <h1>Auto Thumbnail</h1>
-          <a href="Tools/VIDEO TOOLS/Auto Thumbnail Generator from Video/index.html">Use Now!</a>
+          <a href="tools/video-tools/auto-thumbnail-generator-from-video/index.html">Use Now!</a>
         </div>
 
         <div class="tool">
           <h1>GIF to mp4</h1>
-          <a href="Tools/VIDEO TOOLS/Gif to mp4/index.html">Use Now!</a>
+          <a href="tools/video-tools/gif-to-mp4/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Merge Videos</h1>
-          <a href="Tools/VIDEO TOOLS/Merge Multiple Video/index.html">Use Now!</a>
+          <a href="tools/video-tools/merge-multiple-video/index.html">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Video audio extrac</h1>
-          <a href="Tools/VIDEO TOOLS/Video audio extractor/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-audio-extractor/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video Compressor</h1>
-          <a href="Tools/VIDEO TOOLS/Video Compressor/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-compressor/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video Format con.</h1>
-          <a href="Tools/VIDEO TOOLS/Video Format Convertor/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-format-convertor/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video Cropper</h1>
-          <a href="Tools/VIDEO TOOLS/Video Cropper/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-cropper/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video MetaData</h1>
-          <a href="Tools/VIDEO TOOLS/Video metadata viewer/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-metadata-viewer/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video to GIF</h1>
-          <a href="Tools/VIDEO TOOLS/video to GIF/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-to-gif/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video Trimmer</h1>
-          <a href="Tools/VIDEO TOOLS/Video Trimmer/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-trimmer/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video Watermark</h1>
-          <a href="Tools/VIDEO TOOLS/Video watermarker/index.html">Use Now!</a>
+          <a href="tools/video-tools/video-watermarker/index.html">Use Now!</a>
         </div>
-         <div class="tool">
+        <div class="tool">
           <h1>Video speed controller</h1>
-          <a href="Tools/VIDEO TOOLS/Vido speed Controller/index.html">Use Now!</a>
+          <a href="tools/video-tools/Video-speed-controller/index.html">Use Now!</a>
         </div>
       </div>
     </section>
@@ -770,24 +849,25 @@
 
   <footer class="footer">
     <div class="foot1">
-    <div class="intro">
-      <div class="intro-1" >
-          <img src="images/xd.avif"/>
-           <h1>Toolzy</h1>
-      </div>
-     
-        <p>Toolzy is a modern web app offering <br>essential online tools like image compression, file <br>conversion, and barcode generation—all in one place.</p>
+      <div class="intro">
+        <div class="intro-1">
+          <img src="images/xd.avif" />
+          <h1>Toolzy</h1>
+        </div>
+
+        <p>Toolzy is a modern web app offering <br>essential online tools like image compression, file <br>conversion,
+          and barcode generation—all in one place.</p>
         <section class="social">
           <img src="images/instagram.avif" />
           <img src="images/linkedin.avif" />
           <img src="images/threads.avif" />
           <img src="images/youtube.avif" />
-           <img src="images/twitter.avif" />
+          <img src="images/twitter.avif" />
           <img src="images/facebook.avif" />
         </section>
-    </div>
-    <section class="list-33">
-      <div>
+      </div>
+      <section class="list-33">
+        <div>
           <h1>Product</h1>
           <section>
             <a href="">Features</a>
@@ -795,40 +875,186 @@
             <a href="">Integrations</a>
             <a href="">Changelog</a>
           </section>
-      </div>
-      <div>
-        <h1>Resources</h1>
+        </div>
+        <div>
+          <h1>Resources</h1>
           <section>
             <a href="">Documentation</a>
             <a href="">Tutorials</a>
             <a href="">Blog</a>
             <a href="">Support</a>
           </section>
-      </div>
-      <div>
-        <h1>Company</h1>
+        </div>
+        <div>
+          <h1>Company</h1>
           <section>
             <a href="">About</a>
             <a href="">Careers</a>
             <a href="">Contact</a>
             <a href="">partners</a>
           </section>
+        </div>
+      </section>
+    </div>
+    <section class="right">
+      <h4>@2025Toolzy.All rights reserverd</h4>
+      <div>
+        <a href="">Privacy Policy</a>
+        <a href="">Terms of Service</a>
+        <a href="">Cookie Settings</a>
       </div>
     </section>
-    </div>
-     <section class="right">
-        <h4>@2025Toolzy.All rights reserverd</h4>
-        <div>
-            <a href="">Privacy Policy</a>
-            <a href="">Terms of Service</a>
-            <a href="">Cookie Settings</a>
-        </div>
-    </section>
-   
-   
+
+
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+
+    const tools = [
+      { name: "AVIF to JPG", url: "https://thetoolzy.com/" },
+      { name: "PNG to JPG", url: "/tools/image/png-to-jpg/" },
+      { name: "WebP to JPG", url: "/tools/image/webp-to-jpg/" },
+      { name: "PDF to Word", url: "/tools/pdf/pdf-to-word/" },
+      { name: "Word to PDF", url: "/tools/pdf/word-to-pdf/" },
+      { name: "Text Case Converter", url: "/tools/text/case-converter/" }
+    ];
+  
+  
+    function searchTools() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const resultsBox = document.getElementById("results");
+      resultsBox.innerHTML = "";
+
+      if (input.length === 0) return;
+
+      const filtered = tools.filter(tool => tool.name.toLowerCase().includes(input));
+
+      if (filtered.length === 0) {
+        resultsBox.innerHTML = "<li>No results found</li>";
+      } else {
+        filtered.forEach(tool => {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${tool.url}">${tool.name}</a>`;
+          resultsBox.appendChild(li);
+        });
+      }
+    }
+    (function () {
+      const supportsPointer = window.matchMedia('(pointer:fine)').matches; // avoid on touch / coarse pointers
+      const isTouchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const enable = supportsPointer && !isTouchCapable;
+
+      const root = document.documentElement;
+      const body = document.body;
+      const cursorRoot = document.getElementById('tz-cursor');
+      const ring = cursorRoot?.querySelector('.tz-cursor__ring');
+      const dot = cursorRoot?.querySelector('.tz-cursor__dot');
+
+      if (!cursorRoot || !ring || !dot || !enable) {
+        // Do not enable; ensure native cursor remains
+        return;
+      }
+
+      // Enable class hides native cursor via CSS
+      root.classList.add('cursor-enabled');
+      body.classList.add('cursor-enabled');
+
+      // Track mouse position
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+
+      // Animated positions for the trailing ring (lerp)
+      let ringX = mouseX;
+      let ringY = mouseY;
+
+      // Opacity/visibility states
+      let visible = false;
+      let idle = false;
+      let hovering = false;
+      let down = false;
+
+      let inactivityTimer = null;
+
+      const setVisible = (v) => {
+        visible = v;
+        cursorRoot.classList.toggle('tz-cursor--visible', visible);
+      };
+      const setIdle = (v) => {
+        idle = v;
+        cursorRoot.classList.toggle('tz-cursor--idle', idle);
+      };
+      const setHovering = (v) => {
+        hovering = v;
+        cursorRoot.classList.toggle('tz-cursor--hover', hovering);
+      };
+      const setDown = (v) => {
+        down = v;
+        cursorRoot.classList.toggle('tz-cursor--down', down);
+      };
+
+      function elementIsInteractive(el){
+        const selector = 'a[href],button,input,select,textarea,[role="button"],[data-cursor]';
+        return !!el && !!el.closest(selector);
+      }
+
+      function onMove(e){
+        mouseX = e.clientX; mouseY = e.clientY;
+        setVisible(true); setIdle(false);
+        if (inactivityTimer) clearTimeout(inactivityTimer);
+        inactivityTimer = setTimeout(() => setIdle(true), 2500);
+
+        const el = document.elementFromPoint(mouseX, mouseY);
+        setHovering(elementIsInteractive(el));
+
+        // Dot snaps to cursor
+        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      }
+
+      function onEnter(){ setVisible(true); }
+      function onLeave(){ setVisible(false); }
+      function onDown(e){
+        setDown(true);
+        spawnPulse(e.clientX, e.clientY);
+      }
+      function onUp(){ setDown(false); }
+
+      function spawnPulse(x, y){
+        const p = document.createElement('div');
+        p.className = 'tz-cursor__pulse';
+        p.style.left = x + 'px';
+        p.style.top  = y + 'px';
+        document.body.appendChild(p);
+        p.addEventListener('animationend', () => p.remove());
+      }
+
+      // Animation loop for silky trailing ring
+      const speed = 0.18; // 0..1 (higher = faster catch-up)
+      function animate(){
+        ringX += (mouseX - ringX) * speed;
+        ringY += (mouseY - ringY) * speed;
+        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(animate);
+      }
+
+      // Bind events
+      window.addEventListener('mousemove', onMove, { passive: true });
+      window.addEventListener('mouseenter', onEnter);
+      window.addEventListener('mouseleave', onLeave);
+      window.addEventListener('mousedown', onDown);
+      window.addEventListener('mouseup', onUp);
+
+      // Kick off
+      requestAnimationFrame(animate);
+    })();
+
+
+
+
+  </script>
+ 
+
   <script src="script.js"></script>
+
 </body>
 
 </html>

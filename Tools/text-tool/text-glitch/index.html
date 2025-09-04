@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Glitch Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 2rem;
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .output-text {
+            font-size: 2rem;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8), 0px 0px 20px rgba(0, 255, 0, 0.6);
+            white-space: pre-wrap;
+            margin-top: 20px;
+            min-height: 60px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .output-text {
+                font-size: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Glitch Generator</h1>
+
+        <div class="form-container">
+            <input type="text" id="inputText" placeholder="Enter text to glitch" />
+            <button onclick="generateGlitch()">Generate Glitch</button>
+        </div>
+
+        <div class="output-text" id="outputText"></div>
+    </div>
+
+    <script>
+        function generateGlitch() {
+            const inputText = document.getElementById('inputText').value;
+            if (!inputText) {
+                alert("Please enter some text!");
+                return;
+            }
+
+            let glitchedText = '';
+            let glitchAmount = 10; // Number of glitches to add
+
+            for (let i = 0; i < inputText.length; i++) {
+                if (Math.random() > 0.8) {
+                    // Add random characters for glitch
+                    glitchedText += getRandomCharacter();
+                } else {
+                    // Add the original character
+                    glitchedText += inputText[i];
+                }
+
+                // Occasionally apply random "glitchy" styles to some characters
+                if (Math.random() > 0.95) {
+                    glitchedText = applyRandomStyle(glitchedText, i);
+                }
+            }
+
+            // Add a little random glitch effect at the end
+            for (let i = 0; i < glitchAmount; i++) {
+                let randomPos = Math.floor(Math.random() * glitchedText.length);
+                glitchedText = insertRandomCharacter(glitchedText, randomPos);
+            }
+
+            // Display the glitched text
+            document.getElementById('outputText').innerHTML = glitchedText;
+        }
+
+        // Randomly apply styles like font-size change or random characters
+        function applyRandomStyle(text, index) {
+            const styles = ['font-size: 24px', 'color: #ff0000', 'transform: rotate(10deg)', 'letter-spacing: 5px', 'text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.8)'];
+            const randomStyle = styles[Math.floor(Math.random() * styles.length)];
+            return `<span style="${randomStyle}">${text[index]}</span>`;
+        }
+
+        // Generate random character for glitch effect
+        function getRandomCharacter() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=-[]{}|;:,.<>?';
+            return chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+
+        // Insert random character at a random position
+        function insertRandomCharacter(text, position) {
+            const randomChar = getRandomCharacter();
+            return text.slice(0, position) + randomChar + text.slice(position);
+        }
+    </script>
+</body>
+</html>

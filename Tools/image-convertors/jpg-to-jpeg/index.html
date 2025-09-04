@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JPG to JPEG Converter</title>
+<style>
+body{font-family:'Segoe UI',sans-serif;background:#f3f4f6;display:flex;flex-direction:column;align-items:center;padding:40px 20px}h1{color:#1f2937}.container{background:#fff;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;width:100%;max-width:500px}.file-input{margin-bottom:20px}input[type=file]{display:none}label.upload-label{display:inline-block;padding:12px 24px;background:#3b82f6;color:#fff;border-radius:8px;cursor:pointer;font-weight:600;transition:background .3s}label.upload-label:hover{background:#2563eb}.preview{margin:20px 0;height:200px;display:flex;align-items:center;justify-content:center;border:2px dashed #ccc;border-radius:8px;background:#fafafa;overflow:hidden}.preview img{max-height:100%;max-width:100%;object-fit:contain}button{background:#10b981;color:#fff;border:none;padding:12px 20px;font-size:16px;border-radius:8px;cursor:pointer;font-weight:600;transition:background .3s}button:hover{background:#059669}.hidden{display:none}
+</style>
+</head>
+<body>
+<h1>JPG to JPEG Converter</h1>
+<div class="container">
+<div class="file-input">
+<input type="file" id="upload" accept=".jpg,image/jpg"/>
+<label for="upload" class="upload-label">Choose JPG Image</label>
+</div>
+<div class="preview" id="preview"><span>No Image Selected</span></div>
+<button id="download" class="hidden">Download as JPEG</button>
+</div>
+<script>
+const upload=document.getElementById("upload"),preview=document.getElementById("preview"),downloadBtn=document.getElementById("download");let imageDataUrl="";upload.addEventListener("change",function(){const t=this.files[0];if(!t||!t.name.toLowerCase().endsWith(".jpg")){alert("Only .jpg files are allowed!"),upload.value="",preview.innerHTML='<span>No Image Selected</span>',downloadBtn.classList.add("hidden");return}const e=new FileReader;e.onload=function(e){imageDataUrl=e.target.result;const t=new Image;t.src=imageDataUrl,t.onload=function(){preview.innerHTML="",preview.appendChild(t),downloadBtn.classList.remove("hidden")}},e.readAsDataURL(t)}),downloadBtn.addEventListener("click",()=>{const t=new Image;t.src=imageDataUrl,t.onload=function(){const e=document.createElement("canvas");e.width=t.width,e.height=t.height;const n=e.getContext("2d");n.drawImage(t,0,0),e.toBlob(function(t){const n=document.createElement("a");n.href=URL.createObjectURL(t),n.download="converted.jpeg",n.click()},"image/jpeg",1)}}); 
+</script>
+</body>
+</html>

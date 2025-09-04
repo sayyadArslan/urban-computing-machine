@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Primary Meta Tags -->
+<meta name="description" content="Securely hash your passwords online with TheToolzy Password Hashing Tool. Generate strong, hashed passwords easily for better security.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Password Hashing Tool – TheToolzy">
+<meta property="og:description" content="Use TheToolzy Password Hashing Tool to convert plain passwords into secure hashed versions. Fast, reliable, and free online tool.">
+<meta property="og:url" content="https://thetoolzy.com/password-hashing">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/password-hashing.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Password Hashing Tool – TheToolzy">
+<meta name="twitter:description" content="Generate secure password hashes online quickly and safely using TheToolzy Password Hashing Tool. Free and easy to use.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/password-hashing.png">
+
+   
+    <title>Password to Hash Converter with Salt</title>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Password Hashing Tool",
+  "url": "https://thetoolzy.com/password-hashing",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "All",
+  "description": "Securely hash your passwords online with TheToolzy Password Hashing Tool. Generate strong hashed passwords quickly and safely for improved security.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/password-hashing.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "password hashing",
+    "hash password online",
+    "secure password hash generator",
+    "TheToolzy security tools"
+  ]
+}
+</script>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            font-size: 1.2rem;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 20px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .copy-button {
+            background-color: #28a745;
+            margin-top: 10px;
+        }
+
+        .copy-button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            input, button {
+                font-size: 1rem;
+            }
+
+            .output {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password to Hash Converter with Salt</h1>
+
+        <div class="input-container">
+            <input id="passwordInput" type="text" placeholder="Enter your password" />
+            <button onclick="convertToHashWithSalt()">Convert to Hash with Salt</button>
+        </div>
+
+        <div class="output" id="hashOutput">
+            <!-- Generated Hash will appear here -->
+        </div>
+
+        <button class="copy-button" id="copyButton" style="display: none;" onclick="copyToClipboard()">Copy Hash to Clipboard</button>
+    </div>
+
+    <script>
+        // Function to generate a random salt
+        function generateSalt(length = 16) {
+            const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?';
+            let salt = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                salt += charset[randomIndex];
+            }
+            return salt;
+        }
+
+        // Function to convert password with salt to SHA-256 hash
+        async function convertToHashWithSalt() {
+            const password = document.getElementById('passwordInput').value;
+
+            if (!password) {
+                alert("Please enter a password.");
+                return;
+            }
+
+            // Generate a random salt
+            const salt = generateSalt();
+
+            // Concatenate password and salt
+            const saltedPassword = password + salt;
+
+            // Create a hash of the salted password using SHA-256
+            const encoder = new TextEncoder();
+            const data = encoder.encode(saltedPassword);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = new Uint8Array(hashBuffer);
+            const hashHex = Array.from(hashArray).map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+            // Display the generated hash along with the salt (for verification)
+            document.getElementById('hashOutput').textContent = `Salt: ${salt}\nHash: ${hashHex}`;
+            
+            // Show the "Copy to Clipboard" button
+            document.getElementById('copyButton').style.display = 'inline-block';
+        }
+
+        // Function to copy the hash and salt to the clipboard
+        function copyToClipboard() {
+            const hashText = document.getElementById('hashOutput').textContent;
+            
+            // Create a temporary text area to copy the hash and salt
+            const textArea = document.createElement('textarea');
+            textArea.value = hashText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // Optionally alert the user that the hash has been copied
+            alert("Hash with salt copied to clipboard!");
+        }
+    </script>
+</body>
+</html>

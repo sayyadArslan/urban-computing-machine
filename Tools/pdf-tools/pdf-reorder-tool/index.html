@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reorder PDF Pages</title>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Reorder pages in your PDF files online for free using TheToolzy PDF Reorder tool. Easy, fast, and no software installation required.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF Reorder – TheToolzy">
+<meta property="og:description" content="Change the order of pages in your PDF documents online quickly and securely with TheToolzy PDF Reorder tool. Free to use.">
+<meta property="og:url" content="https://thetoolzy.com/pdf-reorder">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/pdf-reorder.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PDF Reorder – TheToolzy">
+<meta name="twitter:description" content="Rearrange pages in PDFs online easily with TheToolzy PDF Reorder tool. Fast, free, and no downloads needed.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/pdf-reorder.png">
+
+  
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PDF Reorder",
+  "url": "https://thetoolzy.com/pdf-reorder",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "Reorder pages in your PDF files online for free using TheToolzy PDF Reorder tool. Easy, fast, and no software installation required.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/pdf-reorder.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "pdf reorder",
+    "rearrange pdf pages",
+    "change pdf page order",
+    "TheToolzy pdf tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+    }
+    .file-label, .btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .input-group {
+      margin: 1rem 0;
+    }
+    .status {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Reorder PDF Pages</h2>
+    <label class="file-label">
+      Choose PDF
+      <input type="file" id="pdfFile" accept="application/pdf">
+    </label>
+
+    <div class="input-group">
+      <label for="order">New Page Order (e.g., 3,1,2):</label>
+      <input type="text" id="order" placeholder="Enter new page order">
+    </div>
+
+    <button class="btn" onclick="reorderPDF()">Reorder and Download</button>
+    <div class="status" id="statusMsg"></div>
+  </div>
+
+  <script>
+    async function reorderPDF() {
+      const fileInput = document.getElementById('pdfFile');
+      const orderInput = document.getElementById('order').value;
+      const statusMsg = document.getElementById('statusMsg');
+
+      if (!fileInput.files.length) {
+        statusMsg.textContent = 'Please upload a PDF file.';
+        return;
+      }
+
+      const orderArray = orderInput.split(',').map(n => parseInt(n.trim()) - 1);
+
+      const file = fileInput.files[0];
+      const arrayBuffer = await file.arrayBuffer();
+      const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+      const totalPages = pdfDoc.getPageCount();
+
+      if (orderArray.some(i => i < 0 || i >= totalPages)) {
+        statusMsg.textContent = 'Invalid page order. Check your input.';
+        return;
+      }
+
+      const newPdf = await PDFLib.PDFDocument.create();
+      const pages = await newPdf.copyPages(pdfDoc, orderArray);
+      pages.forEach(p => newPdf.addPage(p));
+
+      const pdfBytes = await newPdf.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'reordered.pdf';
+      link.click();
+
+      statusMsg.textContent = 'Download started.';
+    }
+  </script>
+</body>
+</html>

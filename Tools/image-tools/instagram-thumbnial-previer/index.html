@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Preview Instagram post thumbnails instantly with TheToolzy. View high-quality thumbnails from any public Instagram post without logging in.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Instagram Thumbnail Previewer – TheToolzy">
+<meta property="og:description" content="Use TheToolzy to quickly preview Instagram post thumbnails online. No Instagram account needed. View thumbnails for posts and reels for free.">
+<meta property="og:url" content="https://thetoolzy.com/instagram-thumbnail-previewer">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/instagram-thumbnail-previewer.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Instagram Thumbnail Previewer – TheToolzy">
+<meta name="twitter:description" content="Instantly preview Instagram post thumbnails using TheToolzy. Perfect for content creators and marketers to quickly view thumbnails without logging in.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/instagram-thumbnail-previewer.png">
+
+  
+  <title>Instagram Thumbnail Previewer</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Instagram Thumbnail Previewer",
+  "url": "https://thetoolzy.com/instagram-thumbnail-previewer",
+  "applicationCategory": "SocialMediaApplication",
+  "operatingSystem": "All",
+  "description": "Preview high-quality thumbnails of Instagram posts and reels instantly with TheToolzy. No Instagram login required; view public content thumbnails quickly and easily.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/instagram-thumbnail-previewer.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "instagram thumbnail preview",
+    "instagram post thumbnail",
+    "preview instagram thumbnails",
+    "instagram reel thumbnail",
+    "Toolzy social tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body 
+    {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #e1306c;
+    }
+
+    input {
+      width: 80%;
+      max-width: 500px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #e1306c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+
+    img {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: none;
+      margin: 1rem 0;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Instagram Thumbnail Previewer</h1>
+  <input type="text" id="url" placeholder="Paste Instagram post URL..." />
+  <div class="btn-group">
+    <button onclick="getThumbnail()">Get Thumbnail</button>
+    <button id="downloadBtn" onclick="downloadThumbnail()" style="display: none;">Download</button>
+  </div>
+
+  <img id="thumbnail" />
+
+  <script>
+    let currentImageUrl = '';
+
+    async function getThumbnail() {
+      const url = document.getElementById('url').value.trim();
+      const proxy = "https://corsproxy.io/?";
+      if (!url.includes("instagram.com/p/")) {
+        alert("Invalid Instagram URL.");
+        return;
+      }
+
+      try {
+        const response = await fetch(proxy + encodeURIComponent(url), {
+          headers: { 'User-Agent': 'Mozilla/5.0' }
+        });
+        const html = await response.text();
+        const match = html.match(/<meta property="og:image" content="(.*?)"/);
+        if (match && match[1]) {
+          const imageUrl = match[1];
+          const img = document.getElementById("thumbnail");
+          img.src = imageUrl;
+          img.style.display = "block";
+          document.getElementById("downloadBtn").style.display = "inline-block";
+          currentImageUrl = imageUrl;
+        } else {
+          alert("Thumbnail not found. Make sure the post is public.");
+        }
+      } catch (err) {
+        alert("Failed to fetch the thumbnail.");
+        console.error(err);
+      }
+    }
+
+    async function downloadThumbnail() {
+      if (!currentImageUrl) return;
+      try {
+        const response = await fetch(currentImageUrl);
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'thumbnail.jpg';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        alert("Download failed.");
+        console.error(err);
+      }
+    }
+  </script>
+
+</body>
+</html>

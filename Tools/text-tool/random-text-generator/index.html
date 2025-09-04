@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Random Text Generator</title>
+  <meta name="description" content="Generate random placeholder text instantly with Toolzy's Random Text Generator. Perfect for designers, developers, and content creators needing dummy text.">
+<meta name="keywords" content="Random Text Generator, Lorem Ipsum Generator, Dummy Text Tool, Placeholder Text, Toolzy">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/random-text-generator">
+<meta property="og:title" content="Random Text Generator Tool">
+<meta property="og:description" content="Quickly generate random placeholder or dummy text using Toolzy's Random Text Generator. Useful for mockups, wireframes, and content design.">
+<meta property="og:image" content="https://thetoolzy.com/images/random-text-generator-og.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/random-text-generator">
+<meta name="twitter:title" content="Random Text Generator Tool">
+<meta name="twitter:description" content="Create random dummy text instantly for use in design or development with Toolzy's Random Text Generator.">
+<meta name="twitter:image" content="https://thetoolzy.com/images/random-text-generator-og.jpg">
+
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      flex: 1 1 30%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .output {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 10px;
+      min-height: 100px;
+      white-space: pre-wrap;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Random Text Generator Tool",
+  "description": "Toolzy's Random Text Generator provides fast and customizable placeholder text for developers, designers, and writers.",
+  "url": "https://thetoolzy.com/random-text-generator",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "Random Text Generator",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Random Text Generator</h1>
+    <div class="controls">
+      <label for="paragraphCount">Paragraphs:</label>
+      <input type="number" id="paragraphCount" min="1" max="20" value="3" />
+    </div>
+    <div class="buttons">
+      <button onclick="generateText()">Generate</button>
+      <button onclick="copyText()">Copy</button>
+      <button onclick="clearText()">Clear</button>
+    </div>
+    <div class="output" id="outputText">Your random text will appear here...</div>
+  </div>
+
+  <script>
+    const sampleSentences = [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+      "Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
+      "Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.",
+      "Mauris massa. Vestibulum lacinia arcu eget nulla.",
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra.",
+      "In convallis tellus a mauris tincidunt, a tincidunt nulla vulputate.",
+      "Etiam porta sem malesuada magna mollis euismod.",
+      "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+      "Donec ullamcorper nulla non metus auctor fringilla."
+    ];
+
+    function generateText() {
+      const count = parseInt(document.getElementById("paragraphCount").value) || 1;
+      const output = [];
+      for (let i = 0; i < count; i++) {
+        let paragraph = '';
+        const sentenceCount = Math.floor(Math.random() * 4) + 3; // 3–6 sentences
+        for (let j = 0; j < sentenceCount; j++) {
+          const sentence = sampleSentences[Math.floor(Math.random() * sampleSentences.length)];
+          paragraph += sentence + ' ';
+        }
+        output.push(paragraph.trim());
+      }
+      document.getElementById("outputText").textContent = output.join('\n\n');
+    }
+
+    function copyText() {
+      const temp = document.createElement('textarea');
+      temp.value = document.getElementById("outputText").textContent;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      alert('Random text copied to clipboard!');
+    }
+
+    function clearText() {
+      document.getElementById("outputText").textContent = 'Your random text will appear here...';
+    }
+  </script>
+</body>
+</html>

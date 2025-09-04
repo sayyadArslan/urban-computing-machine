@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Generator</title>
+    <!-- Primary Meta Tags -->
+<meta name="description" content="Quickly generate Lorem Ipsum dummy text for your design or development needs. Use TheToolzy’s free Lorem Ipsum Generator to get placeholder paragraphs, words, or sentences.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lorem Ipsum Generator – Free Dummy Text Tool | TheToolzy">
+<meta property="og:description" content="Create paragraphs, sentences, or word-based dummy content with TheToolzy's Lorem Ipsum Generator. Perfect for designers, developers, and content mockups.">
+<meta property="og:url" content="https://thetoolzy.com/lorem-ipsum-generator">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/lorem-ipsum-generator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lorem Ipsum Generator – Free Dummy Text Tool | TheToolzy">
+<meta name="twitter:description" content="Generate high-quality Lorem Ipsum placeholder text easily and for free. Choose from paragraphs, words, or sentences.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/lorem-ipsum-generator.png">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lorem Ipsum Generator",
+  "url": "https://thetoolzy.com/lorem-ipsum-generator",
+  "applicationCategory": "TextEditor",
+  "operatingSystem": "All",
+  "description": "Generate free Lorem Ipsum dummy text for your mockups or designs using TheToolzy. Create paragraphs, sentences, or words instantly with no login needed.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/lorem-ipsum-generator.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "lorem ipsum generator",
+    "dummy text generator",
+    "placeholder text",
+    "generate lorem ipsum",
+    "mock content",
+    "toolzy text tools"
+  ]
+}
+</script>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            font-size: 1.2rem;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            input, button {
+                font-size: 1rem;
+            }
+
+            .output {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lorem Ipsum Generator</h1>
+
+        <div class="input-container">
+            <input id="numParagraphs" type="number" placeholder="Enter number of paragraphs" min="1" />
+            <button onclick="generateLoremIpsum()">Generate Lorem Ipsum</button>
+        </div>
+
+        <div class="output" id="loremOutput">
+            <!-- Generated Lorem Ipsum text will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // Predefined Lorem Ipsum text (for simplicity)
+        const loremIpsumText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Aliquam erat volutpat. Pellentesque nulla eros accumsan quis justo at tincidunt lobortis. Integer in mauris eu nibh euismod gravida.
+
+        Aliquam erat volutpat. Duis ac turpis. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur sit amet mauris morbi in dui quis est pulvinar ullamcorper.`;
+
+        // Function to generate Lorem Ipsum
+        function generateLoremIpsum() {
+            const numParagraphs = parseInt(document.getElementById('numParagraphs').value);
+
+            if (isNaN(numParagraphs) || numParagraphs <= 0) {
+                alert("Please enter a valid number of paragraphs.");
+                return;
+            }
+
+            let outputText = '';
+            for (let i = 0; i < numParagraphs; i++) {
+                outputText += loremIpsumText + '\n\n';
+            }
+
+            document.getElementById('loremOutput').textContent = outputText;
+        }
+    </script>
+</body>
+</html>

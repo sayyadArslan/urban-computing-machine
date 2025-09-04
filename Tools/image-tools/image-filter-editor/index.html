@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Filter Editor</title>
+<meta name="description" content="Apply professional photo filters to your images with Toolzy’s free online Image Filter tool. Adjust brightness, contrast, grayscale, and more – no software needed.">
+<style>
+body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;background:#f4f6f9;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.container{background:#fff;padding:30px;border-radius:15px;box-shadow:0 8px 16px rgba(0,0,0,0.1);text-align:center;width:90%;max-width:700px}
+h1{margin-bottom:20px;color:#333}
+.upload-area{border:2px dashed #ccc;padding:20px;border-radius:10px;margin-bottom:20px;cursor:pointer;transition:border .3s}
+.upload-area:hover{border-color:#666}
+.custom-button{color:#007BFF;cursor:pointer;text-decoration:underline}
+.image-preview{width:100%;max-width:500px;max-height:400px;overflow:hidden;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.05);background:#f7f7f7;display:flex;justify-content:center;align-items:center;margin:20px 0}
+img{width:100%;height:100%;object-fit:contain;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.05)}
+.filters{display:grid;gap:15px}
+.filters label{margin-top:10px;color:#333}
+.filters input[type=range]{width:100%;margin-bottom:10px}
+#reset-btn{background:#28a745;color:#fff;border:none;padding:10px 20px;margin-top:20px;border-radius:5px;cursor:pointer}
+#reset-btn:hover{background:#218838}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Image Filter Editor</h1>
+<div class="upload-area" id="drop-area"><p>Drag & drop or <label for="file-input" class="custom-button">Choose Image</label></p><input type="file" id="file-input" accept="image/*" hidden /></div>
+<div class="image-preview"><img id="image-preview" src="" alt="Preview"/></div>
+<div class="filters">
+<label>Grayscale:</label><input type="range" id="grayscale" min="0" max="100" value="0"/>
+<label>Sepia:</label><input type="range" id="sepia" min="0" max="100" value="0"/>
+<label>Invert:</label><input type="range" id="invert" min="0" max="100" value="0"/>
+<label>Blur:</label><input type="range" id="blur" min="0" max="10" value="0" step="0.1"/>
+<label>Brightness:</label><input type="range" id="brightness" min="0" max="200" value="100"/>
+<label>Contrast:</label><input type="range" id="contrast" min="0" max="200" value="100"/>
+<label>Saturation:</label><input type="range" id="saturation" min="0" max="200" value="100"/>
+<label>Hue Rotation:</label><input type="range" id="hue" min="0" max="360" value="0"/>
+<button id="reset-btn">Reset Filters</button>
+</div>
+</div>
+<script>
+const fileInput=document.getElementById("file-input"),imgPreview=document.getElementById("image-preview"),grayscale=document.getElementById("grayscale"),sepia=document.getElementById("sepia"),invert=document.getElementById("invert"),blur=document.getElementById("blur"),brightness=document.getElementById("brightness"),contrast=document.getElementById("contrast"),saturation=document.getElementById("saturation"),hue=document.getElementById("hue"),resetBtn=document.getElementById("reset-btn");
+function applyFilters(){imgPreview.style.filter=`grayscale(${grayscale.value}%) sepia(${sepia.value}%) invert(${invert.value}%) blur(${blur.value}px) brightness(${brightness.value}%) contrast(${contrast.value}%) saturate(${saturation.value}%) hue-rotate(${hue.value}deg)`}
+function resetFilters(){grayscale.value=0;sepia.value=0;invert.value=0;blur.value=0;brightness.value=100;contrast.value=100;saturation.value=100;hue.value=0;imgPreview.style.filter="none"}
+fileInput.addEventListener("change",e=>{const t=e.target.files[0];if(t&&t.type.startsWith("image/")){const n=new FileReader;n.onload=function(e){imgPreview.src=e.target.result},n.readAsDataURL(t)}})
+grayscale.addEventListener("input",applyFilters);sepia.addEventListener("input",applyFilters);invert.addEventListener("input",applyFilters);blur.addEventListener("input",applyFilters);brightness.addEventListener("input",applyFilters);contrast.addEventListener("input",applyFilters);saturation.addEventListener("input",applyFilters);hue.addEventListener("input",applyFilters);resetBtn.addEventListener("click",resetFilters);
+</script>
+</body>
+</html>

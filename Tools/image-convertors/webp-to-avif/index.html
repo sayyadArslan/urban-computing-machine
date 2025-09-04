@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free online tool to convert WebP images to AVIF. Modern, fast, secure, and mobile-friendly WebP to AVIF image converter." />
+  <meta name="keywords" content="WebP to AVIF, image converter, online tool, responsive, free, mobile-friendly" />
+  <meta name="author" content="YourBrand" />
+  <title>WebP to AVIF Converter - Free Online Tool</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "WebP to AVIF Converter",
+  "url": "https://thetoolzy.com/tools/webp-to-avif",
+  "applicationCategory": "ImageApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+  "description": "Convert WebP images to AVIF for free using Toolzy. Fast, modern, browser-based converter that is mobile-friendly and secure.",
+  "keywords": "WebP to AVIF, image converter, AVIF image, free converter, online WebP to AVIF",
+  "featureList": [
+    "Client-side image conversion",
+    "Secure – no image upload to servers",
+    "Works offline after first load",
+    "Mobile-friendly UI",
+    "Free to use"
+  ],
+  "screenshot": "https://thetoolzy.com/assets/screenshots/webp-to-avif.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/logo.png",
+      "width": 200,
+      "height": 60
+    }
+  }
+}
+</script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      background-color: #6366f1;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    label.upload-btn {
+      background-color: #6366f1;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+      margin: 1rem 0;
+    }
+    label.upload-btn:hover {
+      background-color: #4f46e5;
+    }
+    .output {
+      margin-top: 2rem;
+    }
+    .download-link {
+      background-color: #10b981;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .download-link:hover {
+      background-color: #059669;
+    }
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.2rem;
+      }
+      label.upload-btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebP to AVIF Converter",
+    "description": "Convert WebP images to AVIF directly in your browser. Fast, free, secure and responsive tool.",
+    "url": "https://yourdomain.com/webp-to-avif",
+    "applicationCategory": "PhotoApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Works in modern browsers.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    WebP to AVIF Converter
+  </header>
+
+  <main>
+    <label class="upload-btn" for="fileInput">Choose WebP Image</label>
+    <input type="file" id="fileInput" accept="image/webp" />
+
+    <div class="output" id="output"></div>
+  </main>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const output = document.getElementById('output');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    fileInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file || !file.type.includes('webp')) {
+        alert('Please upload a valid WebP image.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+
+          if (!canvas.toBlob) {
+            alert('Your browser does not support AVIF export.');
+            return;
+          }
+
+          canvas.toBlob(blob => {
+            if (!blob) {
+              alert('Conversion failed. Your browser might not support AVIF encoding.');
+              return;
+            }
+            const avifUrl = URL.createObjectURL(blob);
+            output.innerHTML = `
+              <p>Conversion successful!</p>
+              <a class="download-link" href="${avifUrl}" download="converted.avif">Download AVIF</a>
+            `;
+          }, 'image/avif', 0.9);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

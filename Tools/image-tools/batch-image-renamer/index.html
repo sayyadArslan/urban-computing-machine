@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <title>Batch Image Renamer + Zip Export</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary Meta Tags -->
+  <meta name="description"
+    content="Rename multiple images at once online with TheToolzy’s free Batch Image Renamer. Simple, fast, and secure – no software or sign-up needed.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Batch Image Renamer – TheToolzy">
+  <meta property="og:description"
+    content="Rename image files in bulk with TheToolzy’s online tool. Free and fast batch renaming for JPG, PNG, and more.">
+  <meta property="og:url" content="https://thetoolzy.com/batch-image-renamer">
+  <meta property="og:image" content="https://thetoolzy.com/assets/og-image/batch-image-renamer.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Batch Image Renamer – TheToolzy">
+  <meta name="twitter:description"
+    content="Easily rename multiple image files online with TheToolzy. Supports batch renaming of JPG, PNG, and other formats. No watermark, no installation.">
+  <meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/batch-image-renamer.png">
+
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Batch Image Renamer",
+  "url": "https://thetoolzy.com/batch-image-renamer",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Rename multiple images at once using TheToolzy’s Batch Image Renamer. Upload images, define a naming pattern, and rename files in bulk – fast, free, and secure.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/batch-image-renamer.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "batch image renamer",
+    "rename multiple images",
+    "image file renamer",
+    "bulk photo renaming",
+    "Toolzy file tools"
+  ]
+}
+</script>
+
+
+
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6fa;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin: 15px 0;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>📁 Batch Image Renamer + ZIP Download</h2>
+
+  <div class="form-group">
+    <label class="custom-file-label" for="fileInput">Choose Images</label>
+    <input type="file" id="fileInput" multiple accept="image/*" />
+  </div>
+
+  <div class="form-group">
+    <input type="text" id="baseName" placeholder="Enter base name (e.g. image)" />
+  </div>
+
+  <div class="form-group">
+    <input type="number" id="startNumber" placeholder="Start number" value="1" />
+  </div>
+
+  <button id="renameBtn">Rename & Download Zip</button>
+
+  <ul id="previewList"></ul>
+
+  <!-- JSZip CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const renameBtn = document.getElementById('renameBtn');
+    const baseNameInput = document.getElementById('baseName');
+    const startNumberInput = document.getElementById('startNumber');
+    const previewList = document.getElementById('previewList');
+
+    renameBtn.addEventListener('click', async () => {
+      const files = fileInput.files;
+      const baseName = baseNameInput.value.trim();
+      let startNumber = parseInt(startNumberInput.value);
+
+      if (!files.length || !baseName) {
+        alert("Please select images and enter a base name.");
+        return;
+      }
+
+      const zip = new JSZip();
+      previewList.innerHTML = "";
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const ext = file.name.split('.').pop();
+        const newName = `${baseName}_${startNumber++}.${ext}`;
+
+        const li = document.createElement('li');
+        li.textContent = newName;
+        previewList.appendChild(li);
+
+        const fileData = await readFileAsArrayBuffer(file);
+        zip.file(newName, fileData);
+      }
+
+      zip.generateAsync({ type: 'blob' }).then((content) => {
+        saveAs(content, "renamed_images.zip");
+      });
+    });
+
+    function readFileAsArrayBuffer(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsArrayBuffer(file);
+      });
+    }
+  </script>
+
+</body>
+
+</html>

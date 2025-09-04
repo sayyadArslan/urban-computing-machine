@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Histogram Viewer</title>
+ <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+<!-- Primary Meta Tags -->
+<meta name="description" content="Analyze image brightness and color distribution with TheToolzy’s Image Histogram tool. Upload an image to view its RGB and grayscale histograms instantly. Free and browser-based.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image Histogram Tool – TheToolzy">
+<meta property="og:description" content="Visualize color intensity and brightness distribution of your images using TheToolzy’s free Image Histogram tool. No installation required.">
+<meta property="og:url" content="https://thetoolzy.com/image-histogram">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/image-histogram.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Histogram Tool – TheToolzy">
+<meta name="twitter:description" content="Generate RGB and grayscale histograms of your images instantly with TheToolzy. A simple online tool for image analysis and color distribution visualization.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/image-histogram.png">
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Histogram Tool",
+  "url": "https://thetoolzy.com/image-histogram",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "description": "Visualize RGB and brightness histograms of any image online using TheToolzy’s Image Histogram tool. Analyze color intensity and distribution without installing any software.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/image-histogram.png",
+  "offers": {"@type":"Offer","price":"0.00","priceCurrency":"USD"},
+  "author":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com"},
+  "publisher":{"@type":"Organization","name":"Toolzy","url":"https://thetoolzy.com","logo":{"@type":"ImageObject","url":"https://thetoolzy.com/assets/logo.png"}},
+  "keywords":["image histogram","RGB histogram","grayscale histogram","image brightness analysis","Toolzy image tools"]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#f0f2f5}.container{max-width:800px;margin:50px auto;padding:20px;background:#fff;border-radius:10px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.1)}h2{display:flex;justify-content:center;align-items:center;gap:10px;margin-bottom:25px}.custom-upload{background:#4caf50;color:#fff;padding:12px 18px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}.custom-upload input[type=file]{display:none}.image-preview{margin-top:20px;max-width:100%;display:flex;justify-content:center}#previewImg{max-width:100%;height:auto;margin-top:20px;border:1px solid #ddd;border-radius:6px;object-fit:contain;transition:transform .2s ease}.zoomable{cursor:zoom-in}.controls{margin-top:20px}.controls label{display:block;margin-bottom:10px}.color-toggle{margin-top:20px}.color-toggle label{margin-right:15px;cursor:pointer}.histogram{display:flex;justify-content:space-evenly;margin-top:40px;flex-wrap:wrap}.histogram-canvas{border:1px solid #ddd;width:200px;height:150px;margin:10px}.download-btn{background:#2196f3;color:#fff;padding:10px 20px;border-radius:8px;cursor:pointer;border:none}.download-btn:hover{background:#1976d2}
+</style>
+</head>
+<body>
+<div class="container">
+<h2><span class="material-icons">photo</span> Image Histogram Viewer</h2>
+<label class="custom-upload"><input type="file" id="imageInput" accept="image/*"><span class="material-icons">upload</span> Choose Image</label>
+<div id="imagePreview" class="image-preview"><img src="" alt="Image Preview" id="previewImg" class="zoomable"></div>
+<div class="controls">
+<label><input type="range" id="contrast" min="-100" max="100" value="0"> Adjust Contrast</label>
+<label><input type="button" id="downloadHist" value="Download Histogram" class="download-btn"></label>
+</div>
+<div class="color-toggle">
+<label><input type="checkbox" id="showRed" checked> Red Channel</label>
+<label><input type="checkbox" id="showGreen" checked> Green Channel</label>
+<label><input type="checkbox" id="showBlue" checked> Blue Channel</label>
+<label><input type="checkbox" id="showGray"> Grayscale</label>
+</div>
+<div class="histogram">
+<canvas id="canvasR" class="histogram-canvas"></canvas>
+<canvas id="canvasG" class="histogram-canvas"></canvas>
+<canvas id="canvasB" class="histogram-canvas"></canvas>
+<canvas id="canvasGray" class="histogram-canvas"></canvas>
+</div>
+</div>
+<script>
+const imageInput=document.getElementById("imageInput"),previewImg=document.getElementById("previewImg"),canvasR=document.getElementById("canvasR"),canvasG=document.getElementById("canvasG"),canvasB=document.getElementById("canvasB"),canvasGray=document.getElementById("canvasGray"),showRed=document.getElementById("showRed"),showGreen=document.getElementById("showGreen"),showBlue=document.getElementById("showBlue"),showGray=document.getElementById("showGray"),contrast=document.getElementById("contrast"),downloadHist=document.getElementById("downloadHist");let imgElement=new Image(),imgCanvas=document.createElement("canvas"),imgCtx=imgCanvas.getContext("2d");imageInput.addEventListener("change",e=>{const file=e.target.files[0];if(file){const reader=new FileReader();reader.onload=function(e){imgElement.src=e.target.result;imgElement.onload=function(){previewImg.src=imgElement.src;drawHistogram(imgElement)}};reader.readAsDataURL(file)}});contrast.addEventListener("input",()=>{previewImg.style.filter=`contrast(${100+Number(contrast.value)}%)`;drawHistogram(imgElement)});downloadHist.addEventListener("click",()=>{const link=document.createElement('a');link.download='histogram.png';link.href=canvasR.toDataURL();link.click()});function drawHistogram(image){const width=image.width,height=image.height;imgCanvas.width=width;imgCanvas.height=height;imgCtx.clearRect(0,0,width,height);imgCtx.drawImage(image,0,0,width,height);const imgData=imgCtx.getImageData(0,0,width,height),data=imgData.data,histR=Array(256).fill(0),histG=Array(256).fill(0),histB=Array(256).fill(0),histGray=Array(256).fill(0);for(let i=0;i<data.length;i+=4){const r=data[i],g=data[i+1],b=data[i+2],gray=Math.round((r+g+b)/3);histR[r]++,histG[g]++,histB[b]++,histGray[gray]++}showRed.checked&&drawChannelHistogram(canvasR,histR,"#FF0000"),showGreen.checked&&drawChannelHistogram(canvasG,histG,"#00FF00"),showBlue.checked&&drawChannelHistogram(canvasB,histB,"#0000FF"),showGray.checked&&drawChannelHistogram(canvasGray,histGray,"#808080")}function drawChannelHistogram(canvas,histogram,color){const ctx=canvas.getContext("2d"),width=canvas.width,height=canvas.height,maxVal=Math.max(...histogram);ctx.clearRect(0,0,width,height),ctx.fillStyle=color;for(let i=0;i<256;i++){const barHeight=histogram[i]/maxVal*height;ctx.fillRect(i,height-barHeight,1,barHeight)}canvas.addEventListener("mousemove",e=>{const x=e.offsetX,binIndex=Math.floor(x);binIndex>=0&&binIndex<256&&(canvas.title=`Pixel Value: ${binIndex}, Count: ${histogram[binIndex]}`)})}
+</script>
+</body>
+</html>

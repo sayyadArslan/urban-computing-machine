@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Validate email addresses online instantly and for free with TheToolzy’s Email Validator. Ensure your email list is clean and accurate.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Email Validator Online – Check Email Validity | TheToolzy">
+<meta property="og:description" content="Use TheToolzy’s Email Validator to quickly check if an email address is valid and deliverable. No signup or download needed.">
+<meta property="og:url" content="https://thetoolzy.com/email-validator">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/email-validator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Email Validator Online – Check Email Validity | TheToolzy">
+<meta name="twitter:description" content="Verify and validate email addresses instantly online using TheToolzy’s Email Validator tool for free.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/email-validator.png">
+
+  
+  <title>Email Validator Tool</title>
+  
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Email Validator",
+  "url": "https://thetoolzy.com/email-validator",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Validate email addresses online quickly and for free using TheToolzy’s Email Validator. Keep your email lists clean and verified.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/email-validator.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "email validator",
+    "validate email address",
+    "email verification",
+    "free email validator",
+    "TheToolzy email tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef2f5;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .valid {
+      color: green;
+    }
+
+    .invalid {
+      color: red;
+    }
+
+    .warning {
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Email Validator</h2>
+  <input type="email" id="emailInput" placeholder="Enter your email">
+  <button onclick="validateEmail()">Validate</button>
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function validateEmail() {
+    const email = document.getElementById('emailInput').value.trim();
+    const result = document.getElementById('result');
+
+    // Basic regex for email validation
+    const regex = /^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$/;
+
+    const commonTypos = [
+      { wrong: 'gamil.com', correct: 'gmail.com' },
+      { wrong: 'hotmial.com', correct: 'hotmail.com' },
+      { wrong: 'yahho.com', correct: 'yahoo.com' },
+      { wrong: 'outlok.com', correct: 'outlook.com' }
+    ];
+
+    result.innerHTML = '';
+    result.className = 'result';
+
+    if (!regex.test(email)) {
+      result.classList.add('invalid');
+      result.innerText = "❌ Invalid email format.";
+      return;
+    }
+
+    const typo = commonTypos.find(t => email.endsWith(t.wrong));
+    if (typo) {
+      result.classList.add('warning');
+      result.innerText = `⚠️ Did you mean ${email.replace(typo.wrong, typo.correct)}?`;
+      return;
+    }
+
+    result.classList.add('valid');
+    result.innerText = "✅ Email looks valid!";
+  }
+</script>
+
+</body>
+</html>

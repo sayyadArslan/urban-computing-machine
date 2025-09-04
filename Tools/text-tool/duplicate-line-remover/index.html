@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duplicate Line Remover</title>
+  <!-- Primary Meta Tags -->
+
+<meta name="description" content="Remove duplicate lines from any text instantly with TheToolzy's free online Duplicate Line Remover. Clean your content in one click—fast and easy.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Duplicate Line Remover – Clean Repeated Lines Online | TheToolzy">
+<meta property="og:description" content="Eliminate repeated lines from large blocks of text with TheToolzy’s Duplicate Line Remover. Paste your content and clean it instantly online.">
+<meta property="og:url" content="https://thetoolzy.com/duplicate-line-remover">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/duplicate-line-remover.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Duplicate Line Remover – Clean Repeated Lines Online | TheToolzy">
+<meta name="twitter:description" content="Use TheToolzy’s Duplicate Line Remover to instantly remove repeated lines from your text. Fast, free, and no downloads required.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/duplicate-line-remover.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Duplicate Line Remover",
+  "url": "https://thetoolzy.com/duplicate-line-remover",
+  "applicationCategory": "TextEditorApplication",
+  "operatingSystem": "All",
+  "description": "Remove duplicate lines from any text using TheToolzy’s free online Duplicate Line Remover tool. Simply paste your text and clean repeated lines instantly.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/duplicate-line-remover.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "duplicate line remover",
+    "remove repeated lines",
+    "online text cleaner",
+    "line deduplicator",
+    "Toolzy text tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      flex: 1 1 30%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    @media (max-width: 500px) {
+      button {
+        flex: 1 1 100%;
+      }
+    }
+
+    .output {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f9fafb;
+      border-radius: 10px;
+      min-height: 60px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Duplicate Line Remover</h1>
+    <textarea id="inputText" placeholder="Paste your text with duplicate lines..."></textarea>
+    <div class="buttons">
+      <button onclick="removeDuplicates()">Remove Duplicates</button>
+      <button onclick="copyOutput()">Copy</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+    <div class="output" id="outputText" placeholder="Unique lines will appear here..."></div>
+  </div>
+
+  <script>
+    const input = document.getElementById('inputText');
+    const output = document.getElementById('outputText');
+
+    function removeDuplicates() {
+      const lines = input.value.split('\n');
+      const unique = [...new Set(lines.map(line => line.trim()))];
+      output.textContent = unique.filter(Boolean).join('\n');
+    }
+
+    function copyOutput() {
+      const temp = document.createElement('textarea');
+      temp.value = output.textContent;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      alert('Output copied to clipboard!');
+    }
+
+    function clearAll() {
+      input.value = '';
+      output.textContent = '';
+    }
+  </script>
+</body>
+</html>

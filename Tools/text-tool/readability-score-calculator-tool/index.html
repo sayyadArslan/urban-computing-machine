@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readability Score Calculator</title>
+  <meta name="description" content="Check the readability score of any text instantly with Toolzy's Readability Score Checker. Improve your writing for clarity and audience engagement.">
+<meta name="keywords" content="Readability Score Checker, Text Readability Tool, Writing Clarity Checker, Toolzy Readability, Readability Analysis">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/readability-score-checker">
+<meta property="og:title" content="Readability Score Checker Tool">
+<meta property="og:description" content="Analyze and improve your text’s readability with Toolzy’s Readability Score Checker. Get instant results and tips.">
+<meta property="og:image" content="https://thetoolzy.com/images/readability-score-checker-og.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/readability-score-checker">
+<meta name="twitter:title" content="Readability Score Checker Tool">
+<meta name="twitter:description" content="Easily check and improve your text readability using Toolzy's Readability Score Checker.">
+<meta name="twitter:image" content="https://thetoolzy.com/images/readability-score-checker-og.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Readability Score Checker Tool",
+  "description": "Toolzy's Readability Score Checker helps you quickly analyze and improve your writing clarity and readability score.",
+  "url": "https://thetoolzy.com/readability-score-checker",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "Readability Score Checker",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      font-size: 1rem;
+      padding: 1rem;
+      font-family: inherit;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      resize: vertical;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .results {
+      margin-top: 1rem;
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    .complex-word {
+      background-color: #ffecb3;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Readability Score Calculator</h1>
+    <textarea id="inputText" placeholder="Enter or paste text here..."></textarea>
+    <div class="buttons">
+      <button onclick="calculateReadability()">Calculate Readability</button>
+      <button onclick="clearText()">Clear</button>
+    </div>
+    <div id="results" class="results">Results will appear here...</div>
+  </div>
+
+  <script>
+    function calculateReadability() {
+      const text = document.getElementById("inputText").value;
+      const results = document.getElementById("results");
+
+      if (!text.trim()) {
+        results.textContent = "❗ Please enter some text.";
+        return;
+      }
+
+      const sentences = text.split(/[.!?]+/).filter(Boolean);
+      const words = text.split(/\s+/).filter(Boolean);
+      const syllables = countSyllables(text);
+
+      const numSentences = sentences.length;
+      const numWords = words.length;
+      const numSyllables = syllables;
+
+      if (numSentences === 0 || numWords === 0) {
+        results.textContent = "❗ Text is too short to analyze.";
+        return;
+      }
+
+      const readability = 206.835 - (1.015 * (numWords / numSentences)) - (84.6 * (numSyllables / numWords));
+      const gradeLevel = (0.39 * (numWords / numSentences)) + (11.8 * (numSyllables / numWords)) - 15.59;
+
+      // Readability Level Classification
+      let readabilityLevel = "";
+      if (readability >= 80) readabilityLevel = "Easy";
+      else if (readability >= 60) readabilityLevel = "Medium";
+      else readabilityLevel = "Hard";
+
+      // Highlight Long Words (>12 characters)
+      const highlightedText = highlightLongWords(text);
+
+      results.innerHTML = `
+        <strong>Flesch-Kincaid Reading Ease:</strong> ${readability.toFixed(2)} <br>
+        <strong>Flesch-Kincaid Grade Level:</strong> ${gradeLevel.toFixed(2)} <br>
+        <strong>Reading Level:</strong> ${readabilityLevel} <br>
+        <hr>
+        <strong>Highlighted Text Complexity:</strong><br>
+        ${highlightedText}<br>
+        <hr>
+        <small>Reading Ease Score: Higher is easier to read (0-100 scale).<br>
+        Grade Level: The U.S. school grade level needed to understand the text.</small>
+      `;
+    }
+
+    function countSyllables(text) {
+      const words = text.split(/\s+/);
+      let syllables = 0;
+      
+      words.forEach(word => {
+        syllables += countSyllablesInWord(word);
+      });
+      return syllables;
+    }
+
+    function countSyllablesInWord(word) {
+      word = word.toLowerCase();
+      if (word.length <= 3) return 1;
+      
+      const syllableMatches = word.match(/[aeiouy]{1,2}/g);
+      return syllableMatches ? syllableMatches.length : 1;
+    }
+
+    function highlightLongWords(text) {
+      // Highlight words with more than 12 characters
+      const words = text.split(/\s+/);
+      const highlightedWords = words.map(word => {
+        return word.length > 12 ? `<span class="complex-word">${word}</span>` : word;
+      });
+      return highlightedWords.join(" ");
+    }
+
+    function clearText() {
+      document.getElementById("inputText").value = "";
+      document.getElementById("results").textContent = "Results will appear here...";
+    }
+  </script>
+</body>
+</html>

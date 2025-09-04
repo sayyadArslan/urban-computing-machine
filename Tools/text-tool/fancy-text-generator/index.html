@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+<meta name="description" content="Generate fancy text with stylish fonts, cool symbols, and Unicode characters using TheToolzy’s free Fancy Text Generator. Perfect for social media and more.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fancy Text Generator – Stylish Fonts & Symbols | TheToolzy">
+<meta property="og:description" content="Use TheToolzy’s Fancy Text Generator to create stylish fonts, unique symbols, and fancy Unicode text for Instagram, Facebook, and more. Free & instant.">
+<meta property="og:url" content="https://thetoolzy.com/fancy-text-generator">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/fancy-text-generator.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fancy Text Generator – Stylish Fonts & Symbols | TheToolzy">
+<meta name="twitter:description" content="Generate fancy and stylish text online using TheToolzy’s free Fancy Text Generator. Copy & paste cool fonts and symbols in one click.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/fancy-text-generator.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fancy Text Generator",
+  "url": "https://thetoolzy.com/fancy-text-generator",
+  "applicationCategory": "TextEditorApplication",
+  "operatingSystem": "All",
+  "description": "Create stylish fancy text with fonts, symbols, and Unicode characters using TheToolzy’s Fancy Text Generator. Perfect for bios, captions, and social media posts.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/fancy-text-generator.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "fancy text generator",
+    "stylish text",
+    "cool fonts",
+    "Unicode text",
+    "Toolzy text tools"
+  ]
+}
+</script>
+
+    
+    <title>Fancy Text Generator (Unicode Styles)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 2rem;
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f0f0f0;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output-text {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            min-height: 60px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .output-text {
+                font-size: 1.2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fancy Text Generator (Unicode Styles)</h1>
+
+        <div class="form-container">
+            <input type="text" id="inputText" placeholder="Enter text to fancy it" />
+            <button onclick="generateFancyText()">Generate Fancy Text</button>
+        </div>
+
+        <div class="output-text" id="outputText"></div>
+    </div>
+
+    <script>
+        function generateFancyText() {
+            const inputText = document.getElementById('inputText').value;
+            if (!inputText) {
+                alert("Please enter some text!");
+                return;
+            }
+
+            const fancyText = {
+                bold: toBold(inputText),
+                italic: toItalic(inputText),
+                underline: toUnderline(inputText),
+                strikethrough: toStrikethrough(inputText),
+                reverse: toReverse(inputText),
+                bubble: toBubble(inputText),
+            };
+
+            let outputHtml = `<strong>Bold:</strong> ${fancyText.bold}<br><br>`;
+            outputHtml += `<strong>Italic:</strong> ${fancyText.italic}<br><br>`;
+            outputHtml += `<strong>Underline:</strong> ${fancyText.underline}<br><br>`;
+            outputHtml += `<strong>Strikethrough:</strong> ${fancyText.strikethrough}<br><br>`;
+            outputHtml += `<strong>Reverse:</strong> ${fancyText.reverse}<br><br>`;
+            outputHtml += `<strong>Bubble Text:</strong> ${fancyText.bubble}<br><br>`;
+
+            document.getElementById('outputText').innerHTML = outputHtml;
+        }
+
+        // Convert to bold using unicode characters
+        function toBold(text) {
+            return text.split('').map(c => String.fromCharCode(c.charCodeAt(0) + 0x1D400)).join('');
+        }
+
+        // Convert to italic using unicode characters
+        function toItalic(text) {
+            return text.split('').map(c => String.fromCharCode(c.charCodeAt(0) + 0x1D434)).join('');
+        }
+
+        // Convert to underline using unicode characters
+        function toUnderline(text) {
+            return text.split('').map(c => `\u0332${c}`).join('');
+        }
+
+        // Convert to strikethrough using unicode characters
+        function toStrikethrough(text) {
+            return text.split('').map(c => `\u0336${c}`).join('');
+        }
+
+        // Reverse the text
+        function toReverse(text) {
+            return text.split('').reverse().join('');
+        }
+
+        // Convert to bubble text using unicode characters
+        function toBubble(text) {
+            return text.split('').map(c => {
+                let code = c.charCodeAt(0);
+                if (code >= 65 && code <= 90) { // Uppercase A-Z
+                    return String.fromCharCode(code + 0x1F170); // Bubble letters
+                } else if (code >= 97 && code <= 122) { // Lowercase a-z
+                    return String.fromCharCode(code + 0x1F150); // Bubble letters
+                }
+                return c; // Leave non-alphabet characters as is
+            }).join('');
+        }
+    </script>
+</body>
+</html>

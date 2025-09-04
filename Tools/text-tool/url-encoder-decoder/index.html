@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>URL Encoder / Decoder</title>
+<!-- Meta Tags -->
+<meta name="description" content="Encode your URLs quickly and easily with Toolzy's free URL Encoder tool. Convert special characters to a valid URL format online.">
+<meta name="keywords" content="url encoder, encode url online, url encoding tool, encode special characters, Toolzy url tools">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/url-encoder">
+<meta property="og:title" content="URL Encoder Tool">
+<meta property="og:description" content="Encode your URLs quickly and easily with Toolzy's free URL Encoder tool. Convert special characters to a valid URL format online.">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/url-encoder.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/url-encoder">
+<meta name="twitter:title" content="URL Encoder Tool">
+<meta name="twitter:description" content="Encode your URLs quickly and easily with Toolzy's free URL Encoder tool. Convert special characters to a valid URL format online.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/url-encoder.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "URL Encoder Tool",
+  "url": "https://thetoolzy.com/url-encoder",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "Encode your URLs quickly and easily with Toolzy's free URL Encoder tool. Convert special characters to a valid URL format online.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/url-encoder.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "url encoder",
+    "encode url online",
+    "url encoding tool",
+    "encode special characters",
+    "Toolzy url tools"
+  ]
+}
+</script>
+
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      flex: 1 1 30%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .output {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 10px;
+      min-height: 100px;
+      white-space: pre-wrap;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>URL Encoder / Decoder</h1>
+    <textarea id="inputText" placeholder="Enter text to encode or decode..."></textarea>
+
+    <div class="buttons">
+      <button onclick="encodeURL()">Encode</button>
+      <button onclick="decodeURL()">Decode</button>
+      <button onclick="copyText()">Copy</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+
+    <div class="output" id="outputText">Encoded or decoded result will appear here...</div>
+  </div>
+
+  <script>
+    function encodeURL() {
+      const text = document.getElementById("inputText").value;
+      const encoded = encodeURIComponent(text);
+      document.getElementById("outputText").textContent = encoded;
+    }
+
+    function decodeURL() {
+      const text = document.getElementById("inputText").value;
+      try {
+        const decoded = decodeURIComponent(text);
+        document.getElementById("outputText").textContent = decoded;
+      } catch (e) {
+        document.getElementById("outputText").textContent = "Error: Invalid encoded input.";
+      }
+    }
+
+    function copyText() {
+      const temp = document.createElement("textarea");
+      temp.value = document.getElementById("outputText").textContent;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp);
+      alert("Output copied to clipboard!");
+    }
+
+    function clearAll() {
+      document.getElementById("inputText").value = '';
+      document.getElementById("outputText").textContent = 'Encoded or decoded result will appear here...';
+    }
+  </script>
+</body>
+</html>

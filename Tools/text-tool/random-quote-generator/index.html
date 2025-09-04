@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <meta name="description" content="Generate random quotes instantly with Toolzy's Random Quote Generator. Get inspired by motivational, funny, or thought-provoking quotes at the click of a button.">
+<meta name="keywords" content="Random Quote Generator, Quote Generator Tool, Inspirational Quotes, Toolzy Quotes, Random Quotes Online">
+<meta name="author" content="Toolzy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thetoolzy.com/random-quote-generator">
+<meta property="og:title" content="Random Quote Generator Tool">
+<meta property="og:description" content="Generate random inspirational and motivational quotes instantly using Toolzy's Random Quote Generator.">
+<meta property="og:image" content="https://thetoolzy.com/images/random-quote-generator-og.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thetoolzy.com/random-quote-generator">
+<meta name="twitter:title" content="Random Quote Generator Tool">
+<meta name="twitter:description" content="Get instant inspiration with Toolzy's Random Quote Generator. Click to reveal random motivational and funny quotes.">
+<meta name="twitter:image" content="https://thetoolzy.com/images/random-quote-generator-og.jpg">
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .quote {
+                font-size: 1.2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Random Quote Generator Tool",
+  "description": "Toolzy's Random Quote Generator helps you instantly generate random quotes for motivation, inspiration, or entertainment.",
+  "url": "https://thetoolzy.com/random-quote-generator",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "Random Quote Generator",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Random Quote Generator</h1>
+
+        <div class="quote" id="quoteText">"Click the button below to get a random quote!"</div>
+        <div class="author" id="quoteAuthor">- Unknown</div>
+
+        <button onclick="generateRandomQuote()">Generate Random Quote</button>
+    </div>
+
+    <script>
+        // Array of quotes categorized by type
+        const quotes = {
+            motivational: [
+                {
+                    text: "The only way to do great work is to love what you do.",
+                    author: "Steve Jobs"
+                },
+                {
+                    text: "In the middle of difficulty lies opportunity.",
+                    author: "Albert Einstein"
+                },
+                {
+                    text: "Life is what happens when you're busy making other plans.",
+                    author: "John Lennon"
+                },
+                {
+                    text: "It does not matter how slowly you go as long as you do not stop.",
+                    author: "Confucius"
+                },
+                {
+                    text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+                    author: "Winston Churchill"
+                }
+            ],
+            fun: [
+                {
+                    text: "A day without laughter is a day wasted.",
+                    author: "Charlie Chaplin"
+                },
+                {
+                    text: "Why don’t skeletons fight each other? They don’t have the guts.",
+                    author: "Unknown"
+                },
+                {
+                    text: "I’m not arguing, I’m just explaining why I’m right.",
+                    author: "Unknown"
+                },
+                {
+                    text: "Life is short. Smile while you still have teeth.",
+                    author: "Unknown"
+                }
+            ],
+            sadLove: [
+                {
+                    text: "It’s hard to forget someone who gave you so much to remember.",
+                    author: "Unknown"
+                },
+                {
+                    text: "I’ll never stop loving you, but I’ll stop chasing you.",
+                    author: "Unknown"
+                },
+                {
+                    text: "Sometimes, the one who loves you is the one who hurts you the most.",
+                    author: "Unknown"
+                },
+                {
+                    text: "The worst feeling is not being lonely, it's being forgotten by someone you would never forget.",
+                    author: "Unknown"
+                }
+            ],
+            studyMotivation: [
+                {
+                    text: "The future belongs to those who believe in the beauty of their dreams.",
+                    author: "Eleanor Roosevelt"
+                },
+                {
+                    text: "Don’t watch the clock; do what it does. Keep going.",
+                    author: "Sam Levenson"
+                },
+                {
+                    text: "Your education is a dress rehearsal for a life that is yours to lead.",
+                    author: "Nora Ephron"
+                },
+                {
+                    text: "The secret of getting ahead is getting started.",
+                    author: "Mark Twain"
+                }
+            ],
+            scienceInfo: [
+                {
+                    text: "Did you know? An octopus has three hearts and blue blood.",
+                    author: "Science Fact"
+                },
+                {
+                    text: "Humans share 60% of their DNA with bananas.",
+                    author: "Science Fact"
+                },
+                {
+                    text: "A day on Venus is longer than a year on Venus.",
+                    author: "Science Fact"
+                },
+                {
+                    text: "Water can boil and freeze at the same time in a process called the triple point.",
+                    author: "Science Fact"
+                }
+            ]
+        };
+
+        // Function to generate a random quote
+        function generateRandomQuote() {
+            // Randomly select one of the categories
+            const categories = Object.keys(quotes);
+            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+
+            // Randomly select a quote within that category
+            const randomQuote = quotes[randomCategory][Math.floor(Math.random() * quotes[randomCategory].length)];
+
+            // Display the quote and author
+            document.getElementById('quoteText').textContent = `"${randomQuote.text}"`;
+            document.getElementById('quoteAuthor').textContent = `- ${randomQuote.author}`;
+        }
+    </script>
+</body>
+</html>

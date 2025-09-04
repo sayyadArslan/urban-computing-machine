@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excel File Viewer</title>
+<!-- Primary Meta Tags -->
+<meta name="description" content="View Excel files online quickly and easily with TheToolzy Excel File Viewer. No software installation required — just upload and view your spreadsheets for free.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Excel File Viewer – TheToolzy">
+<meta property="og:description" content="Use TheToolzy Excel File Viewer to open and view Excel spreadsheets online instantly. Free and easy to use with no downloads needed.">
+<meta property="og:url" content="https://thetoolzy.com/excel-file-viewer">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/excel-file-viewer.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Excel File Viewer – TheToolzy">
+<meta name="twitter:description" content="View Excel files online quickly and easily with TheToolzy Excel File Viewer. No software installation required.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/excel-file-viewer.png">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Excel File Viewer",
+  "url": "https://thetoolzy.com/excel-file-viewer",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "All",
+  "description": "View Excel files online quickly and easily with TheToolzy Excel File Viewer. No software installation required — just upload and view your spreadsheets for free.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/excel-file-viewer.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "excel file viewer",
+    "view xlsx online",
+    "open excel spreadsheets",
+    "TheToolzy productivity tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      max-width: 1000px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+    }
+    .file-label, .export-btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      background: #1976d2;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0.5rem 0.5rem 1rem 0;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background: #f1f1f1;
+    }
+    select.sheet-selector {
+      padding: 0.5rem;
+      margin-top: 1rem;
+    }
+    .filter-input {
+      width: 100%;
+      padding: 0.25rem;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+    .dark-mode table {
+      color: white;
+    }
+    .dark-mode th {
+      background: #333;
+    }
+    .toggle-dark {
+      float: right;
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <h2>
+      Excel File Viewer
+      <button class="file-label toggle-dark" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </h2>
+    <label class="file-label">
+      Choose Excel File
+      <input type="file" id="excelFile" accept=".xlsx, .xls" />
+    </label>
+    <button class="export-btn" onclick="exportToCSV()">Export to CSV</button>
+    <div>
+      <select class="sheet-selector" id="sheetSelector" onchange="renderSheet()"></select>
+    </div>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    let workbook;
+
+    document.getElementById('excelFile').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const data = new Uint8Array(event.target.result);
+        workbook = XLSX.read(data, { type: 'array' });
+        const sheetNames = workbook.SheetNames;
+
+        const selector = document.getElementById('sheetSelector');
+        selector.innerHTML = '';
+        sheetNames.forEach((name) => {
+          const option = document.createElement('option');
+          option.value = name;
+          option.textContent = name;
+          selector.appendChild(option);
+        });
+
+        renderSheet();
+      };
+
+      reader.readAsArrayBuffer(file);
+    });
+
+    function renderSheet() {
+      const sheetName = document.getElementById('sheetSelector').value;
+      const sheet = workbook.Sheets[sheetName];
+      const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+      const output = document.getElementById('output');
+      let html = '<table><thead><tr>';
+
+      json[0].forEach((header, colIdx) => {
+        html += `<th>${header || ''}<br><input class="filter-input" data-col="${colIdx}" onkeyup="filterTable()"></th>`;
+      });
+
+      html += '</tr></thead><tbody>';
+      for (let i = 1; i < json.length; i++) {
+        html += '<tr>';
+        json[i].forEach(cell => {
+          html += `<td>${cell !== undefined ? cell : ''}</td>`;
+        });
+        html += '</tr>';
+      }
+      html += '</tbody></table>';
+
+      output.innerHTML = html;
+    }
+
+    function exportToCSV() {
+      const sheetName = document.getElementById('sheetSelector').value;
+      const sheet = workbook.Sheets[sheetName];
+      const csv = XLSX.utils.sheet_to_csv(sheet);
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${sheetName}.csv`;
+      link.click();
+    }
+
+    function filterTable() {
+      const inputs = document.querySelectorAll('.filter-input');
+      const table = document.querySelector('table');
+      const rows = table.querySelectorAll('tbody tr');
+
+      rows.forEach(row => {
+        let show = true;
+        inputs.forEach(input => {
+          const colIdx = parseInt(input.getAttribute('data-col'));
+          const value = input.value.toLowerCase();
+          const cell = row.children[colIdx];
+          if (value && cell && !cell.textContent.toLowerCase().includes(value)) {
+            show = false;
+          }
+        });
+        row.style.display = show ? '' : 'none';
+      });
+    }
+
+    function toggleDarkMode() {
+      document.getElementById('container').classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>

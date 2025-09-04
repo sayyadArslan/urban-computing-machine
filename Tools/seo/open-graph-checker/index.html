@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+<meta name="description" content="Check and validate Open Graph tags of any URL easily with TheToolzy Open Graph Checker. Ensure your social media previews look perfect.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Open Graph Checker – TheToolzy">
+<meta property="og:description" content="Validate Open Graph tags for any website URL quickly using TheToolzy Open Graph Checker. Optimize your social media sharing previews.">
+<meta property="og:url" content="https://thetoolzy.com/open-graph-checker">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/open-graph-checker.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Open Graph Checker – TheToolzy">
+<meta name="twitter:description" content="Easily check and analyze Open Graph tags of any webpage with TheToolzy Open Graph Checker tool. Free and fast.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/open-graph-checker.png">
+
+  <title>Open Graph Checker</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Open Graph Checker",
+  "url": "https://thetoolzy.com/open-graph-checker",
+  "applicationCategory": "SEOApplication",
+  "operatingSystem": "All",
+  "description": "Check and validate Open Graph tags of any URL easily with TheToolzy Open Graph Checker. Ensure your social media previews look perfect.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/open-graph-checker.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "open graph checker",
+    "validate open graph tags",
+    "check og tags",
+    "social media preview checker",
+    "TheToolzy seo tools"
+  ]
+}
+</script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .results {
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: #f0f4f8;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 5px solid #007bff;
+    }
+
+    .tag strong {
+      color: #333;
+    }
+
+    .image-preview {
+      margin-top: 10px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Open Graph Checker</h2>
+  <input type="text" id="url" placeholder="Enter website URL (e.g. https://example.com)">
+  <button onclick="checkOG()">Check Open Graph Tags</button>
+
+  <div class="results" id="results"></div>
+</div>
+
+<script>
+  async function checkOG() {
+    const urlInput = document.getElementById('url').value.trim();
+    const results = document.getElementById('results');
+    results.innerHTML = "⏳ Fetching data...";
+
+    if (!urlInput.startsWith("http")) {
+      results.innerHTML = "❗ Please enter a valid URL including https://";
+      return;
+    }
+
+    try {
+      const proxyURL = `https://api.allorigins.win/get?url=${encodeURIComponent(urlInput)}`;
+      const response = await fetch(proxyURL);
+      const data = await response.json();
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data.contents, "text/html");
+      const metaTags = doc.querySelectorAll('meta[property^="og:"]');
+
+      if (metaTags.length === 0) {
+        results.innerHTML = "⚠️ No Open Graph tags found.";
+        return;
+      }
+
+      let output = "";
+      let image = "";
+
+      metaTags.forEach(tag => {
+        const property = tag.getAttribute("property");
+        const content = tag.getAttribute("content");
+
+        if (property === "og:image") image = content;
+
+        output += `<div class="tag"><strong>${property}</strong>: ${content}</div>`;
+      });
+
+      if (image) {
+        output += `<img src="${image}" alt="OG Image" class="image-preview" />`;
+      }
+
+      results.innerHTML = output;
+
+    } catch (error) {
+      results.innerHTML = "❌ Error fetching the page. The site may block scraping or CORS.";
+      console.error(error);
+    }
+  }
+</script>
+
+</body>
+</html>

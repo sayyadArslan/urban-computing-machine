@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary Meta Tags -->
+<title>Metadata Viewer Online – View File Metadata | TheToolzy</title>
+<meta name="description" content="View detailed metadata of your files online for free using TheToolzy’s Metadata Viewer. Supports images, videos, documents, and more.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Metadata Viewer Online – View File Metadata | TheToolzy">
+<meta property="og:description" content="Use TheToolzy’s Metadata Viewer to extract and display metadata from images, videos, PDFs, and other files quickly and securely.">
+<meta property="og:url" content="https://thetoolzy.com/metadata-viewer">
+<meta property="og:image" content="https://thetoolzy.com/assets/og-image/metadata-viewer.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Metadata Viewer Online – View File Metadata | TheToolzy">
+<meta name="twitter:description" content="Analyze and view file metadata online with TheToolzy’s free Metadata Viewer. No installation or signup needed.">
+<meta name="twitter:image" content="https://thetoolzy.com/assets/og-image/metadata-viewer.png">
+
+  
+  <title>Video Metadata Viewer</title>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Metadata Viewer",
+  "url": "https://thetoolzy.com/metadata-viewer",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "description": "View and analyze metadata of various file types online for free using TheToolzy’s Metadata Viewer. Supports images, videos, documents, and more.",
+  "browserRequirements": "JavaScript enabled browser",
+  "image": "https://thetoolzy.com/assets/og-image/metadata-viewer.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolzy",
+    "url": "https://thetoolzy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thetoolzy.com/assets/logo.png"
+    }
+  },
+  "keywords": [
+    "metadata viewer",
+    "view file metadata",
+    "file metadata extractor",
+    "online metadata tool",
+    "TheToolzy utility tools"
+  ]
+}
+</script>
+
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: white;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      margin: 20px;
+      background-color: #e1306c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .metadata {
+      margin-top: 20px;
+      text-align: left;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+
+    .metadata p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .download-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Video Metadata Viewer</h1>
+    <input type="file" id="videoFile" accept="video/*" onchange="loadMetadata()" />
+    
+    <div id="metadata" class="metadata" style="display:none;">
+      <h3>Video Metadata</h3>
+      <p><strong>Duration:</strong> <span id="duration">-</span></p>
+      <p><strong>Resolution:</strong> <span id="resolution">-</span></p>
+      <p><strong>File Size:</strong> <span id="fileSize">-</span></p>
+      <p><strong>Format:</strong> <span id="format">-</span></p>
+      <a href="#" id="downloadMetadata" class="download-btn" style="display:none;" download>Download Metadata</a>
+    </div>
+  </div>
+
+  <script>
+    function loadMetadata() {
+      const fileInput = document.getElementById("videoFile");
+      const metadataContainer = document.getElementById("metadata");
+      const durationElem = document.getElementById("duration");
+      const resolutionElem = document.getElementById("resolution");
+      const fileSizeElem = document.getElementById("fileSize");
+      const formatElem = document.getElementById("format");
+      const downloadBtn = document.getElementById("downloadMetadata");
+
+      const file = fileInput.files[0];
+      if (!file) {
+        alert("Please select a video file!");
+        return;
+      }
+
+      // Display metadata on the page
+      const video = document.createElement("video");
+      video.preload = "metadata";
+
+      // Wait for metadata to be loaded
+      video.onloadedmetadata = function () {
+        const duration = video.duration; // Duration in seconds
+        const resolution = `${video.videoWidth}x${video.videoHeight}`; // Resolution
+
+        // Display file details
+        durationElem.textContent = `${(duration / 60).toFixed(2)} minutes`;
+        resolutionElem.textContent = resolution;
+        fileSizeElem.textContent = `${(file.size / (1024 * 1024)).toFixed(2)} MB`; // File size in MB
+        formatElem.textContent = file.type;
+
+        // Show metadata container
+        metadataContainer.style.display = "block";
+
+        // Prepare metadata for download
+        const metadataText = `Video Metadata:
+- Duration: ${(duration / 60).toFixed(2)} minutes
+- Resolution: ${resolution}
+- File Size: ${(file.size / (1024 * 1024)).toFixed(2)} MB
+- Format: ${file.type}`;
+
+        const blob = new Blob([metadataText], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        downloadBtn.href = url;
+        downloadBtn.style.display = "inline-block"; // Show download button
+      };
+
+      // Load video source for metadata extraction
+      video.src = URL.createObjectURL(file);
+    }
+  </script>
+
+</body>
+</html>

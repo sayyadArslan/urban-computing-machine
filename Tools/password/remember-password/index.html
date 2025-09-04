@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rememberable Password Creator (Passphrases)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .input-container label {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        input, select, button {
+            font-size: 1.2rem;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 20px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .copy-button {
+            background-color: #28a745;
+            margin-top: 10px;
+        }
+
+        .copy-button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            input, button, select {
+                font-size: 1rem;
+            }
+
+            .output {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rememberable Password Creator</h1>
+
+        <!-- Passphrase word count selector -->
+        <div class="input-container">
+            <label for="wordCount">Number of words in passphrase:</label>
+            <select id="wordCount">
+                <option value="3">3 words</option>
+                <option value="4">4 words</option>
+                <option value="5">5 words</option>
+                <option value="6">6 words</option>
+            </select>
+        </div>
+
+        <!-- Special characters option -->
+        <div class="input-container">
+            <label for="addSpecialChars">Include special characters (optional):</label>
+            <input type="checkbox" id="addSpecialChars" />
+        </div>
+
+        <!-- Numbers option -->
+        <div class="input-container">
+            <label for="addNumbers">Include numbers (optional):</label>
+            <input type="checkbox" id="addNumbers" />
+        </div>
+
+        <!-- Generate passphrase button -->
+        <button onclick="generatePassphrase()">Generate Passphrase</button>
+
+        <!-- Passphrase output -->
+        <div class="output" id="passphraseOutput">
+            <!-- Generated Passphrase will appear here -->
+        </div>
+
+        <!-- Copy button -->
+        <button class="copy-button" id="copyButton" style="display: none;" onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+
+    <script>
+        // Array of common words for passphrase creation
+        const wordList = [
+            'apple', 'banana', 'carrot', 'dog', 'elephant', 'flower', 'guitar', 'house', 'ice', 'jungle',
+            'kangaroo', 'lion', 'monkey', 'notebook', 'orange', 'piano', 'queen', 'rocket', 'sunshine', 'tree',
+            'umbrella', 'vampire', 'watermelon', 'xylophone', 'yarn', 'zebra'
+        ];
+
+        // Function to generate a random passphrase
+        function generatePassphrase() {
+            const wordCount = parseInt(document.getElementById('wordCount').value);
+            const addSpecialChars = document.getElementById('addSpecialChars').checked;
+            const addNumbers = document.getElementById('addNumbers').checked;
+
+            let passphrase = '';
+            let specialChars = '!@#$%^&*()-_=+[]{}|;:,.<>?';
+            let numbers = '0123456789';
+
+            // Select random words from the word list
+            for (let i = 0; i < wordCount; i++) {
+                const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+                passphrase += randomWord;
+
+                // Add a space between words, but not at the end
+                if (i < wordCount - 1) passphrase += ' ';
+            }
+
+            // Add special characters if selected
+            if (addSpecialChars) {
+                const randomSpecialChar = specialChars[Math.floor(Math.random() * specialChars.length)];
+                passphrase += randomSpecialChar;
+            }
+
+            // Add numbers if selected
+            if (addNumbers) {
+                const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+                passphrase += randomNumber;
+            }
+
+            // Display the generated passphrase
+            document.getElementById('passphraseOutput').textContent = passphrase;
+
+            // Show the "Copy to Clipboard" button
+            document.getElementById('copyButton').style.display = 'inline-block';
+        }
+
+        // Function to copy the passphrase to the clipboard
+        function copyToClipboard() {
+            const passphraseText = document.getElementById('passphraseOutput').textContent;
+
+            // Create a temporary text area to copy the passphrase
+            const textArea = document.createElement('textarea');
+            textArea.value = passphraseText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // Optionally alert the user that the passphrase has been copied
+            alert("Passphrase copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
