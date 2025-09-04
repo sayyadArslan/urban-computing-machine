@@ -198,7 +198,7 @@ html{
     box-shadow:0 10px 25px #d7bde2;
     height:60px;
     background: none;
-    padding: 0px 50px;
+    padding: 10px 50px;
 }
 .logo,.menu{
     display:flex;
@@ -347,11 +347,12 @@ html{
     margin-bottom:20px
 }
 .tools{
+   
     justify-content:space-around;
     gap:10px;
     flex-wrap:wrap;
     align-items:center;
-    padding:10px
+    padding:10px;
 }
 .list-33 div,.social{
     gap:20px;
@@ -361,8 +362,9 @@ html{
     width:24%;
     display:flex;
     justify-content:space-between;
+    
     padding:15px 10px;
-    box-shadow:0 15px 30px #d7bde2;
+    box-shadow:0 15px 30px #d6cbda;
     border-radius:15px;
     transition:.8s
 }
@@ -372,7 +374,8 @@ html{
     border-radius:50px;
     display:flex;
     align-items:center;
-    justify-content:center
+    justify-content:center;
+   
 }
 .sear a,.tool a:hover{
     background-color:#5b2c6f
