@@ -22,13 +22,13 @@
     content="Toolzy provides free, fast, and secure online tools including converters, image compressors, and productivity utilities.">
   <meta property="og:url" content="https://thetoolzy.com/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
+  <meta property="og:image" content="https://thetoolzy.com/images/og-image.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Toolzy - Free Online Tools for Everyone">
   <meta name="twitter:description"
     content="Toolzy offers free online tools for file conversion, image editing, and productivity. Safe and secure.">
-  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
+  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.jpg">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -80,16 +80,24 @@
 
       <h1>Free oneline Tools for Everyone <br> With No Signup,No Limit</h1>
       <p>Discover and Use a variety of Oneline tools for your tasks. </p>
-      <div class="search-box">
+      <div class="searchbar">
+         <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search for tools..." onkeyup="searchTools()">
         <ul id="results"></ul>
       </div>
+        <div class="tool-counter">
+         <h2>Total Tools</h2>
+           <h2 id="toolCount">0</h2>
+        </div>
+      </div>
+     
       <section class="text-effect">
         <div class="box">
           <h3>We Provide</h3>
           <span id="typing-text"></span>
           <span class="cursor"></span>
         </div>
+        
       </section>
 
 
@@ -152,8 +160,6 @@
       </div>
 
     </section>
-
-    <!---Image Convertors-->
     <section id="image-convert" class="tool-section">
       <div class="heading">
         <h1>Image Convertors</h1>
@@ -259,7 +265,7 @@
       </div>
     </section>
 
-    <!---Image Tools-->
+    
     <section id="image-tools" class="tool-section">
       <div class="heading">
         <h1>Image Tools</h1>
@@ -270,7 +276,7 @@
 
         <div class="tool">
           <h1>Image Rename</h1>
-          <a href="tool/image-tools/batch-image-renamer/">Use Now!</a>
+          <a href="tool/image-tools/image-renamer/">Use Now!</a>
         </div>
 
         <div class="tool">
@@ -283,11 +289,11 @@
         </div>
         <div class="tool">
           <h1>Image Comparison</h1>
-          <a href="tool/image-tools/image-comparison-downloader/">Use Now!</a>
+          <a href="tool/image-tools/image-comparison/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image compressor</h1>
-          <a href="tool/image-tools/image-compression/">Use Now!</a>
+          <a href="tool/image-tools/image-compressor/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Cropper</h1>
@@ -296,7 +302,7 @@
 
         <div class="tool">
           <h1>Image Drawing</h1>
-          <a href="tool/image-tools/image-drawing-tool/">Use Now!</a>
+          <a href="tool/image-tools/image-drawing/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Filter</h1>
@@ -304,7 +310,7 @@
         </div>
         <div class="tool">
           <h1>Image Gallery</h1>
-          <a href="tool/image-tools/image-gallery-with-lightbox/">Use Now!</a>
+          <a href="tool/image-tools/image-gallery/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Histogram</h1>
@@ -316,7 +322,7 @@
         </div>
         <div class="tool">
           <h1>Image Resizer</h1>
-          <a href="tool/image-tools/image-resizer-tool/">Use Now!</a>
+          <a href="tool/image-tools/image-resizer/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Image Rotater</h1>
@@ -340,11 +346,11 @@
         </div>
         <div class="tool">
           <h1>Insta Profile</h1>
-          <a href="tool/image-tools/insta-profile-preview/">Use Now!</a>
+          <a href="tool/image-tools/insta-profile/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Insta thumbnail</h1>
-          <a href="tool/image-tools/instagram-thumbnial-previer/">Use Now!</a>
+          <a href="tool/image-tools/instagram-thumbnail-downloader/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Thumbnail Creator</h1>
@@ -362,7 +368,7 @@
 
       </div>
     </section>
-    <!--- Pdf-tools ------>
+    
     <section id="pdf-tools" class="tool-section">
       <div class="heading">
         <h1>Pdf Tools</h1>
@@ -376,7 +382,7 @@
 
         <div class="tool">
           <h1>CSV to Excel</h1>
-          <a href="tools/pdf-tools/csv-to-excel-converter/">Use Now!</a>
+          <a href="tool/pdf-tools/csv-to-excel-converter/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Excel View</h1>
@@ -440,7 +446,7 @@
         </div>
         <div class="tool">
           <h1>PDF Page Splitter</h1>
-          <a href="tool/pdf-tools/pdf-delete-pages/">Use Now!</a>
+          <a href="tool/pdf-tools/pdf-page/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>TEXT to PDF</h1>
@@ -456,7 +462,7 @@
 
       </div>
     </section>
-    <!--- Seo-tools ------>
+   
     <section id="seo-tools" class="tool-section">
       <div class="heading">
         <h1>SEO Tools</h1>
@@ -474,16 +480,16 @@
         </div>
         <div class="tool">
           <h1>Responsive Test</h1>
-          <a href="Tool/SEO/responsive-design-tester/">Use Now!</a>
+          <a href="tool/seo/responsive-design-tester/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Website Screenshot</h1>
-          <a href="Tool/SEO/website-screenshot-tool/">Use Now!</a>
+          <a href="tool/seo/website-screenshot-tool/">Use Now!</a>
         </div>
 
       </div>
     </section>
-    <!--- Text-tools ------>
+   
     <section id="text-tools" class="tool-section">
       <div class="heading">
         <h1>Text Tools</h1>
@@ -509,11 +515,11 @@
         </div>
         <div class="tool">
           <h1>Hex Conversion</h1>
-          <a href="tool/text-tool/hex-conversion/">Use Now!</a>
+          <a href="tool/text-tool/hex-converter/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Json Formatter</h1>
-          <a href="tool/text-tool/json-formatter-beautifier/">Use Now!</a>
+          <a href="tool/text-tool/json-formatter/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Lorem Generator</h1>
@@ -533,7 +539,7 @@
         </div>
         <div class="tool">
           <h1>Readability Test</h1>
-          <a href="tool/text-tool/readability-score-calculator-tool/">Use Now!</a>
+          <a href="tool/text-tool/readability-score-calculator/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Text Case Convert</h1>
@@ -545,7 +551,7 @@
         </div>
         <div class="tool">
           <h1>Text Encryption</h1>
-          <a href="tool/text-tool/text-encryption/">Use Now!</a>
+          <a href="tool/text-tool/text-encryptor/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>Text Glitch</h1>
@@ -565,7 +571,7 @@
         </div>
         <div class="tool">
           <h1>Typing Test</h1>
-          <a href="tool/text-tool/typing-speed-test-tool/">Use Now!</a>
+          <a href="tool/text-tool/typing-speed-test/">Use Now!</a>
         </div>
         <div class="tool">
           <h1>URL Encoder</h1>
@@ -578,7 +584,7 @@
 
       </div>
     </section>
-    <!--- Social Media tools ------>
+   
     <section id="social" class="tool-section">
       <div class="heading">
         <h1>Social Media downloader</h1>
@@ -609,7 +615,7 @@
 
       </div>
     </section>
-    <!--- URL tools ------>
+    
     <section id="url-tools" class="tool-section">
       <div class="heading">
         <h1>URL Tools</h1>
@@ -636,7 +642,7 @@
 
       </div>
     </section>
-    <!--- Barcode tools ------>
+    
     <section id="barcode" class="tool-section">
       <div class="heading">
         <h1>Barcode Tools</h1>
@@ -667,7 +673,7 @@
 
       </div>
     </section>
-    <!--- Email tools ------>
+    
     <section id="email" class="tool-section">
       <div class="heading">
         <h1>Email Tools</h1>
@@ -699,7 +705,6 @@
 
       </div>
     </section>
-    <!--- Math tools ------>
     <section id="math" class="tool-section">
       <div class="heading">
         <h1>Math Tools</h1>
@@ -730,7 +735,7 @@
 
       </div>
     </section>
-    <!--- Password tools ------>
+   
     <section id="password" class="tool-section">
       <div class="heading">
         <h1>Password Tools</h1>
@@ -756,7 +761,7 @@
 
       </div>
     </section>
-    <!--- video tools ------>
+    
     <section id="video" class="tool-section">
       <div class="heading">
         <h1>Video Tools</h1>

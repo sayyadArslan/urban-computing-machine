@@ -18,6 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+// Select all tool items
+const tools = document.querySelectorAll('.tool-section .tool');
+const toolCount = document.getElementById('toolCount');
+
+// Set initial count
+toolCount.textContent = tools.length;
+
+// Optional: Animate counting from 0 to total
+let count = 0;
+const total = tools.length;
+const interval = setInterval(() => {
+  count++;
+  toolCount.textContent = count;
+  if(count >= total) clearInterval(interval);
+}, 100); // 100ms delay
 
 
 
