@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Select DOM elements
+
   const hamburger = document.getElementById("openMenu");
   const closeIcon = document.getElementById("closeMenu");
   const navMenu = document.getElementById("navMenu");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Open menu
+
   hamburger.addEventListener("click", () => {
     navMenu.style.display = "flex";
     hamburger.style.display = "none";
@@ -18,35 +18,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-// Select all tool items
+
 const tools = document.querySelectorAll('.tool-section .tool');
 const toolCount = document.getElementById('toolCount');
 
-// Set initial count
+
 toolCount.textContent = tools.length;
 
-// Optional: Animate counting from 0 to total
+
 let count = 0;
 const total = tools.length;
 const interval = setInterval(() => {
   count++;
   toolCount.textContent = count;
   if(count >= total) clearInterval(interval);
-}, 100); // 100ms delay
+}, 20); 
 
 
 
 
 
   
-  // Close menu
+
   closeIcon.addEventListener("click", () => {
     navMenu.style.display = "none";
     hamburger.style.display = "block";
     closeIcon.style.display = "none";
   });
 
-  // GSAP animation on page load
+  
   gsap.from(".logo", {
     opacity: 0,
     y: -20,
