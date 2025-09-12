@@ -1,0 +1,209 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', sans-serif
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #ffffff;
+    box-shadow: 0 10px 25px #d7bde2;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: purple;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+}
+
+.menu a:hover {
+    color: purple;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: purple;
+    transition: width 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger */
+.menu-icons {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icons img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.hero {
+    width: 70%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    padding: 0px 50px;
+}
+.alltools
+{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+.tool
+{
+    width: 350px;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap:15px;   
+    border-radius: 10px;
+    background: white;
+    padding: 10px;
+     transition: 0.5s;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.tool-img
+{
+    width: 50px;
+}
+.tool:hover
+{
+    border:2px solid purple
+}
+
+.redirect
+{
+   margin: 10px;
+    width: 35px;
+    transition: 0.5s;
+}
+.redirect:hover
+{
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    .menu-icons {
+        display: block;
+    }
+
+    #closeMenu {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        padding: 0px 10px;
+    }
+    .alltools
+    {
+        flex-direction: column;
+    }
+
+}
