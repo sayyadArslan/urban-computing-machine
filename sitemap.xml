@@ -1,33 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Main Pages -->
+
   <url>
     <loc>https://thetoolzy.com/</loc>
-  </url>
-  <url>
-    <loc>https://thetoolzy.com/about.html</loc>
-  </url>
-  <url>
-    <loc>https://thetoolzy.com/contact.html</loc>
-  </url>
-  <url>
-    <loc>https://thetoolzy.com/help.html</loc>
+    <lastmod>2025-10-05</lastmod>
+    <priority>1.0</priority>
   </url>
 
-  <!-- Category Pages -->
-  <url><loc>https://thetoolzy.com/page/image-convertors/</loc></url>
-  <url><loc>https://thetoolzy.com/page/image-editors/</loc></url>
-  <url><loc>https://thetoolzy.com/page/pdf-convertors/</loc></url>
-  <url><loc>https://thetoolzy.com/page/text-convertors/</loc></url>
-  <url><loc>https://thetoolzy.com/page/password-tools/</loc></url>
-  <url><loc>https://thetoolzy.com/page/email/</loc></url>
-  <url><loc>https://thetoolzy.com/page/barcode-generators/</loc></url>
-  <url><loc>https://thetoolzy.com/page/math-tools/</loc></url>
-  <url><loc>https://thetoolzy.com/page/seo-tool/</loc></url>
-  <url><loc>https://thetoolzy.com/page/url-tools/</loc></url>
-
-  <!-- Tools -->
+  
   <url><loc>https://thetoolzy.com/tool/image-converters/avif-to-webp/</loc></url>
   <url><loc>https://thetoolzy.com/tool/image-converters/bmp-to-jpg/</loc></url>
   <url><loc>https://thetoolzy.com/tool/image-converters/avif-to-jpg/</loc></url>
@@ -52,7 +35,7 @@
   <url><loc>https://thetoolzy.com/tool/image-converters/webp-to-jpg/</loc></url>
   <url><loc>https://thetoolzy.com/tool/image-converters/webp-to-avif/</loc></url>
 
-  <!-- Image Tools -->
+  
   <url><loc>https://thetoolzy.com/tool/image-tools/image-renamer/</loc></url>
   <url><loc>https://thetoolzy.com/tool/image-tools/image-collage-maker/</loc></url>
   <url><loc>https://thetoolzy.com/tool/image-tools/image-color-picker/</loc></url>
@@ -70,13 +53,8 @@
   <url><loc>https://thetoolzy.com/tool/image-tools/image-to-base64-convertor/</loc></url>
   <url><loc>https://thetoolzy.com/tool/image-tools/image-watermark-adder/</loc></url>
   <url><loc>https://thetoolzy.com/tool/image-tools/image-zoom-and-pan-viewer/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/image-tools/insta-profile-preview/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/image-tools/instagram-thumbnial-previer/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/image-tools/thumbnail-creator/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/image-tools/youtube-thumnail-downloader/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/image-tools/insta-qrcode-to-url/</loc></url>
 
-  <!-- PDF Tools -->
+  
   <url><loc>https://thetoolzy.com/tool/pdf-tools/add-pdf-page-number/</loc></url>
   <url><loc>https://thetoolzy.com/tool/pdf-tools/csv-to-excel-converter/</loc></url>
   <url><loc>https://thetoolzy.com/tool/pdf-tools/excel-file-viewer/</loc></url>
@@ -91,61 +69,85 @@
   <url><loc>https://thetoolzy.com/tool/pdf-tools/rotated-pdf-tool/</loc></url>
   <url><loc>https://thetoolzy.com/tool/pdf-tools/text-to-pdf/</loc></url>
 
-  <!-- SEO Tools -->
-  <url><loc>https://thetoolzy.com/tool/seo/meta-tag-generator/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/seo/open-graph-checker/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/seo/responsive-design-tester/</loc></url>
-
-  <!-- Text Tools -->
+  
   <url><loc>https://thetoolzy.com/tool/text-tool/duplicate-line-remover/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/emoji-replacer/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/fancy-text-generator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/grammer-and-spell-checker/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/text-tool/hex-conversion/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/text-tool/json-formatter-beautifier/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/text-tool/hex-converter/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/text-tool/json-formatter/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/lorem-ipsum-generator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/palagram-finder/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/random-quote-generator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/random-text-generator/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/text-tool/readability-score-calculator-tool/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/text-tool/readability-score-calculator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/text-case-convertor/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/text-differ-checker/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/text-tool/text-encryption/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/text-tool/text-encryptor/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/text-glitch/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/text-reverser/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/text-sorter/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/text-to-speech/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/text-tool/typing-speed-test-tool/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/url-encoder-decoder/</loc></url>
   <url><loc>https://thetoolzy.com/tool/text-tool/word-counter/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/text-tool/typing-speed-test/</loc></url>
 
-  <!-- Barcode & QR Tools -->
+ 
+  <url><loc>https://thetoolzy.com/tool/email/email-extracor/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/email/email-validator/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/email/mailto-link-generator/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/email/utm-link-builder/</loc></url>
+
+  
+  <url><loc>https://thetoolzy.com/tool/password/password-hash/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/password/password-strength-checker/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/password/remember-password/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/password/strong-password-generator/</loc></url>
+
+ 
   <url><loc>https://thetoolzy.com/tool/barcodes/barcode-decoder-from-image/</loc></url>
   <url><loc>https://thetoolzy.com/tool/barcodes/barcode-generator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/barcodes/qr-code-generator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/barcodes/qrcode-generator-for-url/</loc></url>
   <url><loc>https://thetoolzy.com/tool/barcodes/wifi-qrcode-generator/</loc></url>
 
-  <!-- Email Tools -->
-  <url><loc>https://thetoolzy.com/tool/email/email-extracor/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/email/email-validator/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/email/mailto-link-generator/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/email/utm-link-builder/</loc></url>
-
-  <!-- Math Tools -->
+  
   <url><loc>https://thetoolzy.com/tool/math/age-calculator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/math/bmi-calculator/</loc></url>
   <url><loc>https://thetoolzy.com/tool/math/currency-convertor/</loc></url>
   <url><loc>https://thetoolzy.com/tool/math/percentage-calculator/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/math/simple-interest-calculator/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/math/interest-calculator/</loc></url>
 
-  <!-- Password Tools -->
-  <url><loc>https://thetoolzy.com/tool/password/password-hash/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/password/password-strength-checker/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/password/remember-password/</loc></url>
-  <url><loc>https://thetoolzy.com/tool/password/strong-password-generator/</loc></url>
-
-  <!-- Video Tools -->
+  
   <url><loc>https://thetoolzy.com/tool/video-tools/video-metadata-viewer/</loc></url>
+
+ 
+  <url><loc>https://thetoolzy.com/tool/seo/meta-tag-generator/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/seo/open-graph-checker/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/seo/responsive-design-tester/</loc></url>
+  <url><loc>https://thetoolzy.com/tool/seo/website-screenshot-tool/</loc></url>
+
+  
+  <url><loc>https://thetoolzy.com/page/image-convertors/</loc></url>
+  <url><loc>https://thetoolzy.com/page/image-editors/</loc></url>
+  <url><loc>https://thetoolzy.com/page/pdf-convertors/</loc></url>
+  <url><loc>https://thetoolzy.com/page/text-convertors/</loc></url>
+  <url><loc>https://thetoolzy.com/page/password-tools/</loc></url>
+  <url><loc>https://thetoolzy.com/page/email/</loc></url>
+  <url><loc>https://thetoolzy.com/page/barcode-generators/</loc></url>
+  <url><loc>https://thetoolzy.com/page/math-tools/</loc></url>
+  <url><loc>https://thetoolzy.com/page/seo-tool/</loc></url>
+  <url><loc>https://thetoolzy.com/page/url-tools/</loc></url>
+
+  
+  <url><loc>https://thetoolzy.com/about.html</loc></url>
+  <url><loc>https://thetoolzy.com/contact.html</loc></url>
+  <url><loc>https://thetoolzy.com/help.html</loc></url>
+
+  
+  <url>
+    <loc>https://thetoolzy.com/404.html</loc>
+    <priority>0.1</priority>
+  </url>
 
 </urlset>
