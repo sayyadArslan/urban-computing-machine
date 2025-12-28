@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-
-  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/ico" href="img/favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,13 +21,13 @@
     content="Toolzy provides free, fast, and secure online tools including converters, image compressors, and productivity utilities.">
   <meta property="og:url" content="https://thetoolzy.com/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://thetoolzy.com/images/og-image.jpg">
+  <meta property="og:image" content="https://thetoolzy.com/img/og-image.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Toolzy - Free Online Tools for Everyone">
   <meta name="twitter:description"
     content="Toolzy offers free online tools for file conversion, image editing, and productivity. Safe and secure.">
-  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.jpg">
+  <meta name="twitter:image" content="https://thetoolzy.com/img/og-image.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,44 +40,48 @@
     "name": "Toolzy",
     "logo": { 
       "@type": "ImageObject",
-      "url": "https://thetoolzy.com/images/xd.png"
+      "url": "https://thetoolzy.com/img/logo.png"
     }
   }
 }
-</script>
-
+  </script>
 </head>
 
 <body>
-  <div id="tz-cursor" aria-hidden="true" class="tz-cursor">
-    <div class="tz-cursor__ring"></div>
-    <div class="tz-cursor__dot"></div>
-  </div>
 
-  <nav class="navbar">
-    <div class="logo">
-      <img src="images/xd.png" />
-      <h1>Toolzy</h1>
+  <header class="navbar">
+    <div class="container">
+
+      <div class="logo">
+        <img src="img/logo.svg" alt="Logo">
+        <h3>Toolzy</h3>
+      </div>
+
+
+      <nav class="nav-links desktop">
+        <a href="about/">About</a>
+        <a href="Contact/">Contact</a>
+        <a href="help/">Help</a>
+        <a href="blog/">Blog</a>
+      </nav>
+
+      <img src="img/burger-bar.svg" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
     </div>
 
-    <!-- Hamburger Icons -->
-    <div class="menu-icons">
-      <img src="images/burger-bar.avif" class="fas fa-bars" id="openMenu" />
-      <img src="images/close.avif" class="fas fa-times" id="closeMenu" />
-    </div>
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu">
+      <img src="img/close.svg" alt="Close" class="close-btn butt" onclick="closeMenu()" />
 
-    <!-- Navigation Menu -->
-    <div class="menu" id="navMenu">
-      <a href="https://thetoolzy.com/">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="help.html">Help</a>
+      <a href="about/">About</a>
+      <a href="contact/">Contact</a>
+      <a href="help/">Help</a>
+      <a href="blog/">Blog</a>
     </div>
-  </nav>
+  </header>
   <section class="linkbar">
     <ul>
       <li>
-        <a href="#">Image Converters</a>
+        <a>Image Converters</a>
         <div class="mega-menu">
           <div>
             <h4>Image Formats</h4>
@@ -153,11 +156,11 @@
         </div>
       </li>
       <li>
-        <a href="#">Image Editors</a>
+        <a>Image Editors</a>
         <div class="mega-menu">
           <h4>Image Editors</h4>
           <div class="sub-link">
-            <h3>Image Editors</h3>
+
             <div>
               <a href="tool/image-tools/image-renamer/">Image Rename</a>
               <a href="tool/image-tools/image-collage-maker/">Collage Maker</a>
@@ -183,17 +186,14 @@
 
       </li>
       <li>
-        <a href="#">PDF Editors</a>
+        <a>PDF Editors</a>
         <div class="mega-menu">
-
           <h4>PDF Editors</h4>
           <div class="sub-link">
-            <h3>Pdf Editors</h3>
             <div>
               <a href="tool/pdf-tools/add-pdf-page-number/">Add Page Number</a>
               <a href="tool/pdf-tools/csv-to-excel-converter/">CSV to Excel</a>
               <a href="tool/pdf-tools/excel-file-viewer/">Excel View</a>
-              <a href="tool/pdf-tools/pdf-to-excel/">Excel to Pdf</a>
               <a href="tool/pdf-tools/merge-excel-file/">Merge Excel file</a>
               <a href="tool/pdf-tools/merge-pdf-tool/">Merge PDF</a>
               <a href="tool/pdf-tools/pdf-compressor/">PDF Compressor</a>
@@ -201,15 +201,9 @@
               <a href="tool/pdf-tools/pdf-metadata-viewer/">PDF MetaData</a>
               <a href="tool/pdf-tools/pdf-reorder-maker/">PDF ReOrder</a>
               <a href="tool/pdf-tools/pdf-repair/">PDF Repair</a>
-              <a href="tool/pdf-tools/pdf-to-excel/">PDF to Excel</a>
-              <a href="tool/pdf-tools/pdf-to-ppt/">PDF to PPT</a>
-              <a href="tool/pdf-tools/pdf-to-word/">PDF to Word</a>
               <a href="tool/pdf-tools/pdf-watermarker-adder/">PDF Watermarker</a>
-              <a href="tool/pdf-tools/ppt-to-pdf/">PPT to PDF</a>
               <a href="tool/pdf-tools/rotated-pdf-tool/">PDF Rotater</a>
-              <a href="">PDF Page Splitter</a>
               <a href="tool/pdf-tools/text-to-pdf/">TEXT to PDF</a>
-              <a href="tool/pdf-tools/word-to-pdf/">Word to PDF</a>
             </div>
           </div>
 
@@ -217,12 +211,10 @@
 
       </li>
       <li>
-        <a href="#">Text Editors</a>
+        <a>Text Editors</a>
         <div class="mega-menu">
-
           <h4>Text Editors</h4>
           <div class="sub-link">
-            <h3>Text Editors</h3>
             <div>
               <a href="tool/text-tool/duplicate-line-remover/">Duplicate Line remover</a>
               <a href="tool/text-tool/duplicate-line-remover/">Emoji Replacer</a>
@@ -252,52 +244,11 @@
 
       </li>
       <li>
-        <a href="#">URL Editors</a>
+        <a>Barcode Generator</a>
         <div class="mega-menu">
-
-          <h4>URL Editors</h4>
-          <div class="sub-link">
-            <h3>URL Editors</h3>
-            <div>
-              <a href="tool/url/bulk-link-checker/">Bulk Link Check</a>
-              <a href="tool/url/link-preview-generator/">Link Preview Generator</a>
-              <a href="tool/url/url-shortener/index.html">URL shortener</a>
-              <a href="tool/url/url-unshorter/">URL Unshortener</a>
-            </div>
-          </div>
-
-        </div>
-
-      </li>
-      <li>
-        <a href="#">Email Editors</a>
-        <div class="mega-menu">
-
-          <h4>Email Editors</h4>
-          <div class="sub-link">
-            <h3>Email Editors</h3>
-            <div>
-
-              <a href="tool/email/email-checker/">Email Checker</a>
-              <a href="tool/email/email-extracor/">Email Extractor</a>
-              <a href="tool/email/email-validator/">Email Validator</a>
-              <a href="tool/email/mailto-link-generator/">Mailto Link generator</a>
-              <a href="tool/email/utm-link-builder/">UTM link generator</a>
-            </div>
-          </div>
-
-        </div>
-
-      </li>
-      <li>
-        <a href="#">Barcode Generator</a>
-        <div class="mega-menu">
-
           <h4>Barcode Generator</h4>
           <div class="sub-link">
-            <h3>Barcode Generator</h3>
             <div>
-
               <a href="tool/barcodes/wifi-qrcode-generator/">WIFI Qrcode Generator</a>
               <a href="tool/barcodes/barcode-decoder-from-image/">Barcode Decoder</a>
               <a href="tool/barcodes/barcode-generator/">Barcode generator</a>
@@ -310,59 +261,12 @@
 
       </li>
       <li>
-        <a href="">Math Converter</a>
+        <a>Math Converter</a>
         <div class="mega-menu">
-
           <h4>Math Converterr</h4>
           <div class="sub-link">
-            <h3>Math Converter</h3>
             <div>
-
               <a href="tool/math/age-calculator/">Age Calculator</a>
-              <a href="tool/math/bmi-calculator/">BMI Calculator</a>
-              <a href="tool/math/currency-convertor/">Currency Converter</a>
-              <a href="tool/math/percentage-calculator/">Percentage Calculator</a>
-              <a href="tool/math/interest-calculator/">Interest Calculator</a>
-            </div>
-          </div>
-
-        </div>
-
-      </li>
-      <li>
-        <a href="#">Seo Tools</a>
-        <div class="mega-menu">
-
-          <h4>Seo Tools</h4>
-          <div class="sub-link">
-            <h3>Seo Tools</h3>
-            <div>
-
-              <a href="tool/seo/meta-tag-generator/">Metatag generator</a>
-              <a href="tool/seo/open-graph-checker/">Opengraph Checker</a>
-              <a href="tool/seo/responsive-design-tester/">Responsive Test</a>
-              <a href="tool/seo/website-screenshot-tool/">Website Screenshot</a>
-
-            </div>
-          </div>
-
-        </div>
-
-      </li>
-      <li>
-        <a href="#">Password Tools</a>
-        <div class="mega-menu">
-
-          <h4>Password Tools</h4>
-          <div class="sub-link">
-            <h3>Password Tools</h3>
-            <div>
-
-              <a href="tool/password/password-hash/">Password hasher</a>
-              <a href="tool/password/password-strength-checker/">Password strength Checker</a>
-              <a href="tool/password/remember-password/">Remember password Maker</a>
-              <a href="tool/password/strong-password-generator/">Strong Password Suggestions</a>
-
             </div>
           </div>
 
@@ -371,6 +275,401 @@
       </li>
     </ul>
   </section>
+  <main>
+    <section class="hero">
+      <div class="main-heading">
+        <h1>Smart Online Tools for Every Task.</h1>
+        <!--<div class="searchbar">
+          <input type="text" placeholder="Search Tools Easily" id="" />
+          <Button>Search Now</Button>
+        </div>-->
+        <div class="searchbar">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for tools..." onkeyup="searchTools()">
+            <ul id="results"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="img/hero-image.svg" alt="Hero Image">
+      </div>
+    </section>
+    <section class="catagory">
+      <div class="cat-h1">
+        <h2>Tools Category</h2>
+      </div>
+      <div class="cat1">
+        <a href="page/image-convertors/">
+          <div class="cat">
+            <img src="img/picture.svg" alt="">
+            <h3>Image Converters</h3>
+            <p>Convert Images into Different formats</p>
+          </div>
+        </a>
+        <a href="page/image-editors/">
+          <div class="cat">
+            <img src="img/picture.svg" alt="">
+            <h3>Image Editors</h3>
+            <p>Edit Image according to your need.</p>
+          </div>
+        </a>
+        <a href="page/pdf-convertors/">
+          <div class="cat">
+            <img src="img/pdf-file.svg" alt="">
+            <h3>Pdf Converters</h3>
+            <p>Convert Docs,Pdf,Excel,ppt files into Different formats</p>
+          </div>
+        </a>
+        <a href="page/text-convertors/">
+          <div class="cat">
+            <img src="img/text.svg" alt="">
+            <h3>Text Converters</h3>
+            <p>Work with text files and documents</p>
+          </div>
+        </a>
+
+        <a href="page/barcode-generators/">
+          <div class="cat">
+            <img src="img/barcode.svg" alt="">
+            <h3>Barcode Converters</h3>
+            <p>Convert and Make Barcodes</p>
+          </div>
+        </a>
+        <a href="page/math-tools/">
+          <div class="cat">
+            <img src="img/math.svg" alt="">
+            <h3>Math Converters</h3>
+            <p>Convert and Calculate Different Sizes</p>
+          </div>
+        </a>
+      </div>
+
+    </section>
+    <section>
+      <div class="offer-head">
+        <h2>Why Choose Us</h2>
+      </div>
+      <div class="Offers">
+        <div class="offer">
+          <img src="img/free.svg" alt="Fast Convertersion">
+          <h2>Absolute Free</h2>
+          <p>Toolzy:Tools is absolute Free.You can use it for free.There is need of credit and debit information or any
+            other information.</p>
+        </div>
+        <div class="offer">
+          <img src="img/power.svg" alt="Fast Convertersion">
+          <h2>Fast Process</h2>
+          <p>Toolzy tools work instantly, allowing you to complete tasks in seconds without any delay.</p>
+        </div>
+        <div class="offer">
+          <img src="img/user.svg" alt="Fast Convertersion">
+          <h2>No SignUp</h2>
+          <p>Toolzy:Tools is absolute Free.You can use it for free.There is need of credit and debit information or any
+            other information</p>
+        </div>
+        <div class="offer">
+          <img src="img/easy-to-use.svg" alt="Fast Convertersion">
+          <h2>Easy-to-Use</h2>
+          <p>Toolzy:Tools is absolute Free.You can use it for free.There is need of credit and debit information or any
+            other information</p>
+        </div>
+        <div class="offer">
+          <img src="img/coding.svg" alt="Fast Convertersion">
+          <h2>Brower-Based</h2>
+          <p>Toolzy:Tools is absolute Free.You can use it for free.There is need of credit and debit information or any
+            other information</p>
+        </div>
+        <div class="offer">
+          <img src="img/security.svg" alt="Fast Convertersion">
+          <h2>Private & Secure</h2>
+          <p>Toolzy:Tools is absolute Free.You can use it for free.There is need of credit and debit information or any
+            other information</p>
+        </div>
+      </div>
+    </section>
+    <section class="blog-section">
+      <div class="blog-header">
+        <h2>Latest from Our Blog</h2>
+        <p>Helpful guides, tips & comparisons to get the most out of Toolzy tools</p>
+      </div>
+      <div class="contain">
+
+
+
+        <div class="blog-grid">
+
+          <!-- Blog Card 1 -->
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/08/25/15/30/dictionary-1619740_1280.jpg"
+              alt="Compress PDF without losing quality">
+            <div class="blog-content">
+              <h3>How to Compress PDF Without Losing Quality</h3>
+              <p>Learn the best methods to reduce PDF size while keeping text and images sharp.</p>
+              <a href="/blog/compress-pdf-without-losing-quality">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/08/25/15/30/dictionary-1619740_1280.jpg"
+              alt="Compress PDF without losing quality">
+            <div class="blog-content">
+              <h3>How to Compress PDF Without Losing Quality</h3>
+              <p>Learn the best methods to reduce PDF size while keeping text and images sharp.</p>
+              <a href="/blog/compress-pdf-without-losing-quality">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/08/25/15/30/dictionary-1619740_1280.jpg"
+              alt="Compress PDF without losing quality">
+            <div class="blog-content">
+              <h3>How to Compress PDF Without Losing Quality</h3>
+              <p>Learn the best methods to reduce PDF size while keeping text and images sharp.</p>
+              <a href="/blog/compress-pdf-without-losing-quality">Read More →</a>
+            </div>
+          </article>
+
+          <!-- Blog Card 2 -->
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/09/08/22/43/books-1655783_1280.jpg" alt="JPG vs PNG vs WebP">
+            <div class="blog-content">
+              <h3>JPG vs PNG vs WebP – Which Image Format is Best?</h3>
+              <p>A detailed comparison of image formats for web performance and SEO.</p>
+              <a href="/blog/jpg-vs-png-vs-webp">Read More →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="blog-btn">
+          <a href="/blog">View All Blogs</a>
+        </div>
+
+      </div>
+    </section>
+    <section class="step">
+      <div class="step-2">
+        <h2>How Our Tools Works</h2>
+      </div>
+      <div class="step-box">
+        <div class="step-box1">
+          <img src="img/select.svg" alt="Select Image">
+          <span>Step:1</span>
+          <h3>Choose Your Tool</h3>
+        </div>
+        <div class="step-box2">
+          <img src="img/upload.svg" alt="Upload">
+          <span>Step:2</span>
+          <h3>Upload File/Input Data</h3>
+        </div>
+        <div class="step-box3">
+          <img src="img/process.svg" alt="Process">
+          <span>Step:3</span>
+          <h3> Process Instantly</h3>
+        </div>
+        <div class="step-box4">
+          <img src="img/download.svg" alt="Download">
+          <span>Step:4</span>
+          <h3>Download</h3>
+        </div>
+      </div>
+
+      </div>
+    </section>
+    <section class="popular">
+      <div>
+        <h2 class="pop-head">Popular Tools</h2>
+      </div>
+      <div class="popular-section">
+        <div>
+          <img src="img/popular.avif" alt="">
+        </div>
+        <div class="pop-tools">
+          <div>
+            <h2>Toolzy:Top Trending Tools</h2>
+          </div>
+          <div class="pop">
+            <div>
+              <h1>JPG to PNG Converter</h1>
+              <p>Toolzy’s JPG to PNG Converter is a fast and reliable online tool that instantly converts JPG images
+                into high-quality PNG format.</p>
+              <a href="tool/image-converters/jpg-to-png/">Use Now</a>
+            </div>
+            <div>
+              <h1>PDF ReOrder Tool</h1>
+              <p>Quickly reorder pages in your PDF files with Toolzy. Upload your PDF, rearrange pages with
+                drag-and-drop, and download the updated document instantly.</p>
+              <a href="tool/pdf-tools/pdf-reorder-maker/">Use Now</a>
+            </div>
+            <div>
+              <h1>Age Calculator</h1>
+              <p>Toolzy’s Age Calculator helps you quickly find your exact age in years, months, and days. Just enter
+                your date of birth, and get instant, accurate results—simple, fast, and free.</p>
+              <a href="tool/math/age-calculator/">Use Now</a>
+            </div>
+            <div>
+              <h1>WiFi Barcode Generator</h1>
+              <p>Toolzy’s WiFi Barcode Generator allows you to create QR codes for your WiFi network in seconds.</p>
+              <a href="tool/barcodes/wifi-qrcode-generator/">Use Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg">
+      <div>
+        <img src="img/bgremove.avif" alt="Collage Maker">
+      </div>
+      <div class="bg-content">
+        <h2>Image Collage Maker</h2>
+        <p>Image Collage helps you to make image collage with single click.</p>
+        <div>
+          <a href="/tool/image-tools/image-collage-maker/">Use Now</a>
+        </div>
+      </div>
+    </section>
+    <section class="bg">
+
+      <div class="bg-content">
+        <h2>Pdf Re-Order Maker</h2>
+        <p>Rearrange Your Pdf According to Your Own Style.</p>
+        <div>
+          <a href="/tool/pdf-tools/pdf-reorder-maker/">Use Now</a>
+        </div>
+      </div>
+      <div>
+        <img src="img/pdf.avif" alt="Pdf Maker">
+      </div>
+    </section>
+    <section class="cta">
+      <h2>Start Using Toolzy Tools for Free</h2>
+      <div class="cta-div">
+        <a href="">Avif to JPG</a>
+        <a href="">JPG to PNG</a>
+        <a href="">PDF Compressor</a>
+        <a href="">Image Color Picker</a>
+        <a href="">Age Calculator</a>
+
+      </div>
+      <a href="">Explore All Tools</a>
+    </section>
+    <section class="faq-section">
+      <div class="faq-container">
+
+        <!-- Left Content -->
+        <div class="faq-left">
+          <h2>Frequently asked questions</h2>
+          <p>
+            Can’t find the answer you’re looking for?
+            Reach out to our
+            <a href="#">customer support</a> team.
+          </p>
+        </div>
+
+        <!-- Right FAQs -->
+        <div class="faq-right">
+
+          <div class="faq-item">
+            <button class="faq-question">
+              How does Toolzy work?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Toolzy provides fast, secure, browser-based tools without installing any software.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Are Toolzy tools free?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Yes, most tools are completely free with optional premium features.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Is my data safe?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Absolutely. Files are processed securely and never stored permanently.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Do I need to sign up?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              No signup required. Just open the tool and start using it instantly.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="foot1">
+      <div class="intro">
+        <div class="intro-1">
+          <img src="img/logo.svg" alt="Logo" />
+          <h2>Toolzy</h2>
+        </div>
+
+        <p>Toolzy is a modern web app offering <br>essential online tools like image compression, file <br>conversion,
+          and barcode generation—all in one place.</p>
+        <section class="social">
+          <img src="img/instagram.svg" alt="Instagram" />
+          <img src="img/linkedin.svg" alt="LinkedIn" />
+          <img src="img/threads.svg" alt="Thread" />
+          <img src="img/twitter.svg" alt="Twitter" />
+        </section>
+      </div>
+      <section class="list-33">
+        <div>
+          <h2>Company</h2>
+          <section>
+            <a href="about/">About Us</a>
+            <a href="contact/">Contact Us</a>
+            <a href="help/">Help</a>
+            <a href="">Features</a>
+          </section>
+        </div>
+        <div>
+          <h2>Resources</h2>
+          <section>
+            <a href="">Documentation</a>
+            <a href="">FAQ</a>
+            <a href="">Blog</a>
+            <a href="">Request a Tool</a>
+          </section>
+        </div>
+        <div>
+          <h2>Legal</h2>
+          <section>
+            <a href="">Privacy Policy</a>
+            <a href="">Disclaimer</a>
+            <a href="">Terms & Conditions</a>
+            <a href="">Customer Suppport</a>
+          </section>
+        </div>
+      </section>
+    </div>
+    <section class="right">
+      <h4>©2026Toolzy.All rights reserverd</h4>
+      <div>
+        <p>Made in Multan,Pakistan</p>
+      </div>
+    </section>
+
+
+  </footer>
+
+
+
+  <!--
   <main>
     <section class="hero">
       <h1>Free online Tools for Everyone <br> With No Signup,No Limit</h1>
@@ -405,7 +704,7 @@
             <p>Convert Images into Different formats</p>
           </div>
         </a>
-         <a href="page/image-editors/">
+        <a href="page/image-editors/">
           <div class="cat">
             <img src="images/image.avif" alt="">
             <h1>Image Editors</h1>
@@ -525,27 +824,7 @@
         </div>
       </div>
     </section>
-    <section class="step">
-      <div class="step-2">
-        <h1>How Toolzy Works</h1>
-      </div>
-      <div class="step-box">
-        <div class="step-box1">
-          <h1><span>Step:1</span> Choose Your Tool</h1>
-        </div>
-        <div class="step-box2">
-          <h1><span>Step:2</span> Upload File / Input Data</h1>
-        </div>
-        <div class="step-box3">
-          <h1><span>Step:3</span> Process Instantly</h1>
-        </div>
-        <div class="step-box4">
-          <h1><span>Step:4</span> Download</h1>
-        </div>
-      </div>
-
-      </div>
-    </section>
+    
     <section class="highlights">
       <h1 class="high">Highlights</h1>
       <div class="high1">
@@ -609,29 +888,29 @@
     </section>
     <section class="latest">
       <h1 class="lat">Toolzy:Latest Tools</h1>
-       <div class="pop-tools">
-          <div class="pop">
-            <div>
-              <h1>JPG to PNG Converter</h1>
-              <p>Toolzy’s JPG to PNG Converter is a fast and reliable online tool that instantly converts JPG images
-                into high-quality PNG format.</p>
-              <a href="tool/image-converters/jpg-to-png/">Use Now</a>
-            </div>
-            <div>
-              <h1>PDF ReOrder Tool</h1>
-              <p>Quickly reorder pages in your PDF files with Toolzy. Upload your PDF, rearrange pages with
-                drag-and-drop, and download the updated document instantly.</p>
-              <a href="tool/pdf-tools/pdf-reorder-maker/">Use Now</a>
-            </div>
-            <div>
-              <h1>Age Calculator</h1>
-              <p>Toolzy’s Age Calculator helps you quickly find your exact age in years, months, and days. Just enter
-                your date of birth, and get instant, accurate results—simple, fast, and free.</p>
-              <a href="tool/math/age-calculator/">Use Now</a>
-            </div>
-          
+      <div class="pop-tools">
+        <div class="pop">
+          <div>
+            <h1>JPG to PNG Converter</h1>
+            <p>Toolzy’s JPG to PNG Converter is a fast and reliable online tool that instantly converts JPG images
+              into high-quality PNG format.</p>
+            <a href="tool/image-converters/jpg-to-png/">Use Now</a>
           </div>
+          <div>
+            <h1>PDF ReOrder Tool</h1>
+            <p>Quickly reorder pages in your PDF files with Toolzy. Upload your PDF, rearrange pages with
+              drag-and-drop, and download the updated document instantly.</p>
+            <a href="tool/pdf-tools/pdf-reorder-maker/">Use Now</a>
+          </div>
+          <div>
+            <h1>Age Calculator</h1>
+            <p>Toolzy’s Age Calculator helps you quickly find your exact age in years, months, and days. Just enter
+              your date of birth, and get instant, accurate results—simple, fast, and free.</p>
+            <a href="tool/math/age-calculator/">Use Now</a>
+          </div>
+
         </div>
+      </div>
 
 
     </section>
@@ -734,8 +1013,8 @@
     </section>
 
 
-  </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </footer>--->
+
   <script>
 
     const tools = [
@@ -847,11 +1126,8 @@
       const input = document.getElementById("searchInput").value.toLowerCase();
       const resultsBox = document.getElementById("results");
       resultsBox.innerHTML = "";
-
       if (input.length === 0) return;
-
       const filtered = tools.filter(tool => tool.name.toLowerCase().includes(input));
-
       if (filtered.length === 0) {
         resultsBox.innerHTML = "<li>No results found</li>";
       } else {
@@ -862,118 +1138,8 @@
         });
       }
     }
-    (function () {
-      const supportsPointer = window.matchMedia('(pointer:fine)').matches; // avoid on touch / coarse pointers
-      const isTouchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const enable = supportsPointer && !isTouchCapable;
-
-      const root = document.documentElement;
-      const body = document.body;
-      const cursorRoot = document.getElementById('tz-cursor');
-      const ring = cursorRoot?.querySelector('.tz-cursor__ring');
-      const dot = cursorRoot?.querySelector('.tz-cursor__dot');
-
-      if (!cursorRoot || !ring || !dot || !enable) {
-        // Do not enable; ensure native cursor remains
-        return;
-      }
-
-      // Enable class hides native cursor via CSS
-      root.classList.add('cursor-enabled');
-      body.classList.add('cursor-enabled');
-
-      // Track mouse position
-      let mouseX = window.innerWidth / 2;
-      let mouseY = window.innerHeight / 2;
-
-      // Animated positions for the trailing ring (lerp)
-      let ringX = mouseX;
-      let ringY = mouseY;
-
-      // Opacity/visibility states
-      let visible = false;
-      let idle = false;
-      let hovering = false;
-      let down = false;
-
-      let inactivityTimer = null;
-
-      const setVisible = (v) => {
-        visible = v;
-        cursorRoot.classList.toggle('tz-cursor--visible', visible);
-      };
-      const setIdle = (v) => {
-        idle = v;
-        cursorRoot.classList.toggle('tz-cursor--idle', idle);
-      };
-      const setHovering = (v) => {
-        hovering = v;
-        cursorRoot.classList.toggle('tz-cursor--hover', hovering);
-      };
-      const setDown = (v) => {
-        down = v;
-        cursorRoot.classList.toggle('tz-cursor--down', down);
-      };
-
-      function elementIsInteractive(el) {
-        const selector = 'a[href],button,input,select,textarea,[role="button"],[data-cursor]';
-        return !!el && !!el.closest(selector);
-      }
-
-      function onMove(e) {
-        mouseX = e.clientX; mouseY = e.clientY;
-        setVisible(true); setIdle(false);
-        if (inactivityTimer) clearTimeout(inactivityTimer);
-        inactivityTimer = setTimeout(() => setIdle(true), 2500);
-
-        const el = document.elementFromPoint(mouseX, mouseY);
-        setHovering(elementIsInteractive(el));
-
-        // Dot snaps to cursor
-        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-      }
-
-      function onEnter() { setVisible(true); }
-      function onLeave() { setVisible(false); }
-      function onDown(e) {
-        setDown(true);
-        spawnPulse(e.clientX, e.clientY);
-      }
-      function onUp() { setDown(false); }
-
-      function spawnPulse(x, y) {
-        const p = document.createElement('div');
-        p.className = 'tz-cursor__pulse';
-        p.style.left = x + 'px';
-        p.style.top = y + 'px';
-        document.body.appendChild(p);
-        p.addEventListener('animationend', () => p.remove());
-      }
-
-      // Animation loop for silky trailing ring
-      const speed = 0.18; // 0..1 (higher = faster catch-up)
-      function animate() {
-        ringX += (mouseX - ringX) * speed;
-        ringY += (mouseY - ringY) * speed;
-        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-        requestAnimationFrame(animate);
-      }
-
-      // Bind events
-      window.addEventListener('mousemove', onMove, { passive: true });
-      window.addEventListener('mouseenter', onEnter);
-      window.addEventListener('mouseleave', onLeave);
-      window.addEventListener('mousedown', onDown);
-      window.addEventListener('mouseup', onUp);
-
-      // Kick off
-      requestAnimationFrame(animate);
-    })();
-
-
-
-
   </script>
   <script src="script.js"></script>
 </body>
+
 </html>
