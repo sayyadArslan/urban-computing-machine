@@ -633,9 +633,19 @@ body {
     background: none;
     border: 2px solid var(--main-color);
 }
-
-
-
+.cat p
+{
+    color: var(--text-color);
+}
+.offer p
+{
+    color: var(--text-color);
+}
+.footer p
+{
+    color: var(--text-color);
+    font-weight: 500;
+}
 
 
 

@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Primary Meta Tags -->
   <title>Contact Toolzy - Get in Touch with Us</title>
-  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
   <meta name="description"
     content="Reach out to Toolzy for support, inquiries, or feedback. We're here to help you with all your web tools needs.">
   <meta name="keywords" content="Toolzy contact, support, web tools help, feedback, customer service">
   <meta name="author" content="Toolzy">
-
-  <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Contact Toolzy - Get in Touch with Us">
   <meta property="og:description"
     content="Reach out to Toolzy for support, inquiries, or feedback. We're here to help you with all your web tools needs.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thetoolzy.com/contact">
-  <meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://thetoolzy.com/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact Toolzy - Get in Touch with Us">
   <meta name="twitter:description"
     content="Reach out to Toolzy for support, inquiries, or feedback. We're here to help you with all your web tools needs.">
-  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
+  <meta name="twitter:image" content="https://thetoolzy.com/img/og-image.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,7 +30,7 @@
     "@type": "Organization",
     "name": "Toolzy",
     "url": "https://thetoolzy.com",
-    "logo": "https://thetoolzy.com/images/logo.png",
+    "logo": "https://thetoolzy.com/img/logo.png",
     "sameAs": [
       "https://www.facebook.com/thetoolzy",
       "https://twitter.com/thetoolzy",
@@ -43,7 +39,7 @@
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer support",
-      "email": "support@thetoolzy.com",
+      "email": "arslan5sherazi@gmail.com",
       "availableLanguage": ["English"]
     }
   },
@@ -52,30 +48,265 @@
 }
 </script>
 
-  
-  
+
+
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="logo"><img src="images/xd.png" />
-      <h1>Toolzy</h1>
-    </div>
-    <div class="menu-icons">
-      <img src="images/burger-bar.avif" id="openMenu" />
-      <img src="images/close.avif" id="closeMenu" />
-    </div>
-    <div class="menu" id="navMenu">
-      <a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a
-        href="help.html">Help</a>
-    </div>
-  </nav>
-  <main>
+  <header class="navbar">
+    <div class="container">
 
+      <div class="logo">
+        <img src="../img/logo.svg" alt="Logo">
+        <h3>Toolzy</h3>
+      </div>
+
+
+      <nav class="nav-links desktop">
+        <a href="/">Home</a>
+        <a href="../about/">About</a>
+        <a href="../help/">Help</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+
+      <img src="../images/burger-bar.avif" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
+    </div>
+
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu">
+      <img src="../images/close.avif" alt="Close" class="close-btn butt" onclick="closeMenu()" />
+
+      <a href="/">Home</a>
+      <a href="../about/">About</a>
+      <a href="../help/">Help</a>
+      <a href="../blog/">Blog</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Let’s Get in Touch</h1>
+        <p>Have a question, suggestion, or need help? We’re here for you.</p>
+      </div>
+      <div>
+        <img src="../img/cont.avif" alt="Hero Contact">
+      </div>
+    </section>
+    <section class="contact-section">
+      <div class="contact-container">
+
+        <div class="contact-header">
+          <h2>Contact Us</h2>
+          <p>Have a question or need help? Fill out the form below and we’ll get back to you.</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+
+          <div class="form-group">
+            <label for="name">Full Name <span>*</span></label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span>*</span></label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject <span>*</span></label>
+            <select id="subject" required>
+              <option value="">Select a subject</option>
+              <option>General Question</option>
+              <option>Support</option>
+              <option>Bug Report</option>
+              <option>Feature Request</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span>*</span></label>
+            <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
+          </div>
+
+          <!-- Messages -->
+          <p class="form-message success">Your message has been sent successfully.</p>
+          <p class="form-message error">Please fill in all required fields correctly.</p>
+
+          <button type="submit" class="submit-btn">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+    </section>
+     <section class="response-section">
+      <div class="response-container">
+        <div class="response-box">
+          <span class="response-icon">⏱️</span>
+          <p class="response-text">
+            We usually respond within <strong>24–48 hours</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="contact-info-section">
+      <div class="contact-info-container">
+
+        <h2 class="contact-info-title">Direct Contact Information</h2>
+        <p class="contact-info-subtitle">
+          Prefer direct communication? You can reach us through the details below.
+        </p>
+
+        <div class="contact-info-grid">
+
+         
+          <div class="info-card">
+            <span class="icon">📧</span>
+            <h3>Email</h3>
+            <p>toolzy@gmail.com</p>
+          </div>
+
+          
+          <div class="info-card">
+            <span class="icon">📞</span>
+            <h3>Phone</h3>
+            <p>+92 3277257429</p>
+          </div>
+
+          <!-- Location -->
+          <div class="info-card">
+            <span class="icon">🌍</span>
+            <h3>Location</h3>
+            <p>Multan,Pakistan</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="social-section">
+      <div class="social-container">
+        <h2 class="social-title">Connect With Us</h2>
+        <p class="social-subtitle">
+          Follow us for updates, new tools, and development insights.
+        </p>
+
+        <div class="social-links">
+          <a href="#" class="social-card github" target="_blank">
+            <img src="../img/instagram.avif" alt="Instagram">
+            <p>Instagram</p>
+          </a>
+
+          <a href="#" class="social-card linkedin" target="_blank">
+            <img src="../img/linkedin.avif" alt="LinkedIn">
+            <p>LinkedIn</p>
+          </a>
+
+          <a href="#" class="social-card twitter" target="_blank">
+            <img src="../img/twitter.avif" alt="Twitter">
+            <p>X</p>
+          </a>
+
+          <a href="#" class="social-card youtube" target="_blank">
+            <img src="../img/threads.avif" alt="Threads">
+            <p>Threads</p>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="privacy-section">
+      <div class="privacy-container">
+        <div class="privacy-box">
+          <span class="privacy-icon">🔒</span>
+          <p>
+            Your information is safe and will only be used to respond to your message.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
-  
-  
+  <footer class="footer">
+        <div class="foot1">
+            <div class="intro">
+                <div class="intro-1">
+                    <img src="../img/logo.avif" alt="Logo" />
+                    <h2>Toolzy</h2>
+                </div>
+
+                <p>Toolzy is a modern web app offering <br>essential online tools like image compression, file
+                    <br>conversion,
+                    and barcode generation—all in one place.
+                </p>
+                <section class="social">
+                    <a href="#"><img src="../img/instagram.avif" alt="Instagram" /></a>
+                    <a href="#"><img src="../img/linkedin.avif" alt="LinkedIn" /></a>
+                    <a href="#"><img src="../img/threads.avif" alt="Thread" /></a>
+                    <a href="#"><img src="../img/twitter.avif" alt="Twitter" /></a>
+                </section>
+            </div>
+            <section class="list-33">
+                <div>
+                    <h2>Company</h2>
+                    <section>
+                        <a href="/">Home</a>
+                        <a href="../contact/">Contact Us</a>
+                        <a href="../help/">Help</a>
+                        <a href="../all-tools/">All Tools</a>
+                    </section>
+                </div>
+                <div>
+                    <h2>Resources</h2>
+                    <section>
+                        <a href="../features/">Features</a>
+                        <a href="../faq/">FAQ</a>
+                        <a href="../blog/">Blog</a>
+                        <a href="../request-tool/">Request a Tool</a>
+                    </section>
+                </div>
+                <div>
+                    <h2>Legal</h2>
+                    <section>
+                        <a href="../privacy-policy/">Privacy Policy</a>
+                        <a href="../disclaimer/">Disclaimer</a>
+                        <a href="../disclaimer/">Terms & Conditions</a>
+                        <a href="../support/">Customer Support</a>
+                    </section>
+                </div>
+            </section>
+        </div>
+        <section class="right">
+      <h4>© 2026 Toolzy. All rights reserved.</h4>
+            <div>
+                <p>Made in Multan,Pakistan</p>
+            </div>
+        </section>
+
+
+    </footer>
   <script>
+    function openMenu() {
+      document.querySelector('.side-menu').classList.add('active');
+      document.querySelector('.overlay').classList.add('active');
+    }
+    function closeMenu() {
+      document.querySelector('.side-menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+    }
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (name === "" || email === "" || subject === "" || message === "") {
+        alert("Please fill all required fields");
+        return;
+      }
+      alert(" Message Sent Successfully!");
+      this.reset();
+    });
+
+
 
   </script>
 </body>

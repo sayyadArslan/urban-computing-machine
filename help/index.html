@@ -2,37 +2,32 @@
 <html lang="en">
 
 <head>
-  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Primary Meta Tags -->
-  <title>Toolzy Help Center - Find Guides and Support</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+  <title>Toolzy-Help Center</title>
   <meta name="description"
     content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
   <meta name="keywords" content="Toolzy help, Toolzy support, Toolzy guides, Toolzy FAQs, web tools help">
   <meta name="author" content="Toolzy">
-
-  <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Toolzy Help Center - Find Guides and Support">
   <meta property="og:description"
     content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thetoolzy.com/help">
-  <meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://thetoolzy.com/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Toolzy Help Center - Find Guides and Support">
   <meta name="twitter:description"
     content="Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.">
-  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
+  <meta name="twitter:image" content="https://thetoolzy.com/img/og-image.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Toolzy Help Center",
-  "url": "https://thetoolzy.com/help.html",
+  "url": "https://thetoolzy.com/help",
   "description": "Get help with Toolzy's web tools. Browse guides, FAQs, and troubleshooting resources to make the most of our tools.",
   "publisher": {
     "@type": "Organization",
@@ -40,352 +35,334 @@
     "url": "https://thetoolzy.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://thetoolzy.com/images/logo.png"
+      "url": "https://thetoolzy.com/img/logo.png"
     }
   }
 }
 </script>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f2f5;
-      color: #222
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      box-shadow: 0 10px 25px #d7bde2;
-      height: 60px;
-      background: none;
-      padding: 0px 50px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .logo h1 {
-      font-size: 38px;
-      font-weight: 700;
-      color: purple;
-    }
-
-    .logo img {
-      width: 50px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 20px;
-      align-items: center
-    }
-
-    .menu a {
-      text-decoration: none;
-      font-size: 18px;
-      color: #000;
-      font-weight: 500;
-      transition: .3s
-    }
-
-    .menu a:hover {
-      border-bottom: 2px solid purple;
-      color: purple
-    }
-
-    #closeMenu,
-    .menu-icons {
-      display: none
-    }
-
-    .menu-icons {
-      font-size: 24px;
-      cursor: pointer
-    }
-
-    main {
-      width: 90%;
-      margin: 40px auto;
-      display: flex;
-      flex-direction: column;
-      gap: 30px
-    }
-
-    .help {
-      text-align: center
-    }
-
-    .help h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #333
-    }
-
-    .help p {
-      font-size: 18px;
-      color: #444
-    }
-
-    .faq {
-      max-width: 800px;
-      margin: 0 auto
-    }
-
-    .faq-item {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      overflow: hidden;
-      background: #fff
-    }
-
-    .faq-question {
-      padding: 15px;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      padding: 0 15px;
-      transition: all .3s ease;
-      font-size: 15px;
-      color: #333
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 500px;
-      padding: 15px
-    }
-
-    .faq-item.active .faq-question {
-      color: purple
-    }
-
-    .footer {
-      background: #fff;
-      margin-top: 60px;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px
-    }
-
-    .foot1 {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px
-    }
-
-    .intro-1 {
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .intro-1 img {
-      width: 100px
-    }
-
-    .social {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px
-    }
-
-    .social img {
-      width: 28px;
-      cursor: pointer;
-      transition: .2s
-    }
-
-    .social img:hover {
-      transform: scale(1.1)
-    }
-
-    .list-33 {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap
-    }
-
-    .list-33 div {
-      display: flex;
-      flex-direction: column;
-      gap: 10px
-    }
-
-    .list-33 h1 {
-      font-size: 18px;
-      margin-bottom: 5px
-    }
-
-    .list-33 a {
-      color: #151515;
-      font-size: 14px;
-      text-decoration: none
-    }
-
-    .list-33 a:hover {
-      border-bottom: 1px solid #000
-    }
-
-    .right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      text-align: center;
-      font-size: 14px
-    }
-
-    @media(max-width:768px) {
-      .menu {
-        flex-direction: column;
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        z-index: 10;
-        padding: 15px
-      }
-
-      .navbar {
-        padding: 0 20px;
-      }
-
-      .menu-icons {
-        display: block
-      }
-
-      .footer {
-        align-items: center
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="logo"><img src="images/xd.png" alt="Toolzy logo">
-      <h1>Toolzy</h1>
-    </div>
-    <div class="menu-icons"><i class="fas fa-bars" id="openMenu"></i><i class="fas fa-times" id="closeMenu"></i></div>
-    <div class="menu" id="navMenu"><a href="index.html">Home</a><a href="about.html">About</a><a
-        href="contact.html">Contact</a><a href="#">Help</a></div>
-  </nav>
+  <header class="navbar">
+    <div class="container">
 
+      <div class="logo">
+        <img src="../img/logo.svg" alt="Logo">
+        <h3>Toolzy</h3>
+      </div>
+
+
+      <nav class="nav-links desktop">
+        <a href="/">Home</a>
+        <a href="../about/">About</a>
+        <a href="../contact/">Contact</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+
+      <img src="../images/burger-bar.avif" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
+    </div>
+
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu">
+      <img src="../images/close.avif" alt="Close" class="close-btn butt" onclick="closeMenu()" />
+
+      <a href="/">Home</a>
+      <a href="../about/">About</a>
+      <a href="../contact/">Contact</a>
+      <a href="../blog/">Blog</a>
+    </div>
+  </header>
   <main>
-    <div class="help">
-      <h1>Welcome to the Toolzy Help Center</h1>
-      <p>Find answers, guides, and tutorials to make the most out of Toolzy’s free online tools.</p>
-    </div>
-
-    <div class="faq">
-      <div class="faq-item">
-        <div class="faq-question">What is Toolzy?<i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">Toolzy is an all-in-one online toolkit that provides free, easy-to-use web-based tools
-          for everyday needs — from file converters to image editing, social media utilities, and developer tools.</div>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Toolzy Help Center – Guides, FAQs & User Support</h1>
+        <p>Welcome to the Toolzy Help Center, where you can find clear guides, frequently asked questions, and
+          step-by-step support to use our tools easily and efficiently.</p>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">Is Toolzy free to use?<i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">Yes, Toolzy is completely free to use. You don’t need to pay for any tool.</div>
+      <div>
+        <img src="../img/help.avif" alt="Help Image">
       </div>
-      <div class="faq-item">
-        <div class="faq-question">Do I need an account to use Toolzy?<i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">No, you can use all the tools without creating an account.</div>
+    </section>
+    <section class="step">
+      <div class="step-2">
+        <h2>How Our Tools Works</h2>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">Is Toolzy safe and secure?<i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">Yes, Toolzy is safe. Files are processed securely in your browser or on our servers, and
-          we don’t store personal files.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Can I compress multiple images at once?<i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">Yes, Toolzy supports bulk image compression. Upload multiple images and compress them
-          together.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">How to resize an image without losing quality?<i class="fas fa-chevron-down"></i>
+      <div class="step-box">
+        <div class="step-box1">
+          <img src="../img/select.avif" alt="Select Image">
+          <span>Step:1</span>
+          <h3>Choose Your Tool</h3>
         </div>
-        <div class="faq-answer">Use Toolzy’s Image Resizer tool. Upload your image, set the dimensions, and it will
-          resize while keeping the best possible quality.</div>
+        <div class="step-box2">
+          <img src="../img/upload.avif" alt="Upload">
+          <span>Step:2</span>
+          <h3>Upload File/Input Data</h3>
+        </div>
+        <div class="step-box3">
+          <img src="../img/process.avif" alt="Process">
+          <span>Step:3</span>
+          <h3> Process Instantly</h3>
+        </div>
+        <div class="step-box4">
+          <img src="../img/download.avif" alt="Download">
+          <span>Step:4</span>
+          <h3>Download</h3>
+        </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">Tool not working, what should I do?<i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">Try refreshing the page or clearing your browser cache. If issues persist, contact us
-          via the Contact Page with details.</div>
-      </div>
-    </div>
-  </main>
 
+      </div>
+    </section>
+    <section>
+      <div class="offer-head">
+        <h2>Why Choose Us</h2>
+      </div>
+      <div class="Offers">
+        <div class="offer">
+          <img src="../img/free.avif" alt="Fast Convertersion">
+          <h2>Absolute Free</h2>
+          <p>All tools on Toolzy are absolutely free, with no signups, subscriptions, hidden charges, or limitations,
+            designed for everyone, anytime.</p>
+        </div>
+        <div class="offer">
+          <img src="../img/power.avif" alt="Fast Convertersion">
+          <h2>Fast Process</h2>
+          <p>Toolzy provides fast online tools with high-speed processing, instant results, optimized performance, and
+            smooth user experience.</p>
+        </div>
+        <div class="offer">
+          <img src="../img/user.avif" alt="Fast Convertersion">
+          <h2>No SignUp</h2>
+          <p>Toolzy offers no signup online tools, allowing instant access, fast processing, and free usage without
+            registration or account creation.</p>
+        </div>
+        <div class="offer">
+          <img src="../img/easy-to-use.avif" alt="Fast Convertersion">
+          <h2>Easy-to-Use</h2>
+          <p>Easy-to-use online tool with simple interface, smooth workflow, quick access, beginner friendly design, no
+            learning curve required.</p>
+        </div>
+        <div class="offer">
+          <img src="../img/coding.avif" alt="Fast Convertersion">
+          <h2>Brower-Based</h2>
+          <p>Browser-based tool works directly online, no installation needed, compatible with all browsers, fast
+            performance, secure access.</p>
+        </div>
+        <div class="offer">
+          <img src="../img/security.avif" alt="Fast Convertersion">
+          <h2>Private & Secure</h2>
+          <p>Private & secure online tools with end-to-end protection, no data sharing, encrypted connections, safe
+            usage, full user privacy.</p>
+        </div>
+      </div>
+    </section>
+    <section class="faq-section">
+      <div class="faq-container">
+
+        <!-- Left Content -->
+        <div class="faq-left">
+          <h2>Frequently asked questions</h2>
+          <p>
+            Can’t find the answer you’re looking for?
+            Reach out to our
+            <a href="../support/">customer support</a> team.
+          </p>
+        </div>
+
+        <!-- Right FAQs -->
+        <div class="faq-right">
+
+          <div class="faq-item">
+            <button class="faq-question">
+              How does Toolzy work?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Toolzy provides fast, secure, browser-based tools without installing any software.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Are Toolzy tools free?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Yes, most tools are completely free with optional premium features.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Is my data safe?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Absolutely. Files are processed securely and never stored permanently.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Do I need to sign up?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              No signup required. Just open the tool and start using it instantly.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="blog-section">
+      <div class="blog-header">
+        <h2>Latest from Our Blog</h2>
+        <p>Helpful guides, tips & comparisons to get the most out of Toolzy tools</p>
+      </div>
+      <div class="contain">
+
+
+
+        <div class="blog-grid">
+
+          <!-- Blog Card 1 -->
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/08/25/15/30/dictionary-1619740_1280.jpg"
+              alt="Compress PDF without losing quality">
+            <div class="blog-content">
+              <h3>How to Compress PDF Without Losing Quality</h3>
+              <p>Learn the best methods to reduce PDF size while keeping text and images sharp.</p>
+              <a href="/blog/compress-pdf-without-losing-quality">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/08/25/15/30/dictionary-1619740_1280.jpg"
+              alt="Compress PDF without losing quality">
+            <div class="blog-content">
+              <h3>How to Compress PDF Without Losing Quality</h3>
+              <p>Learn the best methods to reduce PDF size while keeping text and images sharp.</p>
+              <a href="/blog/compress-pdf-without-losing-quality">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/08/25/15/30/dictionary-1619740_1280.jpg"
+              alt="Compress PDF without losing quality">
+            <div class="blog-content">
+              <h3>How to Compress PDF Without Losing Quality</h3>
+              <p>Learn the best methods to reduce PDF size while keeping text and images sharp.</p>
+              <a href="/blog/compress-pdf-without-losing-quality">Read More →</a>
+            </div>
+          </article>
+
+          <!-- Blog Card 2 -->
+          <article class="blog-card">
+            <img src="https://cdn.pixabay.com/photo/2016/09/08/22/43/books-1655783_1280.jpg" alt="JPG vs PNG vs WebP">
+            <div class="blog-content">
+              <h3>JPG vs PNG vs WebP – Which Image Format is Best?</h3>
+              <p>A detailed comparison of image formats for web performance and SEO.</p>
+              <a href="/blog/jpg-vs-png-vs-webp">Read More →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="blog-btn">
+          <a href="/blog">View All Blogs</a>
+        </div>
+
+      </div>
+    </section>
+    <section class="sug">
+      <div><a href="../request-tool/">Request a Tool</a></div>
+      <div><a href="../contact/">Contact Now</a></div>
+    </section>
+  </main>
   <footer class="footer">
     <div class="foot1">
       <div class="intro">
-        <div class="intro-1"><img src="images/xd.avif" alt="logo">
-          <h1>Toolzy</h1>
+        <div class="intro-1">
+          <img src="../img/logo.avif" alt="Logo" />
+          <h2>Toolzy</h2>
         </div>
-        <p>Toolzy is a modern web app offering essential online tools like image compression, file conversion, and
-          barcode generation—all in one place.</p>
-        <div class="social"><img src="images/instagram.avif"><img src="images/linkedin.avif"><img
-            src="images/threads.avif"><img src="images/youtube.avif"><img src="images/twitter.avif"><img
-            src="images/facebook.avif"></div>
+
+        <p>Toolzy is a modern web app offering <br>essential online tools like image compression, file
+          <br>conversion,
+          and barcode generation—all in one place.
+        </p>
+        <section class="social">
+          <a href="#"><img src="../img/instagram.avif" alt="Instagram" /></a>
+          <a href="#"><img src="../img/linkedin.avif" alt="LinkedIn" /></a>
+          <a href="#"><img src="../img/threads.avif" alt="Thread" /></a>
+          <a href="#"><img src="../img/twitter.avif" alt="Twitter" /></a>
+        </section>
       </div>
-      <div class="list-33">
+      <section class="list-33">
         <div>
-          <h1>Product</h1><a href="#">Features</a><a href="#">Pricing</a><a href="#">Integrations</a><a
-            href="#">Changelog</a>
+          <h2>Company</h2>
+          <section>
+            <a href="/">Home</a>
+            <a href="../contact/">Contact Us</a>
+            <a href="../help/">Help</a>
+            <a href="../all-tools/">All Tools</a>
+          </section>
         </div>
         <div>
-          <h1>Resources</h1><a href="#">Documentation</a><a href="#">Tutorials</a><a href="#">Blog</a><a
-            href="#">Support</a>
+          <h2>Resources</h2>
+          <section>
+            <a href="../features/">Features</a>
+            <a href="../faq/">FAQ</a>
+            <a href="../blog/">Blog</a>
+            <a href="../request-tool/">Request a Tool</a>
+          </section>
         </div>
         <div>
-          <h1>Company</h1><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a><a href="#">Partners</a>
+          <h2>Legal</h2>
+          <section>
+            <a href="../privacy-policy/">Privacy Policy</a>
+            <a href="../disclaimer/">Disclaimer</a>
+            <a href="../terms-conditions/">Terms & Conditions</a>
+            <a href="../support/">Customer Support</a>
+          </section>
         </div>
+      </section>
+    </div>
+    <section class="right">
+      <h4>© 2026 Toolzy. All rights reserved.</h4>
+      <div>
+        <p>Made in Multan,Pakistan</p>
       </div>
-    </div>
-    <div class="right">
-      <h4>@2025 Toolzy. All rights reserved</h4>
-      <div><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookie Settings</a></div>
-    </div>
+    </section>
+
+
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const open = document.getElementById("openMenu"),
-        close = document.getElementById("closeMenu"),
-        nav = document.getElementById("navMenu");
-      open.addEventListener("click", () => { nav.style.display = "flex"; open.style.display = "none"; close.style.display = "block" });
-      close.addEventListener("click", () => { nav.style.display = "none"; open.style.display = "block"; close.style.display = "none" });
 
-      document.querySelectorAll(".faq-question").forEach(q => {
-        q.addEventListener("click", () => {
-          const item = q.parentElement;
-          item.classList.toggle("active");
+  <script>
+    function openMenu() {
+      document.querySelector('.side-menu').classList.add('active');
+      document.querySelector('.overlay').classList.add('active');
+    }
+
+    function closeMenu() {
+      document.querySelector('.side-menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+    }
+    const faqs = document.querySelectorAll('.faq-item');
+
+    faqs.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+
+      btn.addEventListener('click', () => {
+        faqs.forEach(i => {
+          if (i !== item) i.classList.remove('active');
         });
+        item.classList.toggle('active');
       });
     });
+
+
+
   </script>
 </body>
 
