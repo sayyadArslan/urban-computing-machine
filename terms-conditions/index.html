@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="preload" href="/style.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
@@ -40,7 +42,7 @@
         <div class="container">
 
             <div class="logo">
-                <img src="../img/logo.svg" alt="Logo">
+                <img src="../img/logo.svg" width="600" height="600" alt="Logo">
                 <h3>Toolzy</h3>
             </div>
 
@@ -52,12 +54,12 @@
                 <a href="../blog/">Blog</a>
             </nav>
 
-            <img src="../images/burger-bar.avif" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
+            <img src="../images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
         </div>
 
         <div class="overlay" onclick="closeMenu()"></div>
         <div class="side-menu">
-            <img src="../images/close.avif" alt="Close" class="close-btn butt" onclick="closeMenu()" />
+            <img src="../images/close.avif" width="64" height="64" alt="Close" class="close-btn butt" onclick="closeMenu()" />
 
             <a href="/">Home</a>
             <a href="../about/">About</a>
@@ -165,7 +167,7 @@
         <div class="foot1">
             <div class="intro">
                 <div class="intro-1">
-                    <img src="../img/logo.avif" alt="Logo" />
+                    <img src="../img/logo.avif" width="600" height="600" alt="Logo" />
                     <h2>Toolzy</h2>
                 </div>
 
@@ -174,10 +176,10 @@
                     and barcode generation—all in one place.
                 </p>
                 <section class="social">
-                    <a href="#"><img src="../img/instagram.avif" alt="Instagram" /></a>
-                    <a href="#"><img src="../img/linkedin.avif" alt="LinkedIn" /></a>
-                    <a href="#"><img src="../img/threads.avif" alt="Thread" /></a>
-                    <a href="#"><img src="../img/twitter.avif" alt="Twitter" /></a>
+                    <a href="#"><img src="../img/instagram.avif" width="128" height="128" alt="Instagram" /></a>
+                    <a href="#"><img src="../img/linkedin.avif" width="128" height="128" alt="LinkedIn" /></a>
+                    <a href="#"><img src="../img/threads.avif" width="128" height="128" alt="Thread" /></a>
+                    <a href="#"><img src="../img/twitter.avif" width="128" height="128" alt="Twitter" /></a>
                 </section>
             </div>
             <section class="list-33">
@@ -211,7 +213,7 @@
             </section>
         </div>
         <section class="right">
-            <h4>© 2026 Toolzy. All rights reserved.</h4>
+            <p>© 2026 Toolzy. All rights reserved.</p>
             <div>
                 <p>Made in Multan,Pakistan</p>
             </div>

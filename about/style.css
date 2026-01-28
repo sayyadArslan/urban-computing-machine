@@ -15,7 +15,11 @@ body {
     --text-color: black;
     --hover-color: #1565C0;
 }
-
+img
+{
+    max-width: 100%;
+    height: auto;
+}
 .container {
     max-width: 1200px;
     margin: auto;
@@ -38,7 +42,7 @@ body {
 }
 
 .logo img {
-    height: 80px;
+    width: 80px;
 }
 
 .nav-links {
@@ -235,7 +239,7 @@ body {
 }
 
 .hero img {
-    width: 550px;
+    width: 1200px;
 }
 
 .hero-content h1 {

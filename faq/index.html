@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
+    <link rel="preload" href="/style.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <title>Toolzy-Frequently Asked Questions</title>
@@ -204,7 +207,7 @@
         <div class="container">
 
             <div class="logo">
-                <img src="../img/logo.svg" alt="Logo">
+                <img src="../img/logo.svg" width="600" height="600" alt="Logo">
                 <h3>Toolzy</h3>
             </div>
 
@@ -216,12 +219,12 @@
                 <a href="../blog/">Blog</a>
             </nav>
 
-            <img src="../images/burger-bar.avif" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
+            <img src="../images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
         </div>
 
         <div class="overlay" onclick="closeMenu()"></div>
         <div class="side-menu">
-            <img src="../images/close.avif" alt="Close" class="close-btn butt" onclick="closeMenu()" />
+            <img src="../images/close.avif" width="64" height="64" alt="Close" class="close-btn butt" onclick="closeMenu()" />
 
             <a href="/">Home</a>
             <a href="../about/">About</a>
