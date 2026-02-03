@@ -2,14 +2,11 @@
 <html lang="en">
 
 <head>
-  <link rel="preload" as="image" href="img/hero-image.avif">
-  <link rel="preload" href="/style.css" as="style"
-      onload="this.onload=null;this.rel='stylesheet'">
-
-  <link rel="icon" type="image/ico" href="img/favicon.ico">
   <meta charset="UTF-8">
+  <link rel="preload" as="image" href="img/hero-image.avif" type="image/avif" fetchpriority="high">
+  <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="icon" type="image/ico" href="img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Online Tools for Everyday Use | Toolzy</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <title>Toolzy - Free Online Tools for Everyone</title>
   <meta name="description"
@@ -54,7 +51,7 @@
     <div class="container">
 
       <div class="logo">
-        <img src="img/logo.svg" width="600" height="600" alt="Logo">
+        <img src="img/logo.svg" width="600" height="600" alt="Logo" loading="lazy">
         <h3>Toolzy</h3>
       </div>
 
@@ -66,12 +63,13 @@
         <a href="../blog/">Blog</a>
       </nav>
 
-      <img src="images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt" onclick="openMenu()" />
+      <img src="images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt"
+        onclick="openMenu()" />
     </div>
 
     <div class="overlay" onclick="closeMenu()"></div>
     <div class="side-menu">
-      <img src="images/close.avif"  width="64" height="64" alt="Close" class="close-btn butt" onclick="closeMenu()" />
+      <img src="images/close.avif" width="64" height="64" alt="Close" class="close-btn butt" onclick="closeMenu()" />
 
       <a href="about/">About</a>
       <a href="contact/">Contact</a>
@@ -305,21 +303,21 @@
         </a>
         <a href="page/image-editors/">
           <div class="cat">
-            <img src="img/picture.avif"  width="512" height="512" alt="Image Editors">
+            <img src="img/picture.png" width="512" height="512" alt="Image Editors">
             <h3>Image Editors</h3>
             <p>Edit Image according to your need.</p>
           </div>
         </a>
         <a href="page/pdf-converters/">
           <div class="cat">
-            <img src="img/pdf-file.avif"  width="512" height="512" alt="Pdf Converters">
+            <img src="img/pdf-file.avif" width="512" height="512" alt="Pdf Converters">
             <h3>Pdf Converters</h3>
             <p>Convert Docs,Pdf,Excel,ppt files into Different formats</p>
           </div>
         </a>
         <a href="page/text-converters/">
           <div class="cat">
-            <img src="img/text.avif"  width="512" height="512" alt="Text Converters">
+            <img src="img/text.avif" width="512" height="512" alt="Text Converters">
             <h3>Text Converters</h3>
             <p>Work with text files and documents</p>
           </div>
@@ -327,14 +325,14 @@
 
         <a href="page/barcode-generators/">
           <div class="cat">
-            <img src="img/barcode.avif"  width="512" height="512" alt="Barcode Converters">
+            <img src="img/barcode.png" width="512" height="512" alt="Barcode Converters">
             <h3>Barcode Converters</h3>
             <p>Convert and Make Barcodes</p>
           </div>
         </a>
         <a href="page/math-tools/">
           <div class="cat">
-            <img src="img/math.avif"  width="512" height="512" alt="Math Converters">
+            <img src="img/math.avif" width="512" height="512" alt="Math Converters">
             <h3>Math Converters</h3>
             <p>Convert and Calculate Different Sizes</p>
           </div>
@@ -350,32 +348,38 @@
         <div class="offer">
           <img src="img/free.avif" width="512" height="512" alt="Fast Convertersion">
           <h2>Absolute Free</h2>
-          <p>All tools on Toolzy are absolutely free, with no signups, subscriptions, hidden charges, or limitations, designed for everyone, anytime.</p>
+          <p>All tools on Toolzy are absolutely free, with no signups, subscriptions, hidden charges, or limitations,
+            designed for everyone, anytime.</p>
         </div>
         <div class="offer">
           <img src="img/power.avif" width="512" height="512" alt="Fast Convertersion">
           <h2>Fast Process</h2>
-          <p>Toolzy provides fast online tools with high-speed processing, instant results, optimized performance, and smooth user experience.</p>
+          <p>Toolzy provides fast online tools with high-speed processing, instant results, optimized performance, and
+            smooth user experience.</p>
         </div>
         <div class="offer">
           <img src="img/user.avif" width="512" height="512" alt="Fast Convertersion">
           <h2>No SignUp</h2>
-          <p>Toolzy offers no signup online tools, allowing instant access, fast processing, and free usage without registration or account creation.</p>
+          <p>Toolzy offers no signup online tools, allowing instant access, fast processing, and free usage without
+            registration or account creation.</p>
         </div>
         <div class="offer">
           <img src="img/easy-to-use.avif" width="512" height="512" alt="Fast Convertersion">
           <h2>Easy-to-Use</h2>
-          <p>Easy-to-use online tool with simple interface, smooth workflow, quick access, beginner friendly design, no learning curve required.</p>
+          <p>Easy-to-use online tool with simple interface, smooth workflow, quick access, beginner friendly design, no
+            learning curve required.</p>
         </div>
         <div class="offer">
           <img src="img/coding.avif" width="512" height="512" alt="Fast Convertersion">
-          <h2>Brower-Based</h2>
-          <p>Browser-based tool works directly online, no installation needed, compatible with all browsers, fast performance, secure access.</p>
+          <h2>Browser-Based</h2>
+          <p>Browser-based tool works directly online, no installation needed, compatible with all browsers, fast
+            performance, secure access.</p>
         </div>
         <div class="offer">
           <img src="img/security.avif" width="512" height="512" alt="Fast Convertersion">
           <h2>Private & Secure</h2>
-          <p>Private & secure online tools with end-to-end protection, no data sharing, encrypted connections, safe usage, full user privacy.</p>
+          <p>Private & secure online tools with end-to-end protection, no data sharing, encrypted connections, safe
+            usage, full user privacy.</p>
         </div>
       </div>
     </section>
@@ -457,7 +461,7 @@
           <h3> Process Instantly</h3>
         </div>
         <div class="step-box4">
-          <img src="img/download.avif" width="512" height="512"  alt="Download">
+          <img src="img/download.avif" width="512" height="512" alt="Download">
           <span>Step:4</span>
           <h3>Download</h3>
         </div>
@@ -606,7 +610,7 @@
     <div class="foot1">
       <div class="intro">
         <div class="intro-1">
-          <img src="img/logo.avif" width="600" height="600"  alt="Logo" />
+          <img src="img/logo.avif" width="600" height="600" alt="Logo" />
           <h2>Toolzy</h2>
         </div>
 
@@ -656,7 +660,7 @@
       </div>
     </section>
   </footer>
-  
+
   <script>
 
     const tools = [
@@ -779,6 +783,7 @@
       }
     }
   </script>
-  <script src="script.js" defer></script> 
+  <script src="script.js" defer></script>
 </body>
+
 </html>
