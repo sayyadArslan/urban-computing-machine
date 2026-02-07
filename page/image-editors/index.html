@@ -2,29 +2,34 @@
 <html lang="en">
 
 <head>
-  <link rel="icon" href="../../images/icon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../img/favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
-<title>Free Online Image Editors - Draw, Resize, Compress, Watermark | Toolzy</title>
-<meta name="description" content="Edit your images online with Toolzy’s free image editors. Resize, compress, draw, add filters, create collages, add watermarks, and more with easy-to-use tools.">
-<meta name="keywords" content="image editor, online image tools, image resizer, image compressor, image watermark, image collage maker, photo editor, free image editing">
-<meta name="author" content="Toolzy">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://thetoolzy.com/image-editors">
-<meta property="og:title" content="Free Online Image Editors - Toolzy">
-<meta property="og:description" content="Resize, compress, watermark, draw, and enhance your images with Toolzy’s free image editors.">
-<meta property="og:url" content="https://thetoolzy.com/page/image-editors">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://thetoolzy.com/images/og-image.jpg">
-<meta property="og:image:secure_url" content="https://thetoolzy.com/images/og-image.jpg">
-<meta property="og:image:alt" content="Toolzy Free Image Editors - Resize, Compress, Watermark, Edit">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Online Image Editors - Toolzy">
-<meta name="twitter:description" content="Resize, compress, watermark, draw, and enhance your images with Toolzy’s free image editors.">
-<meta name="twitter:image" content="https://thetoolzy.com/images/og-image.jpg">
-<script type="application/ld+json">
+  <title>Free Online Image Editors - Draw, Resize, Compress, Watermark | Toolzy</title>
+  <meta name="description"
+    content="Edit your images online with Toolzy’s free image editors. Resize, compress, draw, add filters, create collages, add watermarks, and more with easy-to-use tools.">
+  <meta name="keywords"
+    content="image editor, online image tools, image resizer, image compressor, image watermark, image collage maker, photo editor, free image editing">
+  <meta name="author" content="Toolzy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thetoolzy.com/page/image-editors">
+  <meta property="og:title" content="Free Online Image Editors - Toolzy">
+  <meta property="og:description"
+    content="Resize, compress, watermark, draw, and enhance your images with Toolzy’s free image editors.">
+  <meta property="og:url" content="https://thetoolzy.com/page/image-editors">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://thetoolzy.com/img/og-image.png">
+  <meta property="og:image:secure_url" content="https://thetoolzy.com/img/og-image.png">
+  <meta property="og:image:alt" content="Toolzy Free Image Editors - Resize, Compress, Watermark, Edit">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Online Image Editors - Toolzy">
+  <meta name="twitter:description"
+    content="Resize, compress, watermark, draw, and enhance your images with Toolzy’s free image editors.">
+  <meta name="twitter:image" content="https://thetoolzy.com/img/og-image.png">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -32,14 +37,14 @@
   "url": "https://thetoolzy.com/page/image-editors",
   "description": "Toolzy’s free online image editors let you resize, compress, watermark, draw, add filters, and edit images easily with no software needed.",
   "inLanguage": "en",
-  "image": "https://thetoolzy.com/images/og-image.jpg",
+  "image": "https://thetoolzy.com/img/og-image.png",
   "publisher": {
     "@type": "Organization",
     "name": "Toolzy",
     "url": "https://thetoolzy.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://thetoolzy.com/images/xd.png"
+      "url": "https://thetoolzy.com/img/logo.png"
     }
   },
   "mainEntity": {
@@ -62,228 +67,49 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
+  <header class="navbar">
+    <div class="container">
+
       <div class="logo">
-        <img src="../../images/xd.png" />
-        <h1>Toolzy</h1>
+        <img src="../../img/logo.svg" width="600" height="600" alt="Logo" loading="lazy">
+        <h3>Toolzy</h3>
       </div>
 
-      <!-- Hamburger Icons -->
-      <div class="menu-icons">
-        <img src="../../images/burger-bar.avif" class="fas fa-bars" id="openMenu" />
-        <img src="../../images/close.avif" class="fas fa-times" id="closeMenu" />
-      </div>
 
-      <!-- Navigation Menu -->
-      <div class="menu" id="navMenu">
-        <a href="/">Home</a>
-        <a href="../image-convertors/">Image Convertors</a>
-        <a href="../text-convertors/">Text Editors</a>
-        <a href="../seo-tool/">Seo Tools</a>
-        <a href="../password-tools/">Password Tools</a>
-      </div>
-    </nav>
+      <nav class="nav-links desktop">
+        <a href="../../about/">About</a>
+        <a href="../../contact/">Contact</a>
+        <a href="../../help/">Help</a>
+        <a href="../../blog/">Blog</a>
+      </nav>
 
+      <img src="../../images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt"
+        onclick="openMenu()" />
+    </div>
+
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu">
+      <img src="../../images/close.avif" width="64" height="64" alt="Close" class="close-btn butt"
+        onclick="closeMenu()" />
+
+      <a href="../../about/">About</a>
+      <a href="../../contact/">Contact</a>
+      <a href="../../help/">Help</a>
+      <a href="../../blog/">Blog</a>
+    </div>
   </header>
-  <main>
-    <section class="hero">
-      <h1>Toolzy:All Image Editors in one Place</h1>
-      <p>
-        Image Editors on Toolzy let you crop, resize, compress, and enhance images online, giving you quick and easy
-        control over your pictures without any software.
-      </p>
-    </section>
-    <section class="alltools">
-      <div class="tool">
-        <img class="tool-img" src="../../images/rename.avif" alt="">
-        <h2>Image Renamer</h2>
-        <p>
-          Image Renamer quickly renames images in bulk for better organization and easy management.
-        </p>
-        <a href="../../tool/image-tools/image-renamer/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/collage.avif" alt="">
-        <h2>Image Collage Maker</h2>
-        <p>
-          Image Collage Maker creates beautiful photo collages by combining multiple images into one.
-        </p>
-        <a href="../../tool/image-tools/image-collage-maker/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/color.avif" alt="">
-        <h2>Image Color Picker</h2>
-        <p>
-          Image Color Picker extracts exact color codes from any image for design and editing use.
-        </p>
-        <a href="../../tool/image-tools/image-color-picker/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/comparison.avif" alt="">
-        <h2>Image Comparison</h2>
-        <p>
-          Image Comparison lets you compare two images side by side to spot differences easily.
-        </p>
-        <a href="../../tool/image-tools/image-comparison/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/compressor.avif" alt="">
-        <h2>Image Compressor</h2>
-        <p>
-          Image Compressor reduces image file size without losing noticeable quality.
-        </p>
-        <a href="../../tool/image-tools/image-compressor/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/drawing.avif" alt="">
-        <h2>Image Drawing</h2>
-        <p>
-          Image Drawing allows you to draw, annotate, or highlight directly on images with ease.
-        <a href="../../tool/image-tools/image-drawing/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/filter.avif" alt="">
-        <h2>Image Filter</h2>
-        <p>
-          Image Filter applies effects and enhancements to images for a creative and polished look.
-        </p>
-        <a href="../../tool/image-tools/image-filter-editor/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/gallery.avif" alt="">
-        <h2>Image Gallery</h2>
-        <p>
-          Image Gallery organizes and displays multiple images in a clean, interactive layout.
-        </p>
-        <a href="../../tool/image-tools/image-gallery/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/histogram.avif" alt="">
-        <h2>Image Histogram</h2>
-        <p>
-          Image Histogram shows the tonal distribution of an image to analyze brightness and contrast.
-        </p>
-        <a href="../../tool/image-tools/image-histogram-viewer/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/metatag.avif" alt="">
-        <h2>Image MetaData Viewer</h2>
-        <p>
-          Image Metadata Viewer reveals hidden details like camera settings, size, and format from images.
-        </p>
-        <a href="../../tool/image-tools/image-metadata-viewer/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/resize.avif" alt="">
-        <h2>Image Resizer</h2>
-        <p>
-          Image Resizer adjusts image dimensions while maintaining quality for web or print use.
-        </p>
-        <a href="../../tool/image-tools/image-resizer/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/rotate.avif" alt="">
-        <h2>Image Rotator</h2>
-        <p>
-          Image Rotator quickly rotates images to the desired angle or orientation.
-        </p>
-        <a href="../../tool/image-tools/image-rotator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/splitter.avif" alt="">
-        <h2>Image Splitter</h2>
-        <p>
-          Image Splitter divides an image into multiple parts for easy editing or sharing.
-        </p>
-        <a href="../../tool/image-tools/image-splitter/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/image.avif" alt="">
-        <h2>Image to Base64</h2>
-        <p>
-          Image to Base64 converts images into Base64 code for embedding directly in HTML or CSS.
-        </p>
-        <a href="../../tool/image-tools/image-to-base64-convertor/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/watermark.avif" alt="">
-        <h2>Image Watermark</h2>
-        <p>
-            Image Watermark adds custom text or logo watermarks to protect your images from misuse.
-        </p>
-        <a href="../../tool/image-tools/image-watermark-adder/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/zoom.avif" alt="">
-        <h2>Image Zoom</h2>
-        <p>
-          Image Zoom make the Image more zoom to clarify.
-        </p>
-        <a href="../../tool/image-tools/image-zoom-and-pan-viewer/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/thumbnail.avif" alt="">
-        <h2>Thumbnail Creator</h2>
-        <p>
-            Create Thumbnail According to your Size
-        </p>
-        <a href="../../tool/image-tools/thumbnail-creator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-    </section>
-  </main>
   <script>
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
-    const navMenu = document.getElementById("navMenu");
+    function openMenu() {
+      document.querySelector('.side-menu').classList.add('active');
+      document.querySelector('.overlay').classList.add('active');
+    }
 
-    openMenu.addEventListener("click", () => {
-      navMenu.classList.add("active");
-      openMenu.style.display = "none";
-      closeMenu.style.display = "block";
-    });
-
-    closeMenu.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      closeMenu.style.display = "none";
-      openMenu.style.display = "block";
-    });
-
+    function closeMenu() {
+      document.querySelector('.side-menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+    }
   </script>
+  
 </body>
 
 </html>

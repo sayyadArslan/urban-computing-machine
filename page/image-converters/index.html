@@ -2,35 +2,39 @@
 <html lang="en">
 
 <head>
-  <link rel="icon" href="../../images/icon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../img/favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
-<title>Free Online Image Convertors - JPG, PNG, WebP, AVIF, BMP | Toolzy</title>
-<meta name="description" content="Use Toolzy’s free online image convertors to convert images between JPG, PNG, WebP, AVIF, BMP, and more formats instantly with high quality and fast speed.">
-<meta name="keywords" content="image convertor, jpg to png, png to jpg, webp to png, avif to jpg, bmp to jpg, image tools, online image convertors">
-<meta name="author" content="Toolzy">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://thetoolzy.com/page/image-convertors">
-<meta property="og:title" content="Free Online Image Convertors - Toolzy">
-<meta property="og:description" content="Convert images between JPG, PNG, WebP, AVIF, BMP, and more formats with Toolzy’s free online image convertors.">
-<meta property="og:url" content="https://thetoolzy.com/page/image-convertors">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://thetoolzy.com/images/og-image.jpg">
-<meta property="og:image:secure_url" content="https://thetoolzy.com/images/og-image.jpg">
-<meta property="og:image:alt" content="Toolzy Image Convertors — Convert JPG, PNG, WebP, AVIF">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Online Image Convertors - Toolzy">
-<meta name="twitter:description" content="Convert images between JPG, PNG, WebP, AVIF, BMP, and more formats with Toolzy’s free online image convertors.">
-<meta name="twitter:image" content="https://thetoolzy.com/images/og-image.jpg">
-<script type="application/ld+json">
+  <title>Free Online Image Convertors - JPG, PNG, WebP, AVIF, BMP | Toolzy</title>
+  <meta name="description"
+    content="Use Toolzy’s free online image convertors to convert images between JPG, PNG, WebP, AVIF, BMP, and more formats instantly with high quality and fast speed.">
+  <meta name="keywords"
+    content="image convertor, jpg to png, png to jpg, webp to png, avif to jpg, bmp to jpg, image tools, online image convertors">
+  <meta name="author" content="Toolzy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thetoolzy.com/page/image-converters">
+  <meta property="og:title" content="Free Online Image Convertors - Toolzy">
+  <meta property="og:description"
+    content="Convert images between JPG, PNG, WebP, AVIF, BMP, and more formats with Toolzy’s free online image convertors.">
+  <meta property="og:url" content="https://thetoolzy.com/page/image-converters">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://thetoolzy.com/images/og-image.png">
+  <meta property="og:image:secure_url" content="https://thetoolzy.com/img/og-image.png">
+  <meta property="og:image:alt" content="Toolzy Image Convertors — Convert JPG, PNG, WebP, AVIF">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Online Image Convertors - Toolzy">
+  <meta name="twitter:description"
+    content="Convert images between JPG, PNG, WebP, AVIF, BMP, and more formats with Toolzy’s free online image convertors.">
+  <meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Free Online Image Convertors",
-  "url": "https://thetoolzy.com/page/image-convertors",
+  "url": "https://thetoolzy.com/page/image-converters",
   "description": "Convert images between JPG, PNG, WebP, AVIF, BMP, and more formats with Toolzy’s free online image convertors.",
   "inLanguage": "en",
   "publisher": {
@@ -39,7 +43,7 @@
     "url": "https://thetoolzy.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://thetoolzy.com/images/xd.png"
+      "url": "https://thetoolzy.com/img/logo.png"
     }
   },
   "mainEntity": {
@@ -76,273 +80,50 @@
 }
 </script>
 </head>
-
 <body>
-  <header>
-    <nav class="navbar">
+  <header class="navbar">
+    <div class="container">
+
       <div class="logo">
-        <img src="../../images/xd.png" />
-        <h1>Toolzy</h1>
+        <img src="../../img/logo.svg" width="600" height="600" alt="Logo" loading="lazy">
+        <h3>Toolzy</h3>
       </div>
 
-      <!-- Hamburger Icons -->
-      <div class="menu-icons">
-        <img src="../../images/burger-bar.avif" class="fas fa-bars" id="openMenu" />
-        <img src="../../images/close.avif" class="fas fa-times" id="closeMenu" />
-      </div>
 
-      <!-- Navigation Menu -->
-      <div class="menu" id="navMenu">
-        <a href="/">Home</a>
-        <a href="../image-editors/">Image Editors</a>
-        <a href="../text-convertors/">Text Editors</a>
-        <a href="../seo-tool/">Seo Tools</a>
-        <a href="../password-tools/">Password Tools</a>
-      </div>
-    </nav>
+      <nav class="nav-links desktop">
+        <a href="../../about/">About</a>
+        <a href="../../contact/">Contact</a>
+        <a href="../../help/">Help</a>
+        <a href="../../blog/">Blog</a>
+      </nav>
 
+      <img src="../../images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt"
+        onclick="openMenu()" />
+    </div>
+
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu">
+      <img src="../../images/close.avif" width="64" height="64" alt="Close" class="close-btn butt" onclick="closeMenu()" />
+
+      <a href="../../about/">About</a>
+      <a href="../../contact/">Contact</a>
+      <a href="../../help/">Help</a>
+      <a href="../../blog/">Blog</a>
+    </div>
   </header>
   <main>
-    <section class="hero">
-      <h1>Toolzy:All Image Convertors in one Place</h1>
-      <p>Image Converters let you easily change images between different formats like JPG, PNG, and WebP in seconds.
-      </p>
-    </section>
-    <section class="alltools">
-      <div class="tool">
-        <img class="tool-img" src="../../images/avif.avif" alt="">
-        <h2>Avif to webp</h2>
-        <p>
-          AVIF to WebP quickly converts AVIF images into WebP format for better web compatibility.
-        </p>
-        <a href="../../tool/image-converters/avif-to-webp/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/avif.avif" alt="">
-        <h2>Avif to JPG</h2>
-        <p>
-          AVIF to JPG instantly converts AVIF images into JPG format for easy use and sharing.
-        </p>
-        <a href="../../tool/image-converters/avif-to-jpg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpg.avif" alt="">
-        <h2>JPG to Avif</h2>
-        <p>
-          JPG to AVIF converts JPG images into AVIF format for smaller size and high-quality compression.
-        </p>
-        <a href="../../tool/image-converters/jpg-to-avif/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpg.avif" alt="">
-        <h2>JPG to BMP</h2>
-        <p>
-          JPG to BMP converts JPG images into BMP format without losing clarity.
-        </p>
-        <a href="../../tool/image-converters/jpg-to-bmp/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpg.avif" alt="">
-        <h2>JPG to JPEG</h2>
-        <p>
-          JPG to JPEG quickly converts JPG images into JPEG format while keeping the same quality.
-        </p>
-        <a href="../../tool/image-converters/jpg-to-jpeg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpg.avif" alt="">
-        <h2>JPG to PNG</h2>
-        <p>
-          JPG to PNG converts JPG images into PNG format with high quality and transparent background support.
-        </p>
-        <a href="../../tool/image-converters/jpg-to-png/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpg.avif" alt="">
-        <h2>JPG to WebP</h2>
-        <p>
-          JPG to WebP converts JPG images into WebP format for faster loading and reduced file size.
-        </p>
-        <a href="../../tool/image-converters/jpg-to-webp/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/bmp.avif" alt="">
-        <h2>BMP to JPG</h2>
-        <p>
-          BMP to JPG converts BMP images into JPG format for smaller file size and easy sharing.
-        </p>
-        <a href="../../tool/image-converters/bmp-to-jpg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/bmp.avif" alt="">
-        <h2>BMP to PNG</h2>
-        <p>
-          BMP to PNG converts BMP images into PNG format with lossless quality and transparency support.
-        </p>
-        <a href="../../tool/image-converters/bmp-to-png/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/bmp.avif" alt="">
-        <h2>BMP to WebP</h2>
-        <p>
-          BMP to WebP converts BMP images into WebP format for reduced file size and faster web performance.
-        </p>
-        <a href="../../tool/image-converters/bmp-to-webp/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jfif.avif" alt="">
-        <h2>JFIF to PNG</h2>
-        <p>
-          JFIF to PNG converts JFIF images into PNG format with high quality and transparency support.
-        </p>
-        <a href="../../tool/image-converters/jfif-to-jpg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jfif.avif" alt="">
-        <h2>JFIF to JPG</h2>
-        <p>
-          JFIF to JPG converts JFIF images into standard JPG format for better compatibility and easy use.
-        </p>
-        <a href="../../tool/image-converters/jfif-to-jpg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jfif.avif" alt="">
-        <h2>JFIF to WebP</h2>
-        <p>
-          JFIF to WebP converts JFIF images into WebP format for smaller size and faster web performance.
-        </p>
-        <a href="../../tool/image-converters/jfif-to-webp/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpeg.avif " alt="">
-        <h2>JPEG to JPG</h2>
-        <p>
-          JPEG to JPG converts JPEG images into JPG format while keeping the same quality and compatibility.
-        </p>
-        <a href="../../tool/image-converters/jpeg-to-jpg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
 
-      <div class="tool">
-        <img class="tool-img" src="../../images/png.avif " alt="">
-        <h2>PNG to ICO</h2>
-        <p>
-          PNG to ICO converts PNG images into ICO format, perfect for favicons and application icons.
-        </p>
-        <a href="../../tool/image-converters/png-to-ico/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpeg.avif " alt="">
-        <h2>PNG to JPG</h2>
-        <p>
-          PNG to JPG converts PNG images into JPG format for reduced size and easy sharing.
-        </p>
-        <a href="../../tool/image-converters/png-to-jpg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpeg.avif " alt="">
-        <h2>PNG to SVG</h2>
-        <p>
-            PNG to SVG converts PNG images into scalable SVG format, ideal for logos and vector graphics.
-        </p>
-        <a href="../../tool/image-converters/png-to-svg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/jpeg.avif " alt="">
-        <h2>SVG to PNG</h2>
-        <p>
-            PNG to SVG converts PNG images into scalable SVG format, ideal for logos and vector graphics.
-        </p>
-        <a href="../../tool/image-converters/svg-to-png/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/webp.avif " alt="">
-        <h2>WebP to PNG</h2>
-        <p>
-          WebP to PNG converts WebP images into PNG format with lossless quality and transparency support.
-        </p>
-        <a href="../../tool/image-converters/webp-to-png/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/webp.avif " alt="">
-        <h2>WebP to JPG</h2>
-        <p>
-          WebP to JPG converts WebP images into JPG format for universal compatibility and easy sharing.
-        </p>
-        <a href="../../tool/image-converters/webp-to-jpg/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/webp.avif " alt="">
-        <h2>WebP to Avif</h2>
-        <p>
-          WebP to AVIF converts WebP images into AVIF format for superior compression and faster web performance.
-        </p>
-        <a href="../../tool/image-converters/webp-to-avif/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-
-
-
-
-    </section>
   </main>
   <script>
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
-    const navMenu = document.getElementById("navMenu");
+    function openMenu() {
+    document.querySelector('.side-menu').classList.add('active');
+    document.querySelector('.overlay').classList.add('active');
+  }
 
-    openMenu.addEventListener("click", () => {
-      navMenu.classList.add("active");
-      openMenu.style.display = "none";
-      closeMenu.style.display = "block";
-    });
-
-    closeMenu.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      closeMenu.style.display = "none";
-      openMenu.style.display = "block";
-    });
-
+  function closeMenu() {
+    document.querySelector('.side-menu').classList.remove('active');
+    document.querySelector('.overlay').classList.remove('active');
+  }
   </script>
 </body>
 

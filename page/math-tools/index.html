@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <link rel="icon" href="../../images/icon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../img/favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
   <!-- Meta Tags -->
-<title>Free Online Math Tools - Calculate, Convert & Solve | Toolzy</title>
-<meta name="description" content="Toolzy Math Tools let you perform calculations, conversions, and solve mathematical problems quickly online. Free, fast, and easy-to-use tools for students, professionals, and hobbyists.">
-<meta name="keywords" content="math tools, online calculator, age calculator, BMI calculator, currency converter, percentage calculator, interest calculator, free math tools">
+  <title>Free Online Math Tools - Calculate, Convert & Solve | Toolzy</title>
+  <meta name="description"
+    content="Toolzy Math Tools let you perform calculations, conversions, and solve mathematical problems quickly online. Free, fast, and easy-to-use tools for students, professionals, and hobbyists.">
+  <meta name="keywords"
+    content="math tools, online calculator, age calculator, BMI calculator, currency converter, percentage calculator, interest calculator, free math tools">
 
-<meta property="og:title" content="Free Online Math Tools - Toolzy">
-<meta property="og:description" content="Perform calculations, conversions, and solve math problems instantly with Toolzy Math Tools. Free and easy-to-use online math solutions.">
-<meta property="og:image" content="https://thetoolzy.com/images/og-image.jpg">
-<meta property="og:url" content="https://thetoolzy.com/page/math-tools">
-<meta property="og:type" content="website">
-<script type="application/ld+json">
+  <meta property="og:title" content="Free Online Math Tools - Toolzy">
+  <meta property="og:description"
+    content="Perform calculations, conversions, and solve math problems instantly with Toolzy Math Tools. Free and easy-to-use online math solutions.">
+  <meta property="og:image" content="https://thetoolzy.com/img/og-image.png">
+  <meta property="og:url" content="https://thetoolzy.com/page/math-tools">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Toolzy Math Tools",
   "url": "https://thetoolzy.com/page/math-tools",
-  "image": "https://thetoolzy.com/images/og-image.jpg",
+  "image": "https://thetoolzy.com/img/og-image.png",
   "description": "Toolzy Math Tools let you perform calculations, conversions, and solve mathematical problems quickly online. Free, fast, and easy-to-use tools for students, professionals, and hobbyists.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
@@ -37,114 +41,51 @@
   }
 }
 </script>
-
-
-
 </head>
+
 <body>
-  <header>
-    <nav class="navbar">
+  <header class="navbar">
+    <div class="container">
+
       <div class="logo">
-        <img src="../../images/xd.png" />
-        <h1>Toolzy</h1>
+        <img src="../../img/logo.svg" width="600" height="600" alt="Logo" loading="lazy">
+        <h3>Toolzy</h3>
       </div>
 
-      <!-- Hamburger Icons -->
-      <div class="menu-icons">
-        <img src="../../images/burger-bar.avif" class="fas fa-bars" id="openMenu" />
-        <img src="../../images/close.avif" class="fas fa-times" id="closeMenu" />
-      </div>
 
-      <!-- Navigation Menu -->
-      <div class="menu" id="navMenu">
-         <a href="/">Home</a>
-        <a href="../barcode-generators/">Barcode Tools</a>
-        <a href="../text-convertors/">Text Editors</a>
-        <a href="../seo-tool/">Seo Tools</a>
-        <a href="../password-tools/">Password Tools</a>
-      </div>
-    </nav>
+      <nav class="nav-links desktop">
+        <a href="../../about/">About</a>
+        <a href="../../contact/">Contact</a>
+        <a href="../../help/">Help</a>
+        <a href="../../blog/">Blog</a>
+      </nav>
 
+      <img src="../../images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt"
+        onclick="openMenu()" />
+    </div>
+
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu">
+      <img src="../../images/close.avif" width="64" height="64" alt="Close" class="close-btn butt"
+        onclick="closeMenu()" />
+
+      <a href="../../about/">About</a>
+      <a href="../../contact/">Contact</a>
+      <a href="../../help/">Help</a>
+      <a href="../../blog/">Blog</a>
+    </div>
   </header>
-  <main>
-    <section class="hero">
-      <h1>Toolzy:All Math Tools in one Place</h1>
-      <p>
-        Toolzy Math Tools let you perform calculations, conversions, and solve problems quickly online. Free, fast, and easy-to-use tools for students, professionals, and hobbyists.
-
-      </p>
-    </section>
-    <section class="alltools">
-      
-      <div class="tool">
-        <img class="tool-img" src="../../images/age.avif" alt="">
-        <h2>Age Calculator</h2>
-        <p>
-          Age Calculator quickly calculates your age based on your birth date.
-        </p>
-        <a href="../../tool/math/age-calculator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/bmi.avif" alt="">
-        <h2>BMI Calculator</h2>
-        <p>
-          BMI Calculator instantly calculates your Body Mass Index to assess your health and fitness.
-        </p>
-        <a href="../../tool/math/bmi-calculator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/currency convert.avif" alt="">
-        <h2>Currency Converter</h2>
-        <p>
-          Currency Converter quickly converts amounts between different currencies with up-to-date exchange rates.
-        </p>
-        <a href="../../tool/math/currency-convertor/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/percentage.avif" alt="">
-        <h2>Percentage Calculator</h2>
-        <p>
-            Percentage Calculator instantly calculates percentages, increases, decreases, and proportions with ease.
-        </p>
-        <a href="../../tool/math/percentage-calculator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/interest.avif " alt="">
-        <h2>Interest Calculator</h2>
-        <p>
-          Interest Calculator quickly computes simple or compound interest for loans, savings, and investments.
-        </p>
-        <a href="../../tool/math/interest-calculator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-    </section>
-  </main>
   <script>
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
-    const navMenu = document.getElementById("navMenu");
+    function openMenu() {
+      document.querySelector('.side-menu').classList.add('active');
+      document.querySelector('.overlay').classList.add('active');
+    }
 
-    openMenu.addEventListener("click", () => {
-      navMenu.classList.add("active");
-      openMenu.style.display = "none";
-      closeMenu.style.display = "block";
-    });
-
-    closeMenu.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      closeMenu.style.display = "none";
-      openMenu.style.display = "block";
-    });
-
+    function closeMenu() {
+      document.querySelector('.side-menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+    }
   </script>
 </body>
+
 </html>

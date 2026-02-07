@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="../../images/icon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../img/favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
@@ -10,14 +10,14 @@
 <meta name="keywords" content="text tools, online text editor, case converter, grammar checker, spell checker, duplicate remover, text formatter, random text generator, lorem generator">
 <meta name="author" content="Toolzy">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://thetoolzy.com/page/text-convertors">
+<link rel="canonical" href="https://thetoolzy.com/page/text-converters">
 
 <meta property="og:title" content="Free Online Text Tools - Toolzy">
 <meta property="og:description" content="Convert text case, check grammar, remove duplicates, generate random text, and format text easily with Toolzy Text Tools.">
-<meta property="og:url" content="https://thetoolzy.com/page/text-convertors">
+<meta property="og:url" content="https://thetoolzy.com/page/text-converters">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://thetoolzy.com/images/og-image.jpg">
-<meta property="og:image:secure_url" content="https://thetoolzy.com/images/og-image.jpg">
+<meta property="og:image" content="https://thetoolzy.com/img/og-image.png">
+<meta property="og:image:secure_url" content="https://thetoolzy.com/img/og-image.png">
 <meta property="og:image:alt" content="Toolzy Text Tools - Case Converter, Spell Checker, Formatter">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,23 +25,23 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free Online Text Tools - Toolzy">
 <meta name="twitter:description" content="Convert text case, check grammar, remove duplicates, generate random text, and format text easily with Toolzy Text Tools.">
-<meta name="twitter:image" content="https://thetoolzy.com/images/og-image.jpg">
+<meta name="twitter:image" content="https://thetoolzy.com/images/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Toolzy Text Tools",
-  "url": "https://thetoolzy.com/page/text-convertors",
+  "url": "https://thetoolzy.com/page/text-converters",
   "description": "Toolzy Text Tools let you convert text case, check grammar, remove duplicates, generate random text, and format text easily online.",
   "inLanguage": "en",
-  "image": "https://thetoolzy.com/images/og-image.jpg",
+  "image": "https://thetoolzy.com/images/og-image.png",
   "publisher": {
     "@type": "Organization",
     "name": "Toolzy",
     "url": "https://thetoolzy.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://thetoolzy.com/images/xd.png"
+      "url": "https://thetoolzy.com/img/logo.png"
     }
   },
   "mainEntity": {
@@ -61,265 +61,47 @@
 
 </head>
 <body>
-  <header>
-    <nav class="navbar">
+  <header class="navbar">
+    <div class="container">
+
       <div class="logo">
-        <img src="../../images/xd.png" />
-        <h1>Toolzy</h1>
+        <img src="../../img/logo.svg" width="600" height="600" alt="Logo" loading="lazy">
+        <h3>Toolzy</h3>
       </div>
 
-      <!-- Hamburger Icons -->
-      <div class="menu-icons">
-        <img src="../../images/burger-bar.avif" class="fas fa-bars" id="openMenu" />
-        <img src="../../images/close.avif" class="fas fa-times" id="closeMenu" />
-      </div>
 
-      <!-- Navigation Menu -->
-      <div class="menu" id="navMenu">
-         <a href="/">Home</a>
-        <a href="../barcode-generators/">Barcode Tools</a>
-        <a href="../text-convertors/">Text Editors</a>
-        <a href="../seo-tool/">Seo Tools</a>
-        <a href="../password-tools/">Password Tools</a>
-      </div>
-    </nav>
+      <nav class="nav-links desktop">
+        <a href="../../about/">About</a>
+        <a href="../../contact/">Contact</a>
+        <a href="../../help/">Help</a>
+        <a href="../../blog/">Blog</a>
+      </nav>
 
+      <img src="../../images/burger-bar.avif" width="64" height="64" alt="Hamburger" class="menu-btn  butt"
+        onclick="openMenu()" />
+    </div>
+
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu">
+      <img src="../../images/close.avif" width="64" height="64" alt="Close" class="close-btn butt" onclick="closeMenu()" />
+
+      <a href="../../about/">About</a>
+      <a href="../../contact/">Contact</a>
+      <a href="../../help/">Help</a>
+      <a href="../../blog/">Blog</a>
+    </div>
   </header>
-  <main>
-    <section class="hero">
-      <h1>Toolzy:All Text Tool in one Place</h1>
-      <p>Text Tools on Toolzy help you quickly format, edit, and analyze text — from case converters and word counters to text encryption and cleaning, making text handling fast and effortless.</p>
-    </section>
-    <section class="alltools">
-      <div class="tool">
-        <img class="tool-img" src="../../images/duplicate.avif" alt="">
-        <h2>Duplicate Line Remover</h2>
-        <p>
-          Duplicate Line Remover instantly removes repeated lines from text to clean and deduplicate content.
-        </p>
-        <a href="../../tool/text-tool/duplicate-line-remover/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/emoji.avif" alt="">
-        <h2>Emoji Replacer</h2>
-        <p>
-            Emoji Replacer swaps selected emojis in text with new ones instantly.
-        </p>
-        <a href="../../tool/text-tool/emoji-replacer/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Fancy Text Generator</h2>
-        <p>
-          Fancy Text Generator creates stylish and decorative text for social media, bios, and posts.
-        </p>
-        <a href="../../tool/text-tool/fancy-text-generator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Grammer & Spell Checker</h2>
-        <p>
-          Grammar & Spell Checker corrects spelling and grammar mistakes in your text instantly.
-        </p>
-        <a href="../../tool/text-tool/grammer-and-spell-checker/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Hex Conversion</h2>
-        <p>
-            Hex Conversion converts numbers, colors, or text values into hexadecimal format instantly.
-        </p>
-        <a href="../../tool/text-tool/hex-converter/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/json.avif" alt="">
-        <h2>Json Formatter</h2>
-        <p>
-          JSON Formatter organizes and beautifies JSON data for easy reading and debugging.
-        </p>
-        <a href="../../tool/text-tool/json-formatter/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/lorem.avif" alt="">
-        <h2>Lorem Generator</h2>
-        <p>
-            Lorem Generator creates random placeholder text for design, testing, and layouts.
-        </p>
-        <a href="../../tool/text-tool/lorem-ipsum-generator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/palgram.avif" alt="">
-        <h2>Palgram Finder</h2>
-        <p>
-          Palindrome Finder detects words, phrases, or numbers that read the same forwards and backwards.
-        </p>
-        <a href="../../tool/text-tool/palagram-finder/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Random Quote</h2>
-        <p>
-          Random Quote generates inspirational and motivational quotes instantly.
-        </p>
-        <a href="../../tool/text-tool/random-quote-generator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Random Text</h2>
-        <p>
-          Random Text generates random text snippets for testing, fun, or creative use.
-        </p>
-        <a href="../../tool/text-tool/random-text-generator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Readability testing</h2>
-        <p>
-          Readability Testing checks how easy your text is to read and understand.
-        </p>
-        <a href="../../tool/text-tool/readability-score-calculator/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Text Case Convert</h2>
-        <p>
-          Text Case Converter changes text between uppercase, lowercase, title case, and more instantly.
-        </p>
-        <a href="../../tool/text-tool/text-case-convertor/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Text Differ Check</h2>
-        <p>
-          Text Differ Check highlights differences between two text blocks for easy comparison.
-        </p>
-        <a href="../../tool/text-tool/text-differ-checker/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-       <div class="tool">
-        <img class="tool-img" src="../../images/encode.avif" alt="">
-        <h2>Text Encryption</h2>
-        <p>
-          Text Encryption secures your text by converting it into a coded format.
-        </p>
-        <a href="../../tool/text-tool/text-encryptor/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Text Glitch</h2>
-        <p>
-          Text Glitch creates distorted or glitch-style text for creative and digital designs.
-        </p>
-        <a href="../../tool/text-tool/text-glitch/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Text Reverser</h2>
-        <p>
-          Text Reverser flips your text backwards for fun or stylistic purposes.
-        </p>
-        <a href="../../tool/text-tool/text-reverser/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/sorter.avif" alt="">
-        <h2>Text Sorter</h2>
-        <p>
-          Text Sorter organizes lines of text alphabetically, numerically, or by custom order.
-        </p>
-        <a href="../../tool/text-tool/text-sorter/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/speech.avif" alt="">
-        <h2>Text to Speech</h2>
-        <p>
-          Text to Speech converts written text into natural-sounding audio instantly.
-        </p>
-        <a href="../../tool/text-tool/text-to-speech/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/typing.avif" alt="">
-        <h2>Typing Test</h2>
-        <p>
-          Typing Test measures your typing speed and accuracy in real-time.
-        </p>
-        <a href="../../tool/text-tool/typing-speed-test/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/encode.avif" alt="">
-        <h2>URL Encoder</h2>
-        <p>
-          URL Encoder converts text or characters into a valid URL format for safe web use.
-        </p>
-        <a href="../../tool/text-tool/url-encoder-decoder/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-      <div class="tool">
-        <img class="tool-img" src="../../images/text.avif" alt="">
-        <h2>Word Counter</h2>
-        <p>
-          Word Counter counts words, characters, and lines in your text instantly.
-        </p>
-        <a href="../../tool/text-tool/word-counter/">
-          <img class="redirect" src="../../images/arrow.avif" alt="">
-        </a>
-      </div>
-    </section>
-  </main>
+  
   <script>
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
-    const navMenu = document.getElementById("navMenu");
+    function openMenu() {
+      document.querySelector('.side-menu').classList.add('active');
+      document.querySelector('.overlay').classList.add('active');
+    }
 
-    openMenu.addEventListener("click", () => {
-      navMenu.classList.add("active");
-      openMenu.style.display = "none";
-      closeMenu.style.display = "block";
-    });
-
-    closeMenu.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      closeMenu.style.display = "none";
-      openMenu.style.display = "block";
-    });
-
+    function closeMenu() {
+      document.querySelector('.side-menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+    }
   </script>
 </body>
 </html>
