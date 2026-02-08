@@ -5,9 +5,12 @@
   <meta charset="UTF-8">
   <link rel="preload" as="image" href="img/hero-image.avif" type="image/avif" fetchpriority="high">
   <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="style.css">
+  </noscript>
   <link rel="icon" type="image/ico" href="img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css" />
+
   <title>Toolzy - Free Online Tools for Everyone</title>
   <meta name="description"
     content="Toolzy offers free, secure, and easy-to-use online tools including file converters, image tools, PDF utilities, social media tools, and more. No signup required.">
@@ -51,7 +54,7 @@
     <div class="container">
 
       <div class="logo">
-        <img src="img/logo.svg" width="600" height="600" alt="Logo" loading="lazy">
+        <img src="img/logo.svg" width="600" height="600" alt="Logo" decoding="async">
         <h3>Toolzy</h3>
       </div>
 
@@ -286,10 +289,14 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="img/hero-image.avif" srcset="
-    img/hero-image-371.avif 371w,
+        <img  src="img/hero-image-320.avif" 
+        srcset="
+    img/hero-image-320.avif 320w,
+    img/hero-image-480.avif 480w,
     img/hero-image-589.avif 589w
-  "sizes="(max-width: 768px) 371px, 589px" width="589" height="572" alt="Hero Image" fetchpriority="high">
+  " sizes="(max-width: 480px) 320px,
+         (max-width: 768px) 480px,
+         589px" width="589" height="572" width="589" height="572" alt="Hero Image" fetchpriority="high">
       </div>
     </section>
     <section class="catagory">
@@ -665,110 +672,6 @@
   </footer>
 
   <script>
-
-    const tools = [
-      { name: "AVIF to WebP", url: "tool/image-converters/avif-to-webp/" },
-      { name: "BMP to JPG", url: "https://thetoolzy.com/tool/image-converters/bmp-to-jpg/" },
-      { name: "AVIF to JPG", url: "https://thetoolzy.com/tool/image-converters/avif-to-jpg/" },
-      { name: "BMP to PNG", url: "https://thetoolzy.com/tool/image-converters/bmp-to-png/" },
-      { name: "BMP to WebP", url: "https://thetoolzy.com/tool/image-converters/bmp-to-webp/" },
-      { name: "JFIF to JPG", url: "https://thetoolzy.com/tool/image-converters/jfif-to-jpg/" },
-      { name: "JFIF to PNG", url: "https://thetoolzy.com/tool/image-converters/jfif-to-png/" },
-      { name: "JFIF to WebP", url: "https://thetoolzy.com/tool/image-converters/jfif-to-webp/" },
-      { name: "JPEG to JPG", url: "https://thetoolzy.com/tool/image-converters/jpeg-to-jpg/" },
-      { name: "JPG to AVIF", url: "https://thetoolzy.com/tool/image-converters/jpg-to-avif/" },
-      { name: "JPG to BMP", url: "https://thetoolzy.com/tool/image-converters/jpg-to-bmp/" },
-      { name: "JPG to JPEG", url: "https://thetoolzy.com/tool/image-converters/jpg-to-jpeg/" },
-      { name: "JPG to PDF", url: "https://thetoolzy.com/tool/image-converters/jpg-to-pdf/" },
-      { name: "JPG to PNG", url: "https://thetoolzy.com/tool/image-converters/jpg-to-png/" },
-      { name: "JPG to WebP", url: "https://thetoolzy.com/tool/image-converters/jpg-to-webp/" },
-      { name: "Images to PDF", url: "https://thetoolzy.com/tool/image-converters/images-to-pdf/" },
-      { name: "PNG to ICO", url: "https://thetoolzy.com/tool/image-converters/png-to-ico/" },
-      { name: "PNG to JPG", url: "https://thetoolzy.com/tool/image-converters/png-to-jpg/" },
-      { name: "PNG to SVG", url: "https://thetoolzy.com/tool/image-converters/png-to-svg/" },
-      { name: "SVG to PNG", url: "https://thetoolzy.com/tool/image-converters/svg-to-png/" },
-      { name: "Webp to PNG", url: "https://thetoolzy.com/tool/image-converters/webp-to-png/" },
-      { name: "Webp to JPG", url: "https://thetoolzy.com/tool/image-converters/webp-to-jpg/" },
-      { name: "Webp to AVIF", url: "https://thetoolzy.com/tool/image-converters/webp-to-avif/" },
-      { name: "Image Rename", url: "https://thetoolzy.com/tool/image-tools/image-renamer/" },
-      { name: "Collage Maker", url: "https://thetoolzy.com/tool/image-tools/image-collage-maker/" },
-      { name: "Color Picker", url: "https://thetoolzy.com/tool/image-tools/image-color-picker/" },
-      { name: "Image Comparison", url: "https://thetoolzy.com/tool/image-tools/image-comparison/" },
-      { name: "Image compressor", url: "https://thetoolzy.com/tool/image-tools/image-compressor/" },
-      { name: "Image Cropper", url: "https://thetoolzy.com/tool/image-tools/image-cropper/" },
-      { name: "Image Drawing", url: "https://thetoolzy.com/tool/image-tools/image-drawing-tool/" },
-      { name: "Image Filter", url: "https://thetoolzy.com/tool/image-tools/image-filter-editor/" },
-      { name: "Image Gallery", url: "https://thetoolzy.com/tool/image-tools/image-gallery/" },
-      { name: "Image Histogram", url: "https://thetoolzy.com/tool/image-tools/image-histogram-viewer/" },
-      { name: "Image MetaData", url: "https://thetoolzy.com/tool/image-tools/image-metadata-viewer/" },
-      { name: "Image Resizer", url: "https://thetoolzy.com/tool/image-tools/image-resizer/" },
-      { name: "Image Rotater", url: "https://thetoolzy.com/tool/image-tools/image-rotator/" },
-      { name: "Image Splitter", url: "https://thetoolzy.com/tool/image-tools/image-splitter/" },
-      { name: "Image to base64", url: "https://thetoolzy.com/tool/image-tools/image-to-base64-convertor/" },
-      { name: "Image Watermark", url: "https://thetoolzy.com/tool/image-tools/image-watermark-adder/" },
-      { name: "Image Zoom", url: "https://thetoolzy.com/tool/image-tools/image-zoom-and-pan-viewer/" },
-      { name: "Insta Profile", url: "https://thetoolzy.com/tool/image-tools/insta-profile-preview/" },
-      { name: "Insta thumbnail", url: "https://thetoolzy.com/tool/image-tools/instagram-thumbnial-previer/" },
-      { name: "Thumbnail Creator", url: "https://thetoolzy.com/tool/image-tools/thumbnail-creator/" },
-      { name: "YouTube Thumb", url: "https://thetoolzy.com/tool/image-tools/youtube-thumnail-downloader/" },
-      { name: "Insta Qrcode", url: "https://thetoolzy.com/tool/image-tools/insta-qrcode-to-url/" },
-      { name: "Add Page Number", url: "https://thetoolzy.com/tool/pdf-tools/add-pdf-page-number/" },
-      { name: "Excel View", url: "https://thetoolzy.com/tool/pdf-tools/excel-file-viewer/" },
-      { name: "Merge Excel file", url: "https://thetoolzy.com/tool/pdf-tools/merge-excel-file/" },
-      { name: "Merge PDF", url: "https://thetoolzy.com/tool/pdf-tools/merge-pdf-tool/" },
-      { name: "PDF Compressor", url: "https://thetoolzy.com/tool/pdf-tools/pdf-compressor/" },
-      { name: "Delete PDF Pages", url: "https://thetoolzy.com/tool/pdf-tools/pdf-delete-pages/" },
-      { name: "PDF MetaData", url: "https://thetoolzy.com/tool/pdf-tools/pdf-metadata-viewer/" },
-      { name: "PDF ReOrder", url: "https://thetoolzy.com/tool/pdf-tools/pdf-reorder-maker/" },
-      { name: "PDF Repair", url: "https://thetoolzy.com/tool/pdf-tools/pdf-repair/" },
-      { name: "PDF Watermarker", url: "https://thetoolzy.com/tool/pdf-tools/pdf-watermarker-adder/" },
-      { name: "PDF Rotater", url: "https://thetoolzy.com/tool/pdf-tools/rotated-pdf-tool/" },
-      { name: "TEXT to PDF", url: "https://thetoolzy.com/tool/pdf-tools/text-to-pdf/" },
-      { name: "Metatag generator", url: "https://thetoolzy.com/tool/seo/meta-tag-generator/" },
-      { name: "Opengraph Check", url: "https://thetoolzy.com/tool/seo/open-graph-checker/" },
-      { name: "Responsive Test", url: "https://thetoolzy.com/tool/seo/responsive-design-tester/" },
-      { name: "Website Screenshot", url: "https://thetoolzy.com/tool/seo/website-screenshot-tool/" },
-      { name: "Duplicate Line rem", url: "https://thetoolzy.com/tool/text-tool/duplicate-line-remover/" },
-      { name: "Emoji Replacer", url: "https://thetoolzy.com/tool/text-tool/emoji-replacer/" },
-      { name: "Fancy Text Gen", url: "https://thetoolzy.com/tool/text-tool/fancy-text-generator/" },
-      { name: "Grammer & Spell", url: "https://thetoolzy.com/tool/text-tool/grammer-and-spell-checker/" },
-      { name: "Hex Conversion", url: "https://thetoolzy.com/tool/text-tool/hex-converter/" },
-      { name: "Json Formatter", url: "https://thetoolzy.com/tool/text-tool/json-formatter/" },
-      { name: "Lorem Generator", url: "https://thetoolzy.com/tool/text-tool/lorem-ipsum-generator/" },
-      { name: "Palgram Finder", url: "https://thetoolzy.com/tool/text-tool/palagram-finder/" },
-      { name: "Random Quote", url: "https://thetoolzy.com/tool/text-tool/random-quote-generator/" },
-      { name: "Random Text", url: "https://thetoolzy.com/tool/text-tool/random-text-generator/" },
-      { name: "Readability Test", url: "https://thetoolzy.com/tool/text-tool/readability-score-calculator/" },
-      { name: "Text Case Convert", url: "https://thetoolzy.com/tool/text-tool/text-case-convertor/" },
-      { name: "Text Differ Check", url: "https://thetoolzy.com/tool/text-tool/text-differ-checker/" },
-      { name: "Text Encryption", url: "https://thetoolzy.com/tool/text-tool/text-encryptor/" },
-      { name: "Text Glitch", url: "https://thetoolzy.com/tool/text-tool/text-glitch/" },
-      { name: "Text Reverser", url: "https://thetoolzy.com/tool/text-tool/text-reverser/" },
-      { name: "Text Sorter", url: "https://thetoolzy.com/tool/text-tool/text-sorter/" },
-      { name: "Text to Speech", url: "https://thetoolzy.com/tool/text-tool/text-to-speech/" },
-      { name: "Typing Test", url: "http://127.0.0.1:5500/tool/text-tool/typing-speed-test/" },
-      { name: "URL Encoder", url: "https://thetoolzy.com/tool/text-tool/url-encoder-decoder/" },
-      { name: "Word Counter", url: "https://thetoolzy.com/tool/text-tool/word-counter/" },
-      { name: "Barcode Decoder", url: "https://thetoolzy.com/tool/barcodes/barcode-decoder-from-image/" },
-      { name: "Barcode generator", url: "https://thetoolzy.com/tool/barcodes/barcode-generator/" },
-      { name: "QR code generator", url: "https://thetoolzy.com/tool/barcodes/qr-code-generator/" },
-      { name: "QR code for URL", url: "https://thetoolzy.com/tool/barcodes/qrcode-generator-for-url/" },
-      { name: "WIFI Qrcode", url: "https://thetoolzy.com/tool/barcodes/wifi-qrcode-generator/" },
-      { name: "Email Extractor", url: "https://thetoolzy.com/tool/email/email-extracor/" },
-      { name: "Email Validator", url: "https://thetoolzy.com/tool/email/email-validator/" },
-      { name: "Mailto Link gener.", url: "https://thetoolzy.com/tool/email/mailto-link-generator/" },
-      { name: "UTM link gener.", url: "https://thetoolzy.com/tool/email/utm-link-builder/" },
-      { name: "Age Calculator", url: "https://thetoolzy.com/tool/math/age-calculator/" },
-      { name: "BMI Calculator", url: "https://thetoolzy.com/tool/math/bmi-calculator/" },
-      { name: "Currency Convert", url: "https://thetoolzy.com/tool/math/currency-convertor/" },
-      { name: "Percentage Calcu", url: "http://thetoolzy.com/tool/math/percentage-calculator/" },
-      { name: "Interest Calculator", url: "https://thetoolzy.com/tool/math/interest-calculator/" },
-      { name: "Password hasher", url: "https://thetoolzy.com/tool/password/password-hash/" },
-      { name: "password strength", url: "https://thetoolzy.com/tool/password/password-strength-checker/" },
-      { name: "Remember password", url: "https://thetoolzy.com/tool/password/remember-password/" },
-      { name: "Strong Password", url: "https://thetoolzy.com/tool/password/strong-password-generator/" },
-      { name: "Video MetaData", url: "https://thetoolzy.com/tool/video-tools/video-metadata-viewer/" }
-    ];
     function searchTools() {
       const input = document.getElementById("searchInput").value.toLowerCase();
       const resultsBox = document.getElementById("results");

@@ -1007,14 +1007,12 @@ body {
     color: var(--text-color);
     font-weight: 500;
 }
-@media (max-width: 350px) {
 
-    .hero-image 
-    {
-        width: 250px;
-    }
+@media (max-width: 768px) {
+  .linkbar {
+    display: none;
+  }
 }
-
 
 @media (max-width: 768px) {
     #searchInput {
